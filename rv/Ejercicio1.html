@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1</title>
+  </head>
+  <body>
+    <h1>Ejemplo con guión externo</h1>
+    <canvas id="elRojo" width="100" height="200">
+    &iexcl;No funciona!
+    </canvas>
+    <canvas id="elVerde" width="200" height="100">
+    &iexcl;No funciona!
+    </canvas>
+    <canvas id="elAzul" width="100" height="100">
+    &iexcl;No funciona!
+    </canvas>
+    
+    <script>
+    var elRojo = document.getElementById("elRojo);
+    var contexto = elRojo.getContext("2d");
+      contexto.fillStyle="red";
+      contexto.fillRect(100, 100, 50, 50);
+    </script>
+    
+    <script>
+    var elVerde = document.getElementById("elVerde);
+    var contexto= elVerde.getContext("2d");
+     contexto.fillStyle="green";
+     contexto.fillRect(150, 100, 50, 30);
+    </script>
+    
+    <script>
+    var elAzul = document.getElementById("elAzul");
+    var contexto= elVerde.getContext("2d");
+      contexto.fillStyle="blue";
+      contexto.fillRect(30, 30, 40, 40);
+    </script>
