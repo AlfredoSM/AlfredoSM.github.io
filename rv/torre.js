@@ -24,6 +24,8 @@ figura.lineTo(12, 2);
 figura.lineTo(12, 0);
 figura.lineTo(12, 0);
 
+figura.moveTo(0, 0)
+
 var forma = new THREE.ExtrudeGeometry(figura, {amount: 1} );
 var material = new THREE.MeshNormalMaterial();
 var malla = new THREE.Mesh( forma, material );
