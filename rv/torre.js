@@ -34,10 +34,10 @@ var forma2 = new THREE.ExtrudeGeometry(figura1, {amount: 1} );
 var forma3 = new THREE.ExtrudeGeometry(figura2, {amount: 1} );
 var forma4 = new THREE.ExtrudeGeometry(figura3, {amount: 1} );
 var material = new THREE.MeshNormalMaterial();
-var malla = new THREE.Mesh( forma, material );
-var malla1 = new THREE.Mesh( forma1, material );
-var malla2 = new THREE.Mesh( forma2, material );
-var malla3 = new THREE.Mesh( forma3, material );
+var malla = new THREE.Mesh( forma1, material );
+var malla1 = new THREE.Mesh( forma2, material );
+var malla2 = new THREE.Mesh( forma3, material );
+var malla3 = new THREE.Mesh( forma4, material );
 
 
 var escena = new THREE.Scene();
