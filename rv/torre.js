@@ -9,23 +9,23 @@ figura.lineTo(2, 2);
 figura.lineTo(0, 2);
 figura.lineTo(0, 0);
 
-figura1.moveTo(10, 10);
-figura1.lineTo(10, 12);
-figura1.lineTo(12, 12);
-figura1.lineTo(12, 10);
-figura1.lineTo(10, 10);
+figura1.moveTo(20, 20);
+figura1.lineTo(20, 22);
+figura1.lineTo(22, 22);
+figura1.lineTo(22, 20);
+figura1.lineTo(20, 20);
 
-figura2.moveTo(0, 10);
-figura2.lineTo(0, 12);
-figura2.lineTo(2, 12);
-figura2.lineTo(2, 10);
-figura2.lineTo(0, 10);
+figura2.moveTo(0, 20);
+figura2.lineTo(0, 22);
+figura2.lineTo(2, 22);
+figura2.lineTo(2, 20);
+figura2.lineTo(0, 20);
 
-figura3.moveTo(10, 0);
-figura3.lineTo(10, 2);
-figura3.lineTo(12, 2);
-figura3.lineTo(12, 0);
-figura3.lineTo(10, 0);
+figura3.moveTo(20, 0);
+figura3.lineTo(20, 2);
+figura3.lineTo(22, 2);
+figura3.lineTo(22, 0);
+figura3.lineTo(20, 0);
 
 
 
