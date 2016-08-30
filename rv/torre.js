@@ -6,17 +6,17 @@ figura.lineTo(2, 2);
 figura.lineTo(0, 2);
 figura.lineTo(0, 0);
 
-figura.moveTo(0, 10);
-figura.lineTo(0, 12);
-figura.lineTo(2, 12);
-figura.lineTo(2, 10);
-figura.lineTo(0, 10);
-
 figura.moveTo(10, 10);
 figura.lineTo(10, 12);
 figura.lineTo(12, 12);
 figura.lineTo(12, 10);
 figura.lineTo(10, 10);
+
+figura.moveTo(0, 10);
+figura.lineTo(0, 12);
+figura.lineTo(2, 12);
+figura.lineTo(2, 10);
+figura.lineTo(0, 10);
 
 figura.moveTo(10, 0);
 figura.lineTo(10, 2);
