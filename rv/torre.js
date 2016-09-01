@@ -40,7 +40,10 @@ var malla1 = new THREE.Mesh( forma2, material );
 var malla2 = new THREE.Mesh( forma3, material );
 var malla3 = new THREE.Mesh( forma4, material );
 
-
+malla.rotateX( Math.PI/2 );
+malla1.rotateX( Math.PI/2 );
+malla2.rotateX( Math.PI/2 );
+malla3.rotateX( Math.PI/2 );
 var escena = new THREE.Scene();
 escena.add(malla);
 escena.add(malla1);
