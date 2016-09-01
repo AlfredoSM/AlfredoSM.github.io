@@ -34,13 +34,6 @@ var forma2 = new THREE.ExtrudeGeometry(figura1, {amount: 1} );
 var forma3 = new THREE.ExtrudeGeometry(figura2, {amount: 1} );
 var forma4 = new THREE.ExtrudeGeometry(figura3, {amount: 1} );
 
-var formaMalla = new THREE.Mesh(troncoForma);
-var esferaMalla = new THREE.Mesh(esferaForma);
-
-var arbolForma = new THREE.Geometry();
-
-arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 var material = new THREE.MeshNormalMaterial();
 var malla = new THREE.Mesh( forma1, material );
 var malla1 = new THREE.Mesh( forma2, material );
