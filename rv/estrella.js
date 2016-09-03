@@ -13,7 +13,7 @@ figura.lineTo(10, 50);
 figura.lineTo(20, 30);
 figura.lineTo(10, 10);
 var forma = new THREE.ShapeGeometry(figura);
-forma.translate(-50, 30, 0);
+forma.translate(-50, -30, 0);
 var malla = new THREE.Mesh(forma);
 
 var escena = new THREE.Scene();
