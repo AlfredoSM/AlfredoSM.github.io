@@ -6,7 +6,7 @@ camara.top = window.innerHeight / 2;
 camara.bottom = window.innerHeight / -2;
 camara.near = 0.1;
 camara.far = 1000;
-camara.uodateProjectionMatrix();
+camara.updateProjectionMatrix();
 
 var cubo = new THREE.Mesh( new THREE.BoxGeometry( 30, 30, 30), new THREE.MeshNormalMaterial() );
 
