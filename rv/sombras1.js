@@ -16,7 +16,7 @@ camara.position.y=5;
 var renderizador = new THREE.WebGLRenderer();
 renderizador.shadowMapEnabled= true;
 malla.castShadow = true;
-base.reciveShadow = true;
+base.receiveShadow = true;
 iluminacion.castShadow = true;
 renderizador.setSize( 600, 600 );
 document.body.appendChild( renderizador.domElement );
