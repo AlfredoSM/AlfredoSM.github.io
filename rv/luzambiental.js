@@ -1,4 +1,4 @@
-var iluminacion = new THREE.Ambientlight(0xFFFFFF);
+var iluminacion = new THREE.AmbientLight(0xFFFFFF);
 iluminacion.position.x = 10;
 iluminacion.position.y =10;
 iluminacion.position.z =10;
