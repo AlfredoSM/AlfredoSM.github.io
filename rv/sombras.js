@@ -1,7 +1,7 @@
 var iluminacion = new THREE.PointLight(0xFFFFFF);
 iluminacion.position.y=2;
 
-var base = new THREE.Mesh( new THREE.BoxGeometry(5, .1, 5), new THREE.MeshLambertMaterial({color: 0xFFFFFF});
+var base = new THREE.Mesh( new THREE.BoxGeometry(5, .1, 5), new THREE.MeshLambertMaterial({color: 0xFFFFFF}));
 var escena = new THREE.Scene();
 escena.add(malla);
 escena.add(base);
