@@ -20,5 +20,5 @@ document.body.appendChild( renderizador.domElement );
 renderizador.shadowMapEnabled= true;
 malla.castShadow = true;
 base.reciveShadow = true;
-iluminacion.castSadow = true;
+iluminacion.castShadow = true;
 renderizador.render( escena, camara );
