@@ -66,7 +66,7 @@ arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 var tablero = new Array(); 
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
-	if((ZZ%2)||(xx%2)){
+	if((ZZ%2)||(XX%2)){
 	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 10, 1, 10), material1 );
 	tablero[(XX*8)+ZZ].translateX(XX*10);
 	tablero[(XX*8)+ZZ].translateZ(ZZ * 10);
