@@ -62,7 +62,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-arbolForma.translateY(-30);
+//arbolForma.translateY(-30);
 //Torre2.scale( 1);
 /////////////////////////////tablero
 var tablero = new Array(); 
@@ -86,6 +86,7 @@ var Torre2 = new THREE.Mesh(arbolForma, material2);
 var Torre3 = new THREE.Mesh(arbolForma, material1);
 var Torre4 = new THREE.Mesh(arbolForma, material2);
 //cubo.rotateX( Math.PI/4 );
+Torre2.translateX(30);
 Torre2.translateX(30);
 Torre3.translateY(-30);
 Torre4.translateX(30);
