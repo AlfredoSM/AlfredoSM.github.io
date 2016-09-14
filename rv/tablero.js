@@ -62,7 +62,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-//arbolForma.translateY(-30);
+arbolForma.translateY(-30);
 //Torre2.scale( 1);
 /////////////////////////////tablero
 var tablero = new Array(); 
