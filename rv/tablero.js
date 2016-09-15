@@ -102,10 +102,10 @@ escena.add(  tablero [l] );
 
 escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 );
 
-//escena.rotateX(Math.PI/2);
+escena.rotateX(Math.PI/4);
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.z = 300;
+camara.position.z = 900;
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95,
