@@ -2,7 +2,7 @@ var material1 = new THREE.MeshBasicMaterial( { color: 0xbbbbbb } );
 var material2 = new THREE.MeshBasicMaterial( { color: 0x373737 } );
 var material3 = new THREE.MeshBasicMaterial( { color: 0x642424 } );
 
-var mesita = new THREE.BoxGeometry( 35, 35, 35);
+var mesita = new THREE.BoxGeometry( 10, 10, 10);
 mesita.translate(0,40,0);
 ////////////////
 var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
@@ -86,11 +86,11 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 }}
 //tablero
 
-var mallaMesa = new THREE.Mesh(mesaa, material3);
 var arbolMalla = new THREE.Mesh(arbolForma, material1);
 var Torre2 = new THREE.Mesh(arbolForma, material2);
 var Torre3 = new THREE.Mesh(arbolForma, material1);
 var Torre4 = new THREE.Mesh(arbolForma, material2);
+var mallaMesa = new THREE.Mesh(mesaa, material3);
 //cubo.rotateX( Math.PI/4 );
 arbolMalla.scale.set( .5, .5, .5);
 Torre2.scale.set( .5, .5, .5);
