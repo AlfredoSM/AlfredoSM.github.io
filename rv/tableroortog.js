@@ -108,6 +108,7 @@ escena.add(  tablero [l] );
 escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 );
 
 escena.rotateX(Math.PI/6);
+escena.rotateY(Math.PI/6);
 
 var camara = new THREE.OrthographicCamera();
 
