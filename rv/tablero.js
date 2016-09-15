@@ -95,6 +95,11 @@ Torre3.translateZ(35*7);
 Torre4.translateX(35*7);
 Torre4.translateZ(35*7);
 
+arbolMalla.trnaslateY(25);
+Torre2.translateY(25);
+Torre3.translateY(25);
+Torre4.translateY(25);
+
 var escena = new THREE.Scene();
 // ,
 for ( var l=0; l<64; l ++)
