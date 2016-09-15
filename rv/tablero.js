@@ -91,9 +91,9 @@ Torre2.scale.set( .5, .5, .5);
 Torre3.scale.set( .5, .5, .5);
 Torre4.scale.set( .5, .5, .5);
 Torre2.translateX(35*8);
-Torre3.translateZ(35*8);
-Torre4.translateX(35*8);
-Torre4.translateY(35*8);
+//Torre3.translateZ(35*8);
+//Torre4.translateX(35*8);
+//Torre4.translateY(35*8);
 
 var escena = new THREE.Scene();
 // ,
@@ -102,7 +102,7 @@ escena.add(  tablero [l] );
 
 escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 );
 
-//escena.rotateX(Math.PI/4);
+escena.rotateX(Math.PI/4);
 
 var camara = new THREE.PerspectiveCamera();
 camara.position.z = 900;
