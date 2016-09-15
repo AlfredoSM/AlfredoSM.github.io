@@ -90,7 +90,7 @@ arbolMalla.scale.set( .5, .5, .5);
 Torre2.scale.set( .5, .5, .5);
 Torre3.scale.set( .5, .5, .5);
 Torre4.scale.set( .5, .5, .5);
-Torre2.translateX(35*8);
+Torre2.translateX(35*7);
 //Torre3.translateZ(35*8);
 //Torre4.translateX(35*8);
 //Torre4.translateY(35*8);
