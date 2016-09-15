@@ -1,5 +1,6 @@
 var material1 = new THREE.MeshBasicMaterial( { color: 0xbbbbbb } );
 var material2 = new THREE.MeshBasicMaterial( { color: 0x373737 } );
+var material3 = new THREE.MeshBasicMaterial( { color: 0x642424 } );
 
 var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -106,6 +107,13 @@ for ( var l=0; l<64; l ++)
 escena.add(  tablero [l] );
 
 escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 );
+
+var mesita = new THREE.BoxGeometry( 300, 10, 300);
+var MMesa = new THREE.Mesh(mesita, material3);
+MMesa.translateX(125);
+MMesa.translateZ(115);
+MMesa.translateY(-10);
+escena.add( MMesa );
 
 escena.rotateX(Math.PI/6);
 escena.rotateY(Math.PI/6);
