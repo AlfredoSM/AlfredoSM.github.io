@@ -108,6 +108,7 @@ escena.add(  tablero [l] );
 escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 );
 
 escena.rotateX(Math.PI/4);
+escena.rotateY(Math.PI/4);
 
 var camara = new THREE.PerspectiveCamera();
 camara.position.z = 900;
