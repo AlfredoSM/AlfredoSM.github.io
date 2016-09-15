@@ -86,7 +86,7 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 }}
 //tablero
 
-//var mallaMesa = new THREE.Mesh(mesaa, material3);
+var mallaMesa = new THREE.Mesh(mesaa, material3);
 var arbolMalla = new THREE.Mesh(arbolForma, material1);
 var Torre2 = new THREE.Mesh(arbolForma, material2);
 var Torre3 = new THREE.Mesh(arbolForma, material1);
