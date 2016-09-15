@@ -111,7 +111,7 @@ var escena = new THREE.Scene();
 for ( var l=0; l<64; l ++)
 escena.add(  tablero [l] );
 
-escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 /*, mallaMesa*/);
+escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 , mallaMesa);
 
 escena.rotateX(Math.PI/4);
 escena.rotateY(Math.PI/6);
