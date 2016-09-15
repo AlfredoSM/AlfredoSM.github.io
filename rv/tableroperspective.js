@@ -111,7 +111,7 @@ escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 );
 
 var mesita = new THREE.BoxGeometry( 240, 10, 240);
 var MMesa = new THREE.Mesh(mesita, material3);
-MMesa.translate(60,0,60);
+MMesa.translate(10,0,10);
 escena.add( MMesa );
 
 escena.rotateX(Math.PI/4);
