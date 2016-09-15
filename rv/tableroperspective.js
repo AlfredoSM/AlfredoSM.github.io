@@ -58,7 +58,7 @@ var baseAbajomalla = new THREE.Mesh(baseabajo);
 var troncoMalla = new THREE.Mesh(troncoForma);
 var esferaMalla = new THREE.Mesh(esferaForma);
 var arbolForma = new THREE.Geometry();
-//var mesaa = new THREE.Mesh(mesita);
+var mesaa = new THREE.Mesh(mesita);
 arbolForma.merge(malla.geometry, malla.matrix);
 arbolForma.merge(malla1.geometry, malla1.matrix);
 arbolForma.merge(malla2.geometry, malla2.matrix);
