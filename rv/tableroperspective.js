@@ -3,7 +3,7 @@ var material2 = new THREE.MeshBasicMaterial( { color: 0x373737 } );
 var material3 = new THREE.MeshBasicMaterial( { color: 0x642424 } );
 
 var mesita = new THREE.BoxGeometry( 10, 10, 10);
-mesita.translate(0,40,0);
+//mesita.translate(0,40,0);
 ////////////////
 var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
 var basee = new THREE.CylinderGeometry(24,24,8);
