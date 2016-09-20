@@ -109,7 +109,7 @@ Torre2.translateZ(35*5);
 Torre3.translateX(35*3);
 Torre3.translateZ(35*2);
 Torre4.translateX(35*4);
-Torre4.translateZ(35*6);
+Torre4.translateZ(35*3);
 
 arbolMalla.translateY(25);
 Torre2.translateY(25);
