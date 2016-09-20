@@ -1,5 +1,13 @@
 var luz1 = new THREE.PointLight( 0xFFFFFF );
 luz1.position.y = 200;
+var luz2 = new THREE.PointLight( 0xFFFFFF );
+luz2.position.y = 100;
+luz2.position.x = 140;
+luz2.position.z = 140;
+var luz3 = new THREE.PointLight( 0xFFFFFF );
+luz3.position.y = 280;
+luz3.position.x = 280;
+luz3.position.z = 0;
 var material1 = new THREE.MeshLambertMaterial( { color: 0xbbbbbb } );
 var material2 = new THREE.MeshLambertMaterial( { color: 0x373737 } );
 var material3 = new THREE.MeshLambertMaterial( { color: 0x642424 } );
@@ -109,7 +117,7 @@ var escena = new THREE.Scene();
 for ( var l=0; l<64; l ++)
 escena.add(  tablero [l] );
 
-escena.add(  arbolMalla , Torre2 , Torre3 , Torre4, luz1 );
+escena.add(  arbolMalla , Torre2 , Torre3 , Torre4, luz1, luz2, luz3 );
 
 var mesita = new THREE.BoxGeometry( 300, 10, 300);
 var MMesa = new THREE.Mesh(mesita, material3);
