@@ -111,7 +111,7 @@ var escena = new THREE.Scene();
 for ( var l=0; l<64; l ++)
 escena.add(  tablero [l] );
 
-escena.add(  arbolMalla , Torre2 , Torre3 , Torre4 );
+escena.add(  arbolMalla , Torre2 , Torre3 , Torre4, luz1 );
 
 var mesita = new THREE.BoxGeometry( 300, 10, 300);
 var MMesa = new THREE.Mesh(mesita, material3);
