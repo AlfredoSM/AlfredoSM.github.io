@@ -1,13 +1,13 @@
 var luz1 = new THREE.PointLight( 0xFFFF00 );
-luz1.position.y = 200;
+luz1.position.y = 120;
 var luz2 = new THREE.PointLight( 0xFF00FF );
 luz2.position.y = 100;
-luz2.position.x = 140;
-luz2.position.z = 140;
+luz2.position.x = 280;
+luz2.position.z = 280;
 var luz3 = new THREE.PointLight( 0x00FFFF );
 luz3.position.y = 280;
 luz3.position.x = 280;
-luz3.position.z = 0;
+luz3.position.z = 35*5;
 var material1 = new THREE.MeshLambertMaterial( { color: 0xbbbbbb } );
 var material2 = new THREE.MeshLambertMaterial( { color: 0x373737 } );
 var material3 = new THREE.MeshLambertMaterial( { color: 0x642424 } );
