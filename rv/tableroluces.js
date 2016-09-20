@@ -11,7 +11,9 @@ luz3.position.z = 35*5;
 var material1 = new THREE.MeshLambertMaterial( { color: 0xbbbbbb } );
 var material2 = new THREE.MeshLambertMaterial( { color: 0x373737 } );
 var material3 = new THREE.MeshLambertMaterial( { color: 0x642424 } );
-
+var material4 = new THREE.MeshLambertMaterial( { color: 0xbbbbbb, transparent: true, opacity: .75 } );
+var material5 = new THREE.MeshLambertMaterial( { color: 0x373737, transparent: true, opacity: .50 } );
+var material6 = new THREE.MeshLambertMaterial( { color: 0x373737, transparent: true, opacity: .25 } );
 ////////////////
 var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -94,9 +96,9 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 //tablero
 
 var arbolMalla = new THREE.Mesh(arbolForma, material1);
-var Torre2 = new THREE.Mesh(arbolForma, material2);
-var Torre3 = new THREE.Mesh(arbolForma, material1);
-var Torre4 = new THREE.Mesh(arbolForma, material2);
+var Torre2 = new THREE.Mesh(arbolForma, material4);
+var Torre3 = new THREE.Mesh(arbolForma, material5);
+var Torre4 = new THREE.Mesh(arbolForma, material6);
 //cubo.rotateX( Math.PI/4 );
 arbolMalla.scale.set( .5, .5, .5);
 Torre2.scale.set( .5, .5, .5);
