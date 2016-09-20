@@ -1,5 +1,5 @@
 var luz1 = new THREE.PointLight( 0xFFFFFF );
-luz1.position.y = 1000;
+luz1.position.y =- 1000;
 luz1.position.x = 900;
 luz1.position.z = 900;
 var material1 = new THREE.MeshLambertMaterial( { color: 0xbbbbbb } );
