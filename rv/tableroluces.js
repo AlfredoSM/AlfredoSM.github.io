@@ -102,7 +102,7 @@ arbolMalla.scale.set( .5, .5, .5);
 Torre2.scale.set( .5, .5, .5);
 Torre3.scale.set( .5, .5, .5);
 Torre4.scale.set( .5, .5, .5);
-arbolMalla.translateX(35*4);
+arbolMalla.translateX(35*2);
 arbolMalla.translateZ(35*3);
 Torre2.translateX(35*6);
 Torre2.translateZ(35*5);
