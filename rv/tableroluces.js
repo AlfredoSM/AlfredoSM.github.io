@@ -1,4 +1,4 @@
-var luz1 = new TRHEE.PointLight( 0xFFFFFF );
+var luz1 = new THREE.PointLight( 0xFFFFFF );
 luz1.position.y = 60;
 var material1 = new THREE.MeshLambertMaterial( { color: 0xbbbbbb } );
 var material2 = new THREE.MeshLambertMaterial( { color: 0x373737 } );
