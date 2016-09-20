@@ -1,10 +1,10 @@
-var luz1 = new THREE.PointLight( 0xFFFFFF );
+var luz1 = new THREE.PointLight( 0xFFFF00 );
 luz1.position.y = 200;
-var luz2 = new THREE.PointLight( 0xFFFFFF );
+var luz2 = new THREE.PointLight( 0xFF00FF );
 luz2.position.y = 100;
 luz2.position.x = 140;
 luz2.position.z = 140;
-var luz3 = new THREE.PointLight( 0xFFFFFF );
+var luz3 = new THREE.PointLight( 0x00FFFF );
 luz3.position.y = 280;
 luz3.position.x = 280;
 luz3.position.z = 0;
