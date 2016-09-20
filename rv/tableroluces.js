@@ -102,10 +102,14 @@ arbolMalla.scale.set( .5, .5, .5);
 Torre2.scale.set( .5, .5, .5);
 Torre3.scale.set( .5, .5, .5);
 Torre4.scale.set( .5, .5, .5);
-Torre2.translateX(35*7);
-Torre3.translateZ(35*7);
-Torre4.translateX(35*7);
-Torre4.translateZ(35*7);
+arbolMalla.translateX(35*4);
+arbolMalla.translateZ(35*3);
+Torre2.translateX(35*6);
+Torre2.translateZ(35*5);
+Torre3.translateX(35*3);
+Torre3.translateZ(35*2);
+Torre4.translateX(35*4);
+Torre4.translateZ(35*6);
 
 arbolMalla.translateY(25);
 Torre2.translateY(25);
@@ -134,6 +138,18 @@ camara.position.z = 900;
 camara.position.x = 35*3;
 
 var renderizador = new THREE.WebGLRenderer();
+renderizador.shadowMapEnabled= true;
+arbolMalla.castShadow = true;
+Torre2.castShadow = true;
+Torre3.castShadow = true;
+Torre4.castShadow = true;
+for ( var l=0; l<64; l ++)
+tablero[l].receiveShadow = true;
+MMesa.receiveShadow = true;
+
+luz1.castShadow = true;
+luz2.castShadow = true;
+luz3.castShadow = true;
 renderizador.setSize( window.innerHeight*.95,
 			window.innerHeight*.95 );
 document.body.appendChild( renderizador.domElement );
