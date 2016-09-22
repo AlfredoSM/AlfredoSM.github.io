@@ -15,7 +15,7 @@ function init(p){
   var loop = function(){
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
-  var sentido = 0;
+ 
   if(sentido==0)
     malla.translateX(0.01);
   else
@@ -25,6 +25,6 @@ function init(p){
   else if(malla.position.x==0)
   sentido=0;
   }
-  var escena, camara, renderizador, malla;
+  var escena, camara, renderizador, malla, sentido = 0;
   init(1);
   loop();
