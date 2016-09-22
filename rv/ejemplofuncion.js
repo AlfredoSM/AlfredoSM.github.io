@@ -16,9 +16,9 @@ function init(p){
     renderizador.render(escena,camara);
   var sentido = 0;
   if(sentido==0)
-    malla.traslate(0.01,0,0);
+    malla.translateX(0.01);
   else
-    malla.traslateX(-0.01);
+    malla.translateX(-0.01);
   if(malla.position.x==700)
   sentido=1;
   else if(malla.position.x==0)
