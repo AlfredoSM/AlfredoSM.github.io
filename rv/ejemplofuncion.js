@@ -11,9 +11,11 @@ function init(p){
   document.body.appendChild(renderizador.domElement);
   }
 
-  var main = function(p){
-    p(1);
-  renderizador.render(escena,camara);
+  var loop = function(){
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
+    malla.rotateY(0.01);
   }
-  var escena, camara, renderizador;
-  main(init);
+  var escena, camara, renderizador, malla;
+  init(1);
+  loop();
