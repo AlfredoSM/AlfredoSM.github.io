@@ -14,7 +14,15 @@ function init(p){
   var loop = function(){
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
-    malla.rotateY(0.01);
+  var sentido = 0;
+  if(sentido==0)
+    malla.traslateX(0.01);
+  else
+    malla.traslateX(-0.01);
+  if(malla.position.x==700)
+  sentido=1;
+  else if(malla.position.x==0)
+  sentido=0;
   }
   var escena, camara, renderizador, malla;
   init(1);
