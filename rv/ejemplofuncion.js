@@ -1,5 +1,5 @@
 function init(p){
-  var malla(new THREE.BoxGeometry(p,p,p), new THREE.MeshNormalMaterial());
+  var malla = new THREE.Mesh(new THREE.BoxGeometry(p,p,p), new THREE.MeshNormalMaterial());
   
   escena= new THREE.Scene();
   escena.add(malla);
@@ -10,7 +10,7 @@ function init(p){
   document.body.appendChild(renderizador.domElement);
   }
   
-  var main = function(p){
+  var main = function(){
   renderizador.render(escena,camara);
   }
   var escena, camara, renderizador;
