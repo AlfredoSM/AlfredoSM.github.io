@@ -10,10 +10,9 @@ function init(p){
   renderizador.setSize(700,700);
   document.body.appendChild(renderizador.domElement);
   }
-  
-  var main = function(){
+  p(1);
+  var main = function(p){
   renderizador.render(escena,camara);
   }
   var escena, camara, renderizador;
-  init(1);
-  main();
+  main(init);
