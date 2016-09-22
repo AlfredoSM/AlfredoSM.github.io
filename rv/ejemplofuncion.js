@@ -6,6 +6,7 @@ function init(p){
   
   camara= new THREE.PerspectiveCamera();
   camara.position.z=5;
+  camara.position.x=3.5;
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(700,700);
   document.body.appendChild(renderizador.domElement);
@@ -19,7 +20,7 @@ function init(p){
     malla.translateX(0.01);
   else
     malla.translateX(-0.01);
-  if(malla.position.x==700)
+  if(malla.position.x==7)
   sentido=1;
   else if(malla.position.x==0)
   sentido=0;
