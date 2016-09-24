@@ -15,11 +15,13 @@ function init(p){
   var loop = function(){
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
-    malla.rotateX(0.1);
-  if(sentido==0)
+    
+  if(sentido==0){
     malla.translateX(0.01);
-  else
+    malla.rotateX(0.1);}
+  else{
     malla.translateX(-0.01);
+    malla.rotateX(-0.1);}
   if(Math.abs(malla.position.x)>=7)
   sentido=1;
   else if(Math.abs(malla.position.x<=0))
