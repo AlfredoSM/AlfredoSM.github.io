@@ -19,12 +19,10 @@ function init(p){
   if(sentido==0){
     malla.translateX(0.01);
     malla.rotateX(0.1);
-    malla.rotateZ(0.1);
   }
   else{
     malla.translateX(-0.01);
     malla.rotateX(-0.1);
-    malla.rotateZ(-0.1);
   }
   if(Math.abs(malla.position.x)>=7)
   sentido=1;
