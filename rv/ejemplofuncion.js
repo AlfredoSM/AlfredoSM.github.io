@@ -20,9 +20,9 @@ function init(p){
     malla.translateX(0.01);
   else
     malla.translateX(-0.01);
-  if(Math.abs(malla.position.x)===7)
+  if(Math.abs(malla.position.x)>=7)
   sentido=1;
-  else if(Math.abs(malla.position.x===0))
+  else if(Math.abs(malla.position.x<=0))
   sentido=0;
   }
   var escena, camara, renderizador, malla, sentido = 0;
