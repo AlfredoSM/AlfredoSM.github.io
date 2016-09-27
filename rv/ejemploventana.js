@@ -14,8 +14,8 @@ VENTANA.listener = function() {
     VENTANA.camara = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     VENTANA.camara.position.z=5;
     
- renderizador = new THREE.WebGLRenderer();
- renderizador.setSize(window.innerWidth, window.innerHeight);
+ VENTANA.renderizador = new THREE.WebGLRenderer();
+ VENTANA.renderizador.setSize(window.innerWidth, window.innerHeight);
  document.body.appendChild(renderizador.domElement);
  VENTANA.malla = new THREE.Mesh( new THREE.BoxGeometry(1, 1, 1), new THREE.MeshNormalMaterial() );
  VENTANA.escena.add(VENTANA.malla);
