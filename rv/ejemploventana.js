@@ -16,7 +16,7 @@ VENTANA.listener = function() {
     
  VENTANA.renderizador = new THREE.WebGLRenderer();
  VENTANA.renderizador.setSize(window.innerWidth, window.innerHeight);
- document.body.appendChild(renderizador.domElement);
+ document.body.appendChild(VENTANA.renderizador.domElement);
  VENTANA.malla = new THREE.Mesh( new THREE.BoxGeometry(1, 1, 1), new THREE.MeshNormalMaterial() );
  VENTANA.escena.add(VENTANA.malla);
  }
