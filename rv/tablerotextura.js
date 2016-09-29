@@ -1,7 +1,3 @@
-var material1;
-var material2;
-var material3;
-var material4;
 
 retrollamada1 = function( textura1 ){
   
