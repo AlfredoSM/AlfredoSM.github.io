@@ -1,67 +1,7 @@
-var materiales= new Object();
-materiales.retrollamada1 = function( textura1 ){
-  
-  var material1 = new THREE.MeshLambertMaterial( {map: textura1} );
-	if( material1 === undefined ) {
-    	;
-    }
-}
-
-materiales.retrollamada2 = function( textura2 ){
-  
-  var material2 = new THREE.MeshLambertMaterial( {map: textura2} );
-	if( material2 === undefined ) {
-    	;
-    }
-}  
-materiales.retrollamada3 = function( textura3 ){
-  
-   var material3 = new THREE.MeshLambertMaterial( {map: textura3} );
-	if( material3 === undefined ) {
-    	;
-    }
-}  
-materiales.retrollamada4 = function( textura4 ){
-  
-  var material4 = new THREE.MeshLambertMaterial( {map: textura4} );
-	if( material4 === undefined ) {
-    	;
-    }
-}    
-var cargador1 = new THREE.TextureLoader();
-  cargador1.load("maderablanca.jpg",materiales.retrollamada1);
-  var cargador2 = new THREE.TextureLoader();
-  cargador2.load("maderanegra.jpg",materiales.retrollamada2);
-  var cargador3 = new THREE.TextureLoader();
-  cargador3.load("marmolblanco.jpg",materiales.retrollamada3);
-  var cargador4 = new THREE.TextureLoader();
-  cargador4.load("marmolnegro.jpg",materiales.retrollamada4);
-var luz1 = new THREE.PointLight( 0xFFFF00 );
-luz1.position.y = 120;
-var luz2 = new THREE.PointLight( 0xFF00FF );
-luz2.position.y = 100;
-luz2.position.x = 280;
-luz2.position.z = 280;
-var luz3 = new THREE.PointLight( 0x00FFFF );
-luz3.position.y = 280;
-luz3.position.x = 280;
-luz3.position.z = 35*5;
-
-
-
-
-  
-
-////////////////
-var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
-var basee = new THREE.CylinderGeometry(24,24,8);
-basee.translate(0,-20,0);
-var esferaForma = new THREE.BoxGeometry( 35, 35, 35);
-esferaForma.translate(0,40,0);
-var baseabajo = new THREE.CylinderGeometry(32,32,8);
-baseabajo.translate(0,-24,0);
-
-var figura = new THREE.Shape();
+var TEXTURA = new Object();
+TEXTURA.retrollamada = function( textura ){
+  var material = new THREE.MeshLambertMaterial( {map: textura} );
+  ar figura = new THREE.Shape();
 var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
 var figura3 = new THREE.Shape();
@@ -114,67 +54,30 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-//arbolForma.translateY(-30);
-//Torre2.scale( 1);
-/////////////////////////////tablero
-var tablero = new Array(); 
-for ( var XX = 0; XX < 8; XX ++ ){
-for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
-	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), materiales.material1 );
-	tablero[(XX*8)+ZZ].translateX(XX*35);
-	tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
-	}
-	else{
-		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), materiales.material2 );
-		tablero[(XX*8)+ZZ].translateX(XX*35);
-		tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
-	}
-}}
-//tablero
+var TEXTURA.malla = new THREE.Mesh(arbolForma, material1);
+  TEXTURA.escena.add(TEXTURA.malla);
+}
 
-var arbolMalla = new THREE.Mesh(arbolForma, materiales.material3);
-var Torre2 = new THREE.Mesh(arbolForma, materiales.material4);
-var Torre3 = new THREE.Mesh(arbolForma, materiales.material3);
-var Torre4 = new THREE.Mesh(arbolForma, materiales.material4);
-//cubo.rotateX( Math.PI/4 );
-arbolMalla.scale.set( .5, .5, .5);
-Torre2.scale.set( .5, .5, .5);
-Torre3.scale.set( .5, .5, .5);
-Torre4.scale.set( .5, .5, .5);
-Torre2.translateX(35*7);
-Torre3.translateZ(35*7);
-Torre4.translateX(35*7);
-Torre4.translateZ(35*7);
+TEXTURA.setup = function() {
+  TEXTURA.escena = new THREE.Scene();
+  
+  var cargador = new THREE.TextureLoader();
+  cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
+  TEXTURA.camara = new THREE.PerspectiveCamera();
+  TEXTURA.camara.position.z= 50;
+  
+  TEXTURA.renderizador = new THREE.WebGLRenderer();
+ TEXTURA.renderizador.setSize(600, 600);
+ document.body.appendChild(TEXTURA.renderizador.domElement);
+}
 
-arbolMalla.translateY(25);
-Torre2.translateY(25);
-Torre3.translateY(25);
-Torre4.translateY(25);
-
-var escena = new THREE.Scene();
-// ,
-for ( var l=0; l<64; l ++)
-escena.add(  tablero [l] );
-
-escena.add(  arbolMalla , Torre2 , Torre3 , Torre4, luz1, luz2, luz3 );
-
-var mesita = new THREE.BoxGeometry( 300, 10, 300);
-var MMesa = new THREE.Mesh(mesita, materiales.material3);
-MMesa.translateX(125);
-MMesa.translateZ(115);
-MMesa.translateY(-10);
-escena.add( MMesa );
-
-escena.rotateX(Math.PI/4);
-escena.rotateY(Math.PI/6);
-
-var camara = new THREE.PerspectiveCamera();
-camara.position.z = 900;
-camara.position.x = 35*3;
-
-var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize( window.innerHeight*.95,
-			window.innerHeight*.95 );
-document.body.appendChild( renderizador.domElement );
-renderizador.render( escena, camara );
+TEXTURA.loop = function(){
+  requestAnimationFrame( TEXTURA.loop );
+  if( TEXTURA.malla !== undefined ) {
+    TEXTURA.malla.rotateY( 0.01 );
+    }
+    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+ }
+ 
+ TEXTURA.setup();
+ TEXTURA.loop();
