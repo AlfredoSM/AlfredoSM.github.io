@@ -1,8 +1,7 @@
 var TEXTURA = new Object();
-TEXTURA.retrollamada = function( textura ){
-  var material = new THREE.MeshBasicMaterial( {map: textura} );
-  var figura = new THREE.Shape();
-var figura1 = new THREE.Shape();
+Torre= function(){
+  Torre.prototype.call(this);
+  var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
 var figura3 = new THREE.Shape();
 var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
@@ -61,8 +60,15 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-TEXTURA.malla = new THREE.Mesh(arbolForma, material);
-  TEXTURA.escena.add(TEXTURA.malla);
+this.merge(arbol.merge);
+}
+
+TEXTURA.retrollamada = function( textura ){
+  var material = new THREE.MeshBasicMaterial( {map: textura} );
+  var figura = new THREE.Shape();
+  Torre.prototype= neww THREE.Geometry();
+TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
+  TEXTURA.escena.add(TEXTURA.Torre1);
 }
 
 TEXTURA.setup = function() {
