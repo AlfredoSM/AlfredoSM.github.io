@@ -9,7 +9,7 @@ luz3.position.y = 280;
 luz3.position.x = 280;
 luz3.position.z = 35*5;
 
-retrollamada1 = function( textura1, ){
+retrollamada1 = function( textura1 ){
   
   var material1 = new THREE.MeshLambertMaterial( {map: textura1} );
 }
