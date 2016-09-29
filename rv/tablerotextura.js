@@ -66,7 +66,7 @@ this.merge(arbol.merge);
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
   var figura = new THREE.Shape();
-  Torre.prototype= neww THREE.Geometry();
+  Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
   TEXTURA.escena.add(TEXTURA.Torre1);
 }
