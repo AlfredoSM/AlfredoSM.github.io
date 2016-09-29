@@ -1,3 +1,11 @@
+  var cargador1 = new THREE.TextureLoader();
+  cargador1.load("maderablanca.jpg",retrollamada1);
+  var cargador2 = new THREE.TextureLoader();
+  cargador2.load("maderanegra.jpg",retrollamada2);
+  var cargador3 = new THREE.TextureLoader();
+  cargador3.load("marmolblanco.jpg",retrollamada3);
+  var cargador4 = new THREE.TextureLoader();
+  cargador4.load("marmolnegro.jpg",retrollamada4);
 var luz1 = new THREE.PointLight( 0xFFFF00 );
 luz1.position.y = 120;
 var luz2 = new THREE.PointLight( 0xFF00FF );
@@ -30,14 +38,7 @@ retrollamada4 = function( textura4 ){
   
    material4 = new THREE.MeshLambertMaterial( {map: textura4} );
 }  
-  var cargador1 = new THREE.TextureLoader();
-  cargador1.load("maderablanca.jpg",retrollamada1);
-  var cargador2 = new THREE.TextureLoader();
-  cargador2.load("maderanegra.jpg",retrollamada2);
-  var cargador3 = new THREE.TextureLoader();
-  cargador3.load("marmolblanco.jpg",retrollamada3);
-  var cargador4 = new THREE.TextureLoader();
-  cargador4.load("marmolnegro.jpg",retrollamada4);
+
   
 
 ////////////////
