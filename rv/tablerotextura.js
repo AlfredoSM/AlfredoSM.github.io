@@ -1,29 +1,29 @@
-
-retrollamada1 = function( textura1 ){
+var materiales= new Object();
+materiales.retrollamada1 = function( textura1 ){
   
-  material1 = new THREE.MeshLambertMaterial( {map: textura1} );
+  var material1 = new THREE.MeshLambertMaterial( {map: textura1} );
 	if( material1 === undefined ) {
     	;
     }
 }
 
-retrollamada2 = function( textura2 ){
+materiales.retrollamada2 = function( textura2 ){
   
-   material2 = new THREE.MeshLambertMaterial( {map: textura2} );
+  var material2 = new THREE.MeshLambertMaterial( {map: textura2} );
 	if( material2 === undefined ) {
     	;
     }
 }  
-retrollamada3 = function( textura3 ){
+materiales.retrollamada3 = function( textura3 ){
   
-   material3 = new THREE.MeshLambertMaterial( {map: textura3} );
+   var material3 = new THREE.MeshLambertMaterial( {map: textura3} );
 	if( material3 === undefined ) {
     	;
     }
 }  
-retrollamada4 = function( textura4 ){
+materiales.retrollamada4 = function( textura4 ){
   
-   material4 = new THREE.MeshLambertMaterial( {map: textura4} );
+  var material4 = new THREE.MeshLambertMaterial( {map: textura4} );
 	if( material4 === undefined ) {
     	;
     }
@@ -121,22 +121,22 @@ var tablero = new Array();
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material1 );
+	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), materiales.material1 );
 	tablero[(XX*8)+ZZ].translateX(XX*35);
 	tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
 	}
 	else{
-		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material2 );
+		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), materiales.material2 );
 		tablero[(XX*8)+ZZ].translateX(XX*35);
 		tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
 	}
 }}
 //tablero
 
-var arbolMalla = new THREE.Mesh(arbolForma, material3);
-var Torre2 = new THREE.Mesh(arbolForma, material4);
-var Torre3 = new THREE.Mesh(arbolForma, material3);
-var Torre4 = new THREE.Mesh(arbolForma, material4);
+var arbolMalla = new THREE.Mesh(arbolForma, materiales.material3);
+var Torre2 = new THREE.Mesh(arbolForma, materiales.material4);
+var Torre3 = new THREE.Mesh(arbolForma, materiales.material3);
+var Torre4 = new THREE.Mesh(arbolForma, materiales.material4);
 //cubo.rotateX( Math.PI/4 );
 arbolMalla.scale.set( .5, .5, .5);
 Torre2.scale.set( .5, .5, .5);
