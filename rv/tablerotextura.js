@@ -1,7 +1,7 @@
 var TEXTURA = new Object();
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshLambertMaterial( {map: textura} );
-  ar figura = new THREE.Shape();
+  var figura = new THREE.Shape();
 var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
 var figura3 = new THREE.Shape();
