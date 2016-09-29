@@ -8,23 +8,27 @@ var luz3 = new THREE.PointLight( 0x00FFFF );
 luz3.position.y = 280;
 luz3.position.x = 280;
 luz3.position.z = 35*5;
+var material1;
+var material2;
+var material3;
+var material4;
 
 retrollamada1 = function( textura1 ){
   
-  var material1 = new THREE.MeshLambertMaterial( {map: textura1} );
+  material1 = new THREE.MeshLambertMaterial( {map: textura1} );
 }
 
 retrollamada2 = function( textura2 ){
   
-  var material2 = new THREE.MeshLambertMaterial( {map: textura2} );
+   material2 = new THREE.MeshLambertMaterial( {map: textura2} );
 }  
 retrollamada3 = function( textura3 ){
   
-  var material3 = new THREE.MeshLambertMaterial( {map: textura3} );
+   material3 = new THREE.MeshLambertMaterial( {map: textura3} );
 }  
 retrollamada4 = function( textura4 ){
   
-  var material4 = new THREE.MeshLambertMaterial( {map: textura4} );
+   material4 = new THREE.MeshLambertMaterial( {map: textura4} );
 }  
   var cargador1 = new THREE.TextureLoader();
   cargador1.load("maderablanca.jpg",retrollamada1);
