@@ -54,7 +54,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-var TEXTURA.malla = new THREE.Mesh(arbolForma, material1);
+TEXTURA.malla = new THREE.Mesh(arbolForma, material1);
   TEXTURA.escena.add(TEXTURA.malla);
 }
 
