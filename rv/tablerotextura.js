@@ -1,19 +1,36 @@
+var material1;
+var material2;
+var material3;
+var material4;
+
 retrollamada1 = function( textura1 ){
   
   material1 = new THREE.MeshLambertMaterial( {map: textura1} );
+	if( material1 === undefined ) {
+    	;
+    }
 }
 
 retrollamada2 = function( textura2 ){
   
    material2 = new THREE.MeshLambertMaterial( {map: textura2} );
+	if( material2 === undefined ) {
+    	;
+    }
 }  
 retrollamada3 = function( textura3 ){
   
    material3 = new THREE.MeshLambertMaterial( {map: textura3} );
+	if( material3 === undefined ) {
+    	;
+    }
 }  
 retrollamada4 = function( textura4 ){
   
    material4 = new THREE.MeshLambertMaterial( {map: textura4} );
+	if( material4 === undefined ) {
+    	;
+    }
 }    
 var cargador1 = new THREE.TextureLoader();
   cargador1.load("maderablanca.jpg",retrollamada1);
@@ -33,28 +50,9 @@ var luz3 = new THREE.PointLight( 0x00FFFF );
 luz3.position.y = 280;
 luz3.position.x = 280;
 luz3.position.z = 35*5;
-var material1;
-var material2;
-var material3;
-var material4;
 
-retrollamada1 = function( textura1 ){
-  
-  material1 = new THREE.MeshLambertMaterial( {map: textura1} );
-}
 
-retrollamada2 = function( textura2 ){
-  
-   material2 = new THREE.MeshLambertMaterial( {map: textura2} );
-}  
-retrollamada3 = function( textura3 ){
-  
-   material3 = new THREE.MeshLambertMaterial( {map: textura3} );
-}  
-retrollamada4 = function( textura4 ){
-  
-   material4 = new THREE.MeshLambertMaterial( {map: textura4} );
-}  
+
 
   
 
