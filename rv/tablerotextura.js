@@ -126,8 +126,7 @@ TEXTURA.setup = function() {
   var cargador3 = new THREE.TextureLoader();
   cargador.load("maderablanca.jpg",TEXTURA.retrollamada3);
   var cargador4 = new THREE.TextureLoader();
-  cargador.load("maderablanca.jpg",TEXTURA.retrollamada4);
-  var tablero = new Array(); 
+  cargador.load("maderanegra.jpg",TEXTURA.retrollamada4);
 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1000;
