@@ -92,7 +92,7 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	TEXTURA.tablerob [(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 100, 1, 100), material );
 	TEXTURA.tablerob.translateX(XX*35);
 	TEXTURA.tablerob.translateZ(ZZ * 35);
-  TEXTURA.escena.add(TEXTURA.tablero);  
+  TEXTURA.escena.add(TEXTURA.tablerob[(XX*8)+ZZ]);  
 	}
   
 }
