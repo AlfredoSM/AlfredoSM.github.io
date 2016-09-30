@@ -88,7 +88,7 @@ TEXTURA.retrollamada3 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
 
 	
-	TEXTURA.tablerob = new THREE.Mesh( new THREE.BoxGeometry( 100, 1, 100), material );
+	TEXTURA.tablerob = new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
 	
   TEXTURA.escena.add(TEXTURA.tablerob);  
 	
@@ -98,17 +98,12 @@ TEXTURA.retrollamada3 = function( textura ){
 
 TEXTURA.retrollamada4 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-  for ( var XX = 0; XX < 8; XX ++ ){
-for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
-	if(!((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
 	TEXTURA.tableron[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
-	TEXTURA.tableron[(XX*8)+ZZ].translateX(XX*35);
-	TEXTURA.tableron[(XX*8)+ZZ].translateZ(ZZ * 35);
-  TEXTURA.escena.add(TEXTURA.tablero[(XX*8)+ZZ]);
+	TEXTURA.tableron.translateX(8*35);
+	TEXTURA.tableron.translateZ(8 * 35);
+  TEXTURA.escena.add(TEXTURA.tablero);
     
-	}
-	
-}}
+
 
 }
 
