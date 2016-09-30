@@ -92,6 +92,7 @@ TEXTURA.retrollamada3 = function( textura ){
 	for( var x=0; x<4; x++)
 		for( var z=0; z<8; x++)
 		{
+			var tablerob = new Array();
   var material = new THREE.MeshBasicMaterial( {map: textura} );
 TEXTURA.tablerob[(4*x)+z] = new THREE.Mesh( new THREE.BoxGeometry( 70, 1, 70), material );
 	TEXTURA.tablerob.TranslateX(140*x);
