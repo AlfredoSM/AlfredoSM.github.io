@@ -1,5 +1,5 @@
 var TEXTURA = new Object();
-var Torre= function(){
+function Torre(){
   Torre.prototype.call(this);
   var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
