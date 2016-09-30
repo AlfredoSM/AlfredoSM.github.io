@@ -1,4 +1,4 @@
-uvar TEXTURA = new Object();
+var TEXTURA = new Object();
 function Torre(){
   //Torre.prototype.call(this);
   var figura = new THREE.Shape();
