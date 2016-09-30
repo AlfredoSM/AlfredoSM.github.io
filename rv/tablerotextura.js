@@ -99,7 +99,7 @@ TEXTURA.retrollamada4 = function( textura ){
 	TEXTURA.tableron= new THREE.Mesh( new THREE.BoxGeometry( 100, 1, 100), material );
 	TEXTURA.tableron.translateX(8*35);
 	TEXTURA.tableron.translateZ(8 * 35);
-  TEXTURA.escena.add(TEXTURA.tablero);
+  TEXTURA.escena.add(TEXTURA.tableron);
     
 
 
