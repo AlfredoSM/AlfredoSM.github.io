@@ -89,7 +89,7 @@ TEXTURA.setup = function() {
   var cargador2 = new THREE.TextureLoader();
   cargador.load("marmolnegro.jpg",TEXTURA.retrollamada2);
   TEXTURA.camara = new THREE.PerspectiveCamera();
-  TEXTURA.camara.position.z= 500;
+  TEXTURA.camara.position.z= 5000;
   
   TEXTURA.renderizador = new THREE.WebGLRenderer();
  TEXTURA.renderizador.setSize(600, 600);
