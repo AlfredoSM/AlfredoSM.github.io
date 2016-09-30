@@ -95,7 +95,7 @@ TEXTURA.retrollamada3 = function( textura ){
 			 TEXTURA.tablerob = new Array(); 
   var material = new THREE.MeshBasicMaterial( {map: textura} );
 TEXTURA.tablerob[(4*x)+z] = new THREE.Mesh( new THREE.BoxGeometry( 70, 1, 70), material );
-	TEXTURA.tablerob.TranslateX(140*x);
+	TEXTURA.tablerob[(4*x)+z].TranslateX(140*x);
 TEXTURA.escena.add(TEXTURA.tablerob[(4*x)+z]);  
 		}
   
