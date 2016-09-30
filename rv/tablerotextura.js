@@ -86,17 +86,17 @@ TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
 
 TEXTURA.retrollamada3 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
- for ( var XX = 0; XX < 8; XX ++ ){
-for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
-	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	TEXTURA.tablero[(XX*8)+ZZ] = new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
-	TEXTURA.tablero[(XX*8)+ZZ].translateX(XX*35);
-	TEXTURA.tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
-  TEXTURA.escena.add(TEXTURA.tablero[(XX*8)+ZZ]);  
-	}
+ //for ( var XX = 0; XX < 8; XX ++ ){
+//for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
+	//if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
+	TEXTURA.tablero = new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
+	TEXTURA.tablero.translateX(XX*35);
+	TEXTURA.tablero.translateZ(ZZ * 35);
+  TEXTURA.escena.add(TEXTURA.tablero);  
+	//}
   
-}
- }
+//}
+// }
 
 }
 
