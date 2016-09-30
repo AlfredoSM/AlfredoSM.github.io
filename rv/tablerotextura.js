@@ -76,7 +76,8 @@ TEXTURA.retrollamada2 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
   var figura = new THREE.Shape();
   Torre.prototype= new THREE.Geometry();
-TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
+TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
+  TEXTURA.Torre2.translateX(35*7);
   TEXTURA.escena.add(TEXTURA.Torre1);
 }
 
