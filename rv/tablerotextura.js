@@ -89,9 +89,9 @@ TEXTURA.retrollamada3 = function( textura ){
  for ( var XX = 0; XX < 4; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	
-	TEXTURA.tablerob[XX+ZZ] = new THREE.Mesh( new THREE.BoxGeometry( 100, 1, 100), material );
-	TEXTURA.tablerob[XX+ZZ].translateX(XX*35);
-	TEXTURA.tablerob[XX+ZZ].translateZ(ZZ * 35);
+	TEXTURA.tablerob = new THREE.Mesh( new THREE.BoxGeometry( 100, 1, 100), material );
+	TEXTURA.tablerob.translateX(XX*35);
+	TEXTURA.tablerob.translateZ(ZZ * 35);
   TEXTURA.escena.add(TEXTURA.tablerob[XX+ZZ]);  
 	
   
