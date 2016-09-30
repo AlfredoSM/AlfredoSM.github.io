@@ -69,7 +69,9 @@ TEXTURA.retrollamada = function( textura ){
   var figura = new THREE.Shape();
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
-  TEXTURA.escena.add(TEXTURA.Torre1);
+  TEXTURA.Torre3 = new THREE.Mesh(new Torre(), material);
+  TEXTURA.Torre3.translateY(35*7);
+  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3);
 }
 
 TEXTURA.retrollamada2 = function( textura ){
@@ -77,8 +79,11 @@ TEXTURA.retrollamada2 = function( textura ){
   var figura = new THREE.Shape();
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
+  TEXTURA.Torre4 = new THREE.Mesh(new Torre(), material);
   TEXTURA.Torre2.translateX(35*7);
-  TEXTURA.escena.add(TEXTURA.Torre2);
+  TEXTURA.Torre4.translateX(35*7);
+  TEXTURA.Torre4.translateY(35*7);
+  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
 }
 
 TEXTURA.setup = function() {
