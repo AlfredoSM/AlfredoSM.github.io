@@ -98,7 +98,7 @@ TEXTURA.retrollamada3 = function( textura ){
 
 TEXTURA.retrollamada4 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-	TEXTURA.tableron[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
+	TEXTURA.tableron= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
 	TEXTURA.tableron.translateX(8*35);
 	TEXTURA.tableron.translateZ(8 * 35);
   TEXTURA.escena.add(TEXTURA.tablero);
