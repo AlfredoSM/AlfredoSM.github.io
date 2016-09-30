@@ -86,17 +86,13 @@ TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
 
 TEXTURA.retrollamada3 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
- for ( var XX = 0; XX < 4; XX ++ ){
-for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
+
 	
 	TEXTURA.tablerob = new THREE.Mesh( new THREE.BoxGeometry( 100, 1, 100), material );
-	TEXTURA.tablerob.translateX(XX*35);
-	TEXTURA.tablerob.translateZ(ZZ * 35);
-  TEXTURA.escena.add(TEXTURA.tablerob[XX+ZZ]);  
+	
+  TEXTURA.escena.add(TEXTURA.tablerob);  
 	
   
-}
-}
 
 }
 
