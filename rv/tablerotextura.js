@@ -124,7 +124,7 @@ TEXTURA.setup = function() {
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1000;
   TEXTURA.camara.position.x= 35*4;
-  TEXTURA.escena.rotateX(Math.PI/4);
+  //TEXTURA.escena.rotateX(Math.PI/4);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
  TEXTURA.renderizador.setSize(600, 600);
  document.body.appendChild(TEXTURA.renderizador.domElement);
