@@ -88,7 +88,7 @@ TEXTURA.retrollamada3 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
  for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
-	//if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
+	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
 	TEXTURA.tablero [(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 100, 1, 100), material );
 	TEXTURA.tablero.translateX(XX*35);
 	TEXTURA.tablero.translateZ(ZZ * 35);
