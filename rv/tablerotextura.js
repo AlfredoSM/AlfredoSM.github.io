@@ -78,7 +78,7 @@ TEXTURA.retrollamada2 = function( textura ){
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
   TEXTURA.Torre2.translateX(35*7);
-  TEXTURA.escena.add(TEXTURA.Torre1);
+  TEXTURA.escena.add(TEXTURA.Torre2);
 }
 
 TEXTURA.setup = function() {
@@ -99,7 +99,7 @@ TEXTURA.setup = function() {
 
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
-  if( TEXTURA.malla !== undefined ) {
+  if( TEXTURA.torre1 !== undefined && TEXTURA.torre2 !== undefined) {
     TEXTURA.malla.rotateY( 0.01 );
     }
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
