@@ -72,13 +72,23 @@ TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
   TEXTURA.escena.add(TEXTURA.Torre1);
 }
 
+TEXTURA.retrollamada2 = function( textura ){
+  var material = new THREE.MeshBasicMaterial( {map: textura} );
+  var figura = new THREE.Shape();
+  Torre.prototype= new THREE.Geometry();
+TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
+  TEXTURA.escena.add(TEXTURA.Torre1);
+}
+
 TEXTURA.setup = function() {
   TEXTURA.escena = new THREE.Scene();
   
   var cargador = new THREE.TextureLoader();
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
+  var cargador2 = new THREE.TextureLoader();
+  cargador.load("marmolnegro.jpg",TEXTURA.retrollamada2);
   TEXTURA.camara = new THREE.PerspectiveCamera();
-  TEXTURA.camara.position.z= 50;
+  TEXTURA.camara.position.z= 500;
   
   TEXTURA.renderizador = new THREE.WebGLRenderer();
  TEXTURA.renderizador.setSize(600, 600);
