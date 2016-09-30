@@ -66,7 +66,6 @@ return arbolForma;
 
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-  var figura = new THREE.Shape();
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
   TEXTURA.Torre3 = new THREE.Mesh(new Torre(), material);
@@ -76,7 +75,6 @@ TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
 
 TEXTURA.retrollamada2 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-  var figura = new THREE.Shape();
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
   TEXTURA.Torre4 = new THREE.Mesh(new Torre(), material);
@@ -86,6 +84,38 @@ TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
   TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
 }
 
+TEXTURA.retrollamada3 = function( textura ){
+  var material = new THREE.MeshBasicMaterial( {map: textura} );
+ for ( var XX = 0; XX < 8; XX ++ ){
+for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
+	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
+	TEXTURA.tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
+	TEXTURA.tablero[(XX*8)+ZZ].translateX(XX*35);
+	TEXTURA.tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
+  TEXTURA.escena.add(TEXTURA.tablero[(XX*8)+ZZ);  
+	}
+  
+}
+ }
+
+}
+
+TEXTURA.retrollamada4 = function( textura ){
+  var material = new THREE.MeshBasicMaterial( {map: textura} );
+  for ( var XX = 0; XX < 8; XX ++ ){
+for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
+	if(!((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
+	TEXTURA.tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), material );
+	TEXTURA.tablero[(XX*8)+ZZ].translateX(XX*35);
+	TEXTURA.tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
+  TEXTURA.escena.add(TEXTURA.tablero[(XX*8)+ZZ);
+    
+	}
+	
+}}
+
+}
+
 TEXTURA.setup = function() {
   TEXTURA.escena = new THREE.Scene();
   
@@ -93,6 +123,12 @@ TEXTURA.setup = function() {
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
   var cargador2 = new THREE.TextureLoader();
   cargador.load("marmolnegro.jpg",TEXTURA.retrollamada2);
+  var cargador3 = new THREE.TextureLoader();
+  cargador.load("maderablanca.jpg",TEXTURA.retrollamada3);
+  var cargador4 = new THREE.TextureLoader();
+  cargador.load("maderablanca.jpg",TEXTURA.retrollamada4);
+  var tablero = new Array(); 
+
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1000;
   TEXTURA.camara.position.x= 35*4;
