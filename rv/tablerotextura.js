@@ -90,7 +90,7 @@ TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
 
 TEXTURA.retrollamada3 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.tablerob = new THREE.Mesh( new THREE.BoxGeometry( 50, 1, 50), material );
+TEXTURA.tablerob = new THREE.Mesh( new THREE.BoxGeometry( 70, 1, 70), material );
 	
 TEXTURA.escena.add(TEXTURA.tablerob);  
 	
@@ -100,7 +100,7 @@ TEXTURA.escena.add(TEXTURA.tablerob);
 
 TEXTURA.retrollamada4 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-	TEXTURA.tableron= new THREE.Mesh( new THREE.BoxGeometry( 50, 1, 50), material );
+	TEXTURA.tableron= new THREE.Mesh( new THREE.BoxGeometry( 70, 1, 70), material );
 	TEXTURA.tableron.translateX(8*35);
 	TEXTURA.tableron.translateZ(8 * 35);
   TEXTURA.escena.add(TEXTURA.tableron);
