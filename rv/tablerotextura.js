@@ -1,4 +1,4 @@
-var TEXTURA = new Object();
+uvar TEXTURA = new Object();
 function Torre(){
   //Torre.prototype.call(this);
   var figura = new THREE.Shape();
@@ -61,7 +61,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-this.merge(arbolForma.merge);
+return arbolForma;
 }
 
 TEXTURA.retrollamada = function( textura ){
