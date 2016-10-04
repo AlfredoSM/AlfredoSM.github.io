@@ -65,8 +65,8 @@ this.malla = new THREE.Mesh(arbolForma , new THREE.MeshNormalMaterial());
 var CONSTRUCTOR = new Object();
 
 CONSTRUCTOR.setup = function(){
-  var arbol1 = new Arbol();
-  var arbol2 = new Arbol();
+  var arbol1 = new Torre();
+  var arbol2 = new Torre();
   
   arbol1.malla.position.x=-55;
   arbol2.malla.position.x=55;
