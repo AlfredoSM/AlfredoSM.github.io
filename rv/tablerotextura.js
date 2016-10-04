@@ -60,8 +60,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-this.geometria =new THREE.Geometry();
-this.geometria.merge(arbolForma);
+return arbolForma;
 }
 
 TEXTURA.retrollamada = function( textura ){
