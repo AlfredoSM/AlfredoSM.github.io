@@ -88,30 +88,7 @@ TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
   TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
 }
 
-TEXTURA.retrollamada3 = function( textura ){
-	for( var x=0; x<4; x++)
-		for( var z=0; z<8; x++)
-		{
-			 TEXTURA.tablerob = new Array(); 
-  var material = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.tablerob[(4*x)+z] = new THREE.Mesh( new THREE.BoxGeometry( 70, 1, 70), material );
-	TEXTURA.tablerob[(4*x)+z].translateX(140*x);
-TEXTURA.escena.add(TEXTURA.tablerob[(4*x)+z]);  
-		}
-  
 
-}
-
-TEXTURA.retrollamada4 = function( textura ){
-  var material = new THREE.MeshBasicMaterial( {map: textura} );
-	TEXTURA.tableron= new THREE.Mesh( new THREE.BoxGeometry( 70, 1, 70), material );
-	TEXTURA.tableron.translateX(70);
-	
-  TEXTURA.escena.add(TEXTURA.tableron);
-    
-
-
-}
 
 TEXTURA.setup = function() {
   TEXTURA.escena = new THREE.Scene();
@@ -120,10 +97,10 @@ TEXTURA.setup = function() {
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
   var cargador2 = new THREE.TextureLoader();
   cargador.load("marmolnegro.jpg",TEXTURA.retrollamada2);
-  var cargador3 = new THREE.TextureLoader();
-  cargador.load("maderablanca.jpg",TEXTURA.retrollamada3);
-  var cargador4 = new THREE.TextureLoader();
-  cargador.load("maderanegra.jpg",TEXTURA.retrollamada4);
+//  var cargador3 = new THREE.TextureLoader();
+//  cargador.load("maderablanca.jpg",TEXTURA.retrollamada3);
+//  var cargador4 = new THREE.TextureLoader();
+//  cargador.load("maderanegra.jpg",TEXTURA.retrollamada4);
 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1000;
