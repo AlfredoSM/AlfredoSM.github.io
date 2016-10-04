@@ -61,7 +61,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-return arbolForma;
+this.merge( arbolForma);
 }
 
 TEXTURA.retrollamada = function( textura ){
