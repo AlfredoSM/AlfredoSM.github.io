@@ -76,7 +76,7 @@ CONSTRUCTOR.setup = function(){
   
   CONSTRUCTOR.renderizador = new THREE.WebGLRenderer();
   CONSTRUCTOR.renderizador.setSize(600, 600);
-  document.body.appendChild(TEXTURA.renderizador.domElement);
+  document.body.appendChild(CONSTRUCTOR.renderizador.domElement);
   
   CONSTRUCTOR.escena = new THREE.Scene();
   CONSTRUCTOR.escena.add(arbol1.malla, arbol2.malla);
