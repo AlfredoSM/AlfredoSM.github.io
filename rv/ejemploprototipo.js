@@ -3,7 +3,7 @@ var PROTOTIPO = new Object();
 PROTOTIPO.ArbolGeometry = function(){
   THREE.Geometry.call(this);
   
-  var troncoForma = THREE.CylinderGeometry(.25, .5, 1);
+  var troncoForma = THREE.CylinderGeometry(.25, .25, 1);
   var esferaForma = THREE.SphereGeometry(.65);
   esferForma.translate(0, 1, 0);
   
