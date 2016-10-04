@@ -1,6 +1,5 @@
 var TEXTURA = new Object();
 function Torre(){
-  //Torre.prototype.call(this);
   var figura = new THREE.Shape();
   var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
@@ -97,10 +96,7 @@ TEXTURA.setup = function() {
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
   var cargador2 = new THREE.TextureLoader();
   cargador.load("marmolnegro.jpg",TEXTURA.retrollamada2);
-//  var cargador3 = new THREE.TextureLoader();
-//  cargador.load("maderablanca.jpg",TEXTURA.retrollamada3);
-//  var cargador4 = new THREE.TextureLoader();
-//  cargador.load("maderanegra.jpg",TEXTURA.retrollamada4);
+
 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1000;
