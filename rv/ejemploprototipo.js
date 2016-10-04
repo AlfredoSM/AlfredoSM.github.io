@@ -3,8 +3,8 @@ var PROTOTIPO = new Object();
 PROTOTIPO.ArbolGeometry = function(){
   THREE.Geometry.call(this);
   
-  var troncoForma = THREE.CylinderGeometry(.25, .25, 1);
-  var esferaForma = THREE.SphereGeometry(.65);
+  var troncoForma = new THREE.CylinderGeometry(.25, .25, 1);
+  var esferaForma = new THREE.SphereGeometry(.65);
   esferForma.translate(0, 1, 0);
   
   var troncoMalla = new THREE.Mesh(troncoForma);
