@@ -61,7 +61,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-this = new THREE.Mesh(arbolForma, material)
+THREE.Mesh.call(this, arbolForma, material)
 
 }
 
