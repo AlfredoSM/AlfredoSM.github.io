@@ -72,7 +72,7 @@ TEXTURA.retrollamada = function( textura ){
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
   TEXTURA.Torre3 = new THREE.Mesh(new Torre(), material);
-  TEXTURA.Torre3.translateZ(35*7);
+  TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
   TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3);
@@ -83,9 +83,9 @@ TEXTURA.retrollamada2 = function( textura ){
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
   TEXTURA.Torre4 = new THREE.Mesh(new Torre(), material);
-  TEXTURA.Torre2.translateX(50*7);
-  TEXTURA.Torre4.translateX(50*7);
-  TEXTURA.Torre4.translateZ(50*7);
+  TEXTURA.Torre2.translateX(60*7);
+  TEXTURA.Torre4.translateX(60*7);
+  TEXTURA.Torre4.translateZ(60*7);
 	TEXTURA.Torre2.translateY(25);
 	TEXTURA.Torre4.translateY(25);
   TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
@@ -119,14 +119,14 @@ var tablero = new Array();
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 50, 1, 50), TEXTURA.material1 );
-	tablero[(XX*8)+ZZ].translateX(XX*50);
-	tablero[(XX*8)+ZZ].translateZ(ZZ * 50);
+	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 60, 1, 60), TEXTURA.material1 );
+	tablero[(XX*8)+ZZ].translateX(XX*60);
+	tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
 	}
 	else{
-		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 50, 1, 50), TEXTURA.material2 );
-		tablero[(XX*8)+ZZ].translateX(XX*50);
-		tablero[(XX*8)+ZZ].translateZ(ZZ * 50);
+		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 60, 1, 60), TEXTURA.material2 );
+		tablero[(XX*8)+ZZ].translateX(XX*60);
+		tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
 	}
 	TEXTURA.escena.add(  tablero [(XX*8)+ZZ] );
 }}
