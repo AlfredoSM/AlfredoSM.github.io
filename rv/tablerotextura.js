@@ -65,7 +65,7 @@ THREE.Mesh.call(this, arbolForma, material)
 
 }
 
-Torre.prototype = new THREE.Mesh(this,material);
+Torre.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
