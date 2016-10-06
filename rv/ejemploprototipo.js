@@ -31,7 +31,7 @@ PROTOTIPO.ArbolGeometry = function(){
   document.body.appendChild(PROTOTIPO.renderizador.domElement);
   
   PROTOTIPO.escena = new THREE.Scene();
-  PROTOTIPO.escena.add(arbol1.malla, arbol2.malla);
+  PROTOTIPO.escena.add(arbol1, arbol2);
   }
   PROTOTIPO.loop = function(){
   requestAnimationFrame( PROTOTIPO.loop );
