@@ -64,6 +64,13 @@ THREE.Mesh.call(this, arbolForma, material);
 
 }
 
+function Casilla(material)
+{
+	cuadro = new THREE.BoxGeometry( 60, 1, 60);
+	THREE.Mesh.call(this, cuadro, material);
+}
+
+Casilla.prototype = new THREE.Mesh();
 Torre.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
@@ -116,12 +123,12 @@ var tablero = new Array();
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 60, 1, 60), TEXTURA.material1 );
+	tablero[(XX*8)+ZZ]= new Casilla( TEXTURA.material1 );
 	tablero[(XX*8)+ZZ].translateX(XX*60);
 	tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
 	}
 	else{
-		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 60, 1, 60), TEXTURA.material2 );
+		tablero[(XX*8)+ZZ]= new Casilla(TEXTURA.material2 );
 		tablero[(XX*8)+ZZ].translateX(XX*60);
 		tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
 	}
