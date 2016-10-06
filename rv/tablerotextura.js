@@ -111,6 +111,7 @@ TEXTURA.setup = function() {
   cargador.load("maderablanca.jpg",TEXTURA.retrollamada);
   var cargador4 = new THREE.TextureLoader();
   cargador.load("maderanegra.jpg",TEXTURA.retrollamada2);
+	 if(TEXTURA.material1 !==undefined && TEXTURA.material2 !== undefined){
 var tablero = new Array(); 
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
@@ -126,7 +127,7 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	}
 	TEXTURA.escena.add(  tablero [(XX*8)+ZZ] );
 }}
-
+	 }
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1000;
   TEXTURA.camara.position.x= 35*4;
@@ -143,7 +144,7 @@ TEXTURA.loop = function(){
     }
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
  }
- if(TEXTURA.material1 !==undefined && TEXTURA.material2 !== undefined){
+
  TEXTURA.setup();
  TEXTURA.loop();
- }
+ 
