@@ -91,6 +91,13 @@ TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
   TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
 }
 
+TEXTURA.retrollamada3 = function( textura ){
+ TEXTURA.material1 = new THREE.MeshBasicMaterial( {map: textura} );
+}
+
+TEXTURA.retrollamada4 = function( textura ){
+ TEXTURA.material2 = new THREE.MeshBasicMaterial( {map: textura} );
+}
 
 
 TEXTURA.setup = function() {
@@ -100,7 +107,25 @@ TEXTURA.setup = function() {
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
   var cargador2 = new THREE.TextureLoader();
   cargador.load("marmolnegro.jpg",TEXTURA.retrollamada2);
-
+  var cargador3 = new THREE.TextureLoader();
+  cargador.load("maderablanco.jpg",TEXTURA.retrollamada);
+  var cargador4 = new THREE.TextureLoader();
+  cargador.load("maderanegro.jpg",TEXTURA.retrollamada2);
+var tablero = new Array(); 
+for ( var XX = 0; XX < 8; XX ++ ){
+for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
+	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
+	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), TEXTURA.material1 );
+	tablero[(XX*8)+ZZ].translateX(XX*35);
+	tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
+	}
+	else{
+		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), TEXTURA.material2 );
+		tablero[(XX*8)+ZZ].translateX(XX*35);
+		tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
+	}
+	TEXTURA.escena.add(  tablero [(XX*8+ZZ] );
+}}
 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1000;
