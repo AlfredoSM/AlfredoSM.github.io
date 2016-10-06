@@ -143,6 +143,7 @@ TEXTURA.loop = function(){
     }
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
  }
- if(TEXTURA.material1 !==undefined && TEXTURA.material2 !== undefined)
+ if(TEXTURA.material1 !==undefined && TEXTURA.material2 !== undefined){
  TEXTURA.setup();
  TEXTURA.loop();
+ }
