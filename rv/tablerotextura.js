@@ -1,6 +1,5 @@
 var TEXTURA = new Object();
 function Torre(material){
-	THREE.Mesh.call(this);
   var figura = new THREE.Shape();
   var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
