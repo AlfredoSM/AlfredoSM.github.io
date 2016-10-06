@@ -68,7 +68,7 @@ Torre.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-  Torre.prototype= new THREE.Geometry();
+  Torre.prototype= new THREE.Mesh();
 TEXTURA.Torre1 = new Torre( material);
   TEXTURA.Torre3 = new Torre( material);
   TEXTURA.Torre3.translateZ(60*7);
@@ -79,7 +79,7 @@ TEXTURA.Torre1 = new Torre( material);
 
 TEXTURA.retrollamada2 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
-  Torre.prototype= new THREE.Geometry();
+  Torre.prototype= new THREE.Mesh();
 TEXTURA.Torre2 = new Torre( material);
   TEXTURA.Torre4 = new Torre(material);
   TEXTURA.Torre2.translateX(60*7);
