@@ -132,7 +132,7 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 }}
 	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
-  TEXTURA.camara.position.z= 2000;
+  TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
   TEXTURA.escena.rotateX(Math.PI/4);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
