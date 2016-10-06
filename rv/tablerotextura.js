@@ -108,9 +108,9 @@ TEXTURA.setup = function() {
   var cargador2 = new THREE.TextureLoader();
   cargador.load("marmolnegro.jpg",TEXTURA.retrollamada2);
   var cargador3 = new THREE.TextureLoader();
-  cargador.load("maderablanco.jpg",TEXTURA.retrollamada);
+  cargador.load("maderablanca.jpg",TEXTURA.retrollamada);
   var cargador4 = new THREE.TextureLoader();
-  cargador.load("maderanegro.jpg",TEXTURA.retrollamada2);
+  cargador.load("maderanegra.jpg",TEXTURA.retrollamada2);
 var tablero = new Array(); 
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
