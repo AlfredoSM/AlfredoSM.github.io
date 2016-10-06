@@ -83,9 +83,9 @@ TEXTURA.retrollamada2 = function( textura ){
   Torre.prototype= new THREE.Geometry();
 TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
   TEXTURA.Torre4 = new THREE.Mesh(new Torre(), material);
-  TEXTURA.Torre2.translateX(35*7);
-  TEXTURA.Torre4.translateX(35*7);
-  TEXTURA.Torre4.translateZ(35*7);
+  TEXTURA.Torre2.translateX(50*7);
+  TEXTURA.Torre4.translateX(50*7);
+  TEXTURA.Torre4.translateZ(50*7);
 	TEXTURA.Torre2.translateY(25);
 	TEXTURA.Torre4.translateY(25);
   TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
@@ -123,7 +123,7 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	tablero[(XX*8)+ZZ].translateZ(ZZ * 50);
 	}
 	else{
-		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), TEXTURA.material2 );
+		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 50, 1, 50), TEXTURA.material2 );
 		tablero[(XX*8)+ZZ].translateX(XX*50);
 		tablero[(XX*8)+ZZ].translateZ(ZZ * 50);
 	}
