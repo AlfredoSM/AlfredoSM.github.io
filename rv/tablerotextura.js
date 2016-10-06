@@ -53,15 +53,15 @@ var baseAbajomalla = new THREE.Mesh(baseabajo);
 var troncoMalla = new THREE.Mesh(troncoForma);
 var esferaMalla = new THREE.Mesh(esferaForma);
 var arbolForma = new THREE.Geometry();
-arbolForma.merge(malla.geometry, malla.matrix);
-arbolForma.merge(malla1.geometry, malla1.matrix);
-arbolForma.merge(malla2.geometry, malla2.matrix);
-arbolForma.merge(malla3.geometry, malla3.matrix);
-arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
-arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
-arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-this.merge(arbolForma.geometry, arbolForma.matrix);
+this.merge(malla.geometry, malla.matrix);
+this.merge(malla1.geometry, malla1.matrix);
+this.merge(malla2.geometry, malla2.matrix);
+this.merge(malla3.geometry, malla3.matrix);
+this.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+this.merge(baseeMalla.geometry, baseeMalla.matrix);
+this.merge(troncoMalla.geometry, troncoMalla.matrix);
+this.merge(esferaMalla.geometry, esferaMalla.matrix);
+
 
 }
 
