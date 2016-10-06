@@ -115,14 +115,14 @@ var tablero = new Array();
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), TEXTURA.material1 );
-	tablero[(XX*8)+ZZ].translateX(XX*35);
-	tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
+	tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 50, 1, 50), TEXTURA.material1 );
+	tablero[(XX*8)+ZZ].translateX(XX*50);
+	tablero[(XX*8)+ZZ].translateZ(ZZ * 50);
 	}
 	else{
 		tablero[(XX*8)+ZZ]= new THREE.Mesh( new THREE.BoxGeometry( 35, 1, 35), TEXTURA.material2 );
-		tablero[(XX*8)+ZZ].translateX(XX*35);
-		tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
+		tablero[(XX*8)+ZZ].translateX(XX*50);
+		tablero[(XX*8)+ZZ].translateZ(ZZ * 50);
 	}
 	TEXTURA.escena.add(  tablero [(XX*8)+ZZ] );
 }}
