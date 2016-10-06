@@ -124,7 +124,7 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
 		tablero[(XX*8)+ZZ].translateX(XX*35);
 		tablero[(XX*8)+ZZ].translateZ(ZZ * 35);
 	}
-	TEXTURA.escena.add(  tablero [(XX*8+ZZ] );
+	TEXTURA.escena.add(  tablero [(XX*8)+ZZ] );
 }}
 
   TEXTURA.camara = new THREE.PerspectiveCamera();
