@@ -36,7 +36,7 @@ PROTOTIPO.ArbolGeometry = function(){
   PROTOTIPO.loop = function(){
   requestAnimationFrame( PROTOTIPO.loop );
 
-    PROTTIPO.renderizador.render( PROTOTIPO.escena, PROTOTIPO.camara );
+    PROTOTIPO.renderizador.render( PROTOTIPO.escena, PROTOTIPO.camara );
  }
  
  PROTOTIPO.setup();
