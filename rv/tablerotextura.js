@@ -143,11 +143,11 @@ var setupDone = false;
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
 	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone)
- TEXTURA.setup2();
+	{TEXTURA.setup2();
   if( TEXTURA.torre1 !== undefined && TEXTURA.torre2 !== undefined ) {
     TEXTURA.malla.rotateY( 0.01 );
     }
-    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
  }
 
  TEXTURA.loop();
