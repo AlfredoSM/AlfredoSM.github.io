@@ -114,6 +114,7 @@ TEXTURA.setup = function() {
 }
 
 TEXTURA.setup2 = function(){
+	setupDone = true;
 var tablero = new Array(); 
 for ( var XX = 0; XX < 8; XX ++ ){
 for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
@@ -138,10 +139,10 @@ for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
  TEXTURA.renderizador.setSize(600, 600);
  document.body.appendChild(TEXTURA.renderizador.domElement);
 }
-
+var setupDone = false;
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
-	if(TEXTURA.material1!== undefined && TEXTURA.material2!==undefined && !setupDone)
+	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone)
  TEXTURA.setup2();
   if( TEXTURA.torre1 !== undefined && TEXTURA.torre2 !== undefined ) {
     TEXTURA.malla.rotateY( 0.01 );
