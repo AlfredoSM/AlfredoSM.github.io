@@ -70,8 +70,30 @@ function Casilla(material)
 	THREE.Mesh.call(this, cuadro, material);
 }
 
+function Tablero(material1, material2)
+{
+	THREE.Object3D(this);
+	var tablero = new Array(); 
+	for ( var XX = 0; XX < 8; XX ++ ){
+	for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
+	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
+	tablero[(XX*8)+ZZ]= new Casilla( TEXTURA.material1 );
+	tablero[(XX*8)+ZZ].translateX(XX*60);
+	tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
+	}
+	else{
+		tablero[(XX*8)+ZZ]= new Casilla(TEXTURA.material2 );
+		tablero[(XX*8)+ZZ].translateX(XX*60);
+		tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
+	}
+	this.add(  tablero [(XX*8)+ZZ] );
+}}
+}
+
+Tablero.prototype = new THREE.Object3D();
 Casilla.prototype = new THREE.Mesh();
 Torre.prototype = new THREE.Mesh();
+
 
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
@@ -119,22 +141,8 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-var tablero = new Array(); 
-for ( var XX = 0; XX < 8; XX ++ ){
-for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
-	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	tablero[(XX*8)+ZZ]= new Casilla( TEXTURA.material1 );
-	tablero[(XX*8)+ZZ].translateX(XX*60);
-	tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
-	}
-	else{
-		tablero[(XX*8)+ZZ]= new Casilla(TEXTURA.material2 );
-		tablero[(XX*8)+ZZ].translateX(XX*60);
-		tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
-	}
-	TEXTURA.escena.add(  tablero [(XX*8)+ZZ] );
-}}
-	 
+  TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
+  TEXTURA.escena.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
