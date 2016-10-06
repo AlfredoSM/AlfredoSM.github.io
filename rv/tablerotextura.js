@@ -1,6 +1,6 @@
 var TEXTURA = new Object();
-function Torre(){
-	THREE.Geometry.call(this);
+function Torre(material){
+	THREE.Mesh.call(this);
   var figura = new THREE.Shape();
   var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
@@ -53,25 +53,25 @@ var baseAbajomalla = new THREE.Mesh(baseabajo);
 var troncoMalla = new THREE.Mesh(troncoForma);
 var esferaMalla = new THREE.Mesh(esferaForma);
 var arbolForma = new THREE.Geometry();
-this.merge(malla.geometry, malla.matrix);
-this.merge(malla1.geometry, malla1.matrix);
-this.merge(malla2.geometry, malla2.matrix);
-this.merge(malla3.geometry, malla3.matrix);
-this.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
-this.merge(baseeMalla.geometry, baseeMalla.matrix);
-this.merge(troncoMalla.geometry, troncoMalla.matrix);
-this.merge(esferaMalla.geometry, esferaMalla.matrix);
-
+arbolForma.merge(malla.geometry, malla.matrix);
+arbolForma.merge(malla1.geometry, malla1.matrix);
+arbolForma.merge(malla2.geometry, malla2.matrix);
+arbolForma.merge(malla3.geometry, malla3.matrix);
+arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
+arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+this = new THREE.Mesh(arbolForma, material)
 
 }
 
-Torre.prototype = new THREE.Geometry();
+Torre.prototype = new THREE.Mesh(this,material);
 
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
   Torre.prototype= new THREE.Geometry();
-TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
-  TEXTURA.Torre3 = new THREE.Mesh(new Torre(), material);
+TEXTURA.Torre1 = new Torre( material);
+  TEXTURA.Torre3 = new Torre( material);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
@@ -81,8 +81,8 @@ TEXTURA.Torre1 = new THREE.Mesh(new Torre(), material);
 TEXTURA.retrollamada2 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
   Torre.prototype= new THREE.Geometry();
-TEXTURA.Torre2 = new THREE.Mesh(new Torre(), material);
-  TEXTURA.Torre4 = new THREE.Mesh(new Torre(), material);
+TEXTURA.Torre2 = new Torre( material);
+  TEXTURA.Torre4 = new Torre(material);
   TEXTURA.Torre2.translateX(60*7);
   TEXTURA.Torre4.translateX(60*7);
   TEXTURA.Torre4.translateZ(60*7);
