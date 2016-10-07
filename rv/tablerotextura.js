@@ -201,7 +201,7 @@ TEXTURA.Alfil4 = new Alfil(TEXTURA.material4);
 	{
 TEXTURA.Peon1[PN] = new Peon(TEXTURA.material4);
 	TEXTURA.Peon1[PN].translateX(6*60);
-	TEXTURA.Peon1[PN].translateZ(PB*60);
+	TEXTURA.Peon1[PN].translateZ(PN*60);
 	TEXTURA.Peon1[PN].translateY(25*.7);
 		TEXTURA.escena.add(TEXTURA.Peon1[PN]);
 	}
