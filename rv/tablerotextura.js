@@ -64,6 +64,26 @@ THREE.Mesh.call(this, arbolForma, material);
 
 }
 
+function Alfil(material){
+var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var esferaForma = new THREE.SphereGeometry(35);
+esferaForma.translate(0,40,0);
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var troncoMalla = new THREE.Mesh(troncoForma);
+var esferaMalla = new THREE.Mesh(esferaForma);
+var arbolForma = new THREE.Geometry();
+arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
+arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+THREE.Mesh.call(this, arbolForma, material);
+}
+
 function Casilla(material)
 {
 	cuadro = new THREE.BoxGeometry( 60, 1, 60);
@@ -93,7 +113,7 @@ function Tablero(material1, material2)
 Tablero.prototype = new THREE.Object3D();
 Casilla.prototype = new THREE.Mesh();
 Torre.prototype = new THREE.Mesh();
-
+Alfil.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
@@ -109,9 +129,14 @@ TEXTURA.retrollamada2 = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
 TEXTURA.Torre2 = new Torre( material);
   TEXTURA.Torre4 = new Torre(material);
+TEXTURA.Alfil2 = new Alfil(material);
+TEXTURA.Alfil4 = new Alfil(material);
   TEXTURA.Torre2.translateX(60*7);
   TEXTURA.Torre4.translateX(60*7);
   TEXTURA.Torre4.translateZ(60*7);
+TEXTURA.Alfil2.translateX(60*3);
+TEXTURA.Alfil4.translateX(60*5);
+TEXTURA.Alfil2.translateY(25);
 	TEXTURA.Torre2.translateY(25);
 	TEXTURA.Torre4.translateY(25);
   TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
