@@ -144,6 +144,7 @@ TEXTURA.Torre1 = new Torre( material);
 TEXTURA.Alfil1 = new Alfil(material);
 TEXTURA.Alfil3 = new Alfil(material);
 TEXTURA.Peon = new Peon(material);
+	TEXTURA.Peon.translateX(1*60);
 TEXTURA.Alfil1.translateZ(60*5);
 TEXTURA.Alfil3.translateZ(60*2);
 TEXTURA.Alfil1.translateY(25);
