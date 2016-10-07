@@ -68,7 +68,7 @@ function Alfil(material){
 var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
 var basee = new THREE.CylinderGeometry(24,24,8);
 basee.translate(0,-20,0);
-var esferaForma = new THREE.SphereGeometry(35);
+var esferaForma = new THREE.SphereGeometry(15);
 esferaForma.translate(0,40,0);
 var baseabajo = new THREE.CylinderGeometry(32,32,8);
 baseabajo.translate(0,-24,0);
