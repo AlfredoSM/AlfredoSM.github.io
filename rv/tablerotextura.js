@@ -175,10 +175,14 @@ TEXTURA.Torre1 = new Torre( TEXTURA.material3);
   TEXTURA.Torre3 = new Torre( TEXTURA.material3);
 TEXTURA.Alfil1 = new Alfil(TEXTURA.material3);
 TEXTURA.Alfil3 = new Alfil(TEXTURA.material3);
-TEXTURA.Peon = new Peon(TEXTURA.material3);
-	TEXTURA.Peon.translateX(1*60);
-	TEXTURA.Peon.translateZ(1*60);
-	TEXTURA.Peon.translateY(25*.7);
+	for( var PB=0; PB < 8; PB++)
+	{
+TEXTURA.Peon[PB] = new Peon(TEXTURA.material3);
+	TEXTURA.Peon[PB].translateX(1*60);
+	TEXTURA.Peon[PB].translateZ(PB*60);
+	TEXTURA.Peon[PB].translateY(25*.7);
+		TEXTURA.escena.add(TEXTURA.Peon[PB]);
+	}
 TEXTURA.Alfil1.translateZ(60*5);
 TEXTURA.Alfil3.translateZ(60*2);
 TEXTURA.Alfil1.translateY(25);
