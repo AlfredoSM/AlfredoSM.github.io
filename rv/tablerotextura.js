@@ -191,15 +191,20 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3, TEXTURA.Peon);
+  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3);
 TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
 TEXTURA.Alfil4 = new Alfil(TEXTURA.material4);
-TEXTURA.Peon1 = new Peon(TEXTURA.material4);
-	TEXTURA.Peon1.translateX(6*60);
-	TEXTURA.Peon1.translateZ(6*60);
-	TEXTURA.Peon1.translateY(25*.7);
+	TEXTURA.Peon = new Array();
+	for( var PN=0; PN < 8; PN++)
+	{
+TEXTURA.Peon[PN] = new Peon(TEXTURA.material4);
+	TEXTURA.Peon[PN].translateX(6*60);
+	TEXTURA.Peon[PN].translateZ(PB*60);
+	TEXTURA.Peon[PN].translateY(25*.7);
+		TEXTURA.escena.add(TEXTURA.Peon[PN]);
+	}
   TEXTURA.Torre2.translateX(60*7);
   TEXTURA.Torre4.translateX(60*7);
   TEXTURA.Torre4.translateZ(60*7);
