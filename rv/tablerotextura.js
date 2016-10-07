@@ -101,8 +101,8 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-	arbolForma.scale.set(.5, .5, .5);
 THREE.Mesh.call(this, arbolForma, material);
+this.scale.set(.5, .5, .5);
 }
 
 function Casilla(material)
