@@ -223,7 +223,7 @@ TEXTURA.loop = function(){
     
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
-	TEXTURA.escena.rotateY(Math.PI/10);
+	TEXTURA.escena.rotateY(Math.PI/100);
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
  }
  TEXTURA.setup();
