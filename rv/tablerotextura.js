@@ -163,10 +163,10 @@ TEXTURA.Torre2 = new Torre( material);
   TEXTURA.Torre4 = new Torre(material);
 TEXTURA.Alfil2 = new Alfil(material);
 TEXTURA.Alfil4 = new Alfil(material);
-TEXTURA.Peon = new Peon(material);
-	TEXTURA.Peon.translateX(6*60);
-	TEXTURA.Peon.translateZ(6*60);
-	TEXTURA.Peon.translateY(25*.7);
+TEXTURA.Peon1 = new Peon(material);
+	TEXTURA.Peon1.translateX(6*60);
+	TEXTURA.Peon1.translateZ(6*60);
+	TEXTURA.Peon1.translateY(25*.7);
   TEXTURA.Torre2.translateX(60*7);
   TEXTURA.Torre4.translateX(60*7);
   TEXTURA.Torre4.translateZ(60*7);
@@ -178,7 +178,7 @@ TEXTURA.Alfil2.translateY(25);
 TEXTURA.Alfil4.translateY(25);
 	TEXTURA.Torre2.translateY(25);
 	TEXTURA.Torre4.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4);
+  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4, TEXTURA.Peon1);
 }
 
 TEXTURA.retrollamada3 = function( textura ){
