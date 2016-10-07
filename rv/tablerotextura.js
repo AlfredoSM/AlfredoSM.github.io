@@ -84,6 +84,27 @@ arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
 }
 
+function Peon(material){
+	var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var esferaForma = new THREE.SphereGeometry(20);
+esferaForma.translate(0,50,0);
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var troncoMalla = new THREE.Mesh(troncoForma);
+var esferaMalla = new THREE.Mesh(esferaForma);
+var arbolForma = new THREE.Geometry();
+arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
+arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+	arbolForma.scale.set(.5, .5, .5);
+THREE.Mesh.call(this, arbolForma, material);
+}
+
 function Casilla(material)
 {
 	cuadro = new THREE.BoxGeometry( 60, 1, 60);
@@ -114,6 +135,7 @@ Tablero.prototype = new THREE.Object3D();
 Casilla.prototype = new THREE.Mesh();
 Torre.prototype = new THREE.Mesh();
 Alfil.prototype = new THREE.Mesh();
+Peon.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
@@ -121,6 +143,7 @@ TEXTURA.Torre1 = new Torre( material);
   TEXTURA.Torre3 = new Torre( material);
 TEXTURA.Alfil1 = new Alfil(material);
 TEXTURA.Alfil3 = new Alfil(material);
+TEXTURA.Peon = new Peon(material);
 TEXTURA.Alfil1.translateZ(60*5);
 TEXTURA.Alfil3.translateZ(60*2);
 TEXTURA.Alfil1.translateY(25);
@@ -128,7 +151,7 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3);
+  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3, TEXTURA.Peon);
 }
 
 TEXTURA.retrollamada2 = function( textura ){
