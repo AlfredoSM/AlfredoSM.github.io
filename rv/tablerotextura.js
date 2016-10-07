@@ -119,6 +119,12 @@ TEXTURA.retrollamada = function( textura ){
   var material = new THREE.MeshBasicMaterial( {map: textura} );
 TEXTURA.Torre1 = new Torre( material);
   TEXTURA.Torre3 = new Torre( material);
+TEXTURA.Alfil1 = new Alfil(material);
+TEXTURA.Alfil3 = new Alfil(material);
+TEXTURA.Alfil1.translateZ(60*5);
+TEXTURA.Alfil3.translateZ(60*3);
+TEXTURA.Alfil1.translateY(25);
+TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
@@ -134,8 +140,10 @@ TEXTURA.Alfil4 = new Alfil(material);
   TEXTURA.Torre2.translateX(60*7);
   TEXTURA.Torre4.translateX(60*7);
   TEXTURA.Torre4.translateZ(60*7);
-TEXTURA.Alfil2.translateX(60*3);
-TEXTURA.Alfil4.translateX(60*5);
+TEXTURA.Alfil2.translateX(60*7);
+TEXTURA.Alfil4.translateX(60*7);
+TEXTURA.Alfil2.translateZ(60*5);
+TEXTURA.Alfil4.translateZ(60*3);
 TEXTURA.Alfil2.translateY(25);
 TEXTURA.Alfil4.translateY(25);
 	TEXTURA.Torre2.translateY(25);
@@ -172,7 +180,7 @@ TEXTURA.setup2 = function(){
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
-  //TEXTURA.escena.rotateX(Math.PI/4);
+  TEXTURA.escena.rotateX(Math.PI/4);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
  TEXTURA.renderizador.setSize(600, 600);
  document.body.appendChild(TEXTURA.renderizador.domElement);
@@ -183,7 +191,7 @@ TEXTURA.loop = function(){
 	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone)
 	{TEXTURA.setup2();
   if( TEXTURA.torre1 !== undefined && TEXTURA.torre2 !== undefined ) {
-    TEXTURA.malla.rotateY( 0.01 );
+    TEXTURA.escena.rotateY(Math.PI/100);
     }
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
  }
