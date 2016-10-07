@@ -139,7 +139,7 @@ TEXTURA.Alfil4.translateX(60*5);
 TEXTURA.Alfil2.translateY(25);
 	TEXTURA.Torre2.translateY(25);
 	TEXTURA.Torre4.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4);
+  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4);
 }
 
 TEXTURA.retrollamada3 = function( textura ){
