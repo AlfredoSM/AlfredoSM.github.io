@@ -138,47 +138,13 @@ Alfil.prototype = new THREE.Mesh();
 Peon.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
-  var material = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.Torre1 = new Torre( material);
-  TEXTURA.Torre3 = new Torre( material);
-TEXTURA.Alfil1 = new Alfil(material);
-TEXTURA.Alfil3 = new Alfil(material);
-TEXTURA.Peon = new Peon(material);
-	TEXTURA.Peon.translateX(1*60);
-	TEXTURA.Peon.translateZ(1*60);
-	TEXTURA.Peon.translateY(25*.7);
-TEXTURA.Alfil1.translateZ(60*5);
-TEXTURA.Alfil3.translateZ(60*2);
-TEXTURA.Alfil1.translateY(25);
-TEXTURA.Alfil3.translateY(25);
-  TEXTURA.Torre3.translateZ(60*7);
-	TEXTURA.Torre1.translateY(25);
-	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3, TEXTURA.Peon);
+  TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
+
 }
 
 TEXTURA.retrollamada2 = function( textura ){
-  var material = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.Torre2 = new Torre( material);
-  TEXTURA.Torre4 = new Torre(material);
-TEXTURA.Alfil2 = new Alfil(material);
-TEXTURA.Alfil4 = new Alfil(material);
-TEXTURA.Peon1 = new Peon(material);
-	TEXTURA.Peon1.translateX(6*60);
-	TEXTURA.Peon1.translateZ(6*60);
-	TEXTURA.Peon1.translateY(25*.7);
-  TEXTURA.Torre2.translateX(60*7);
-  TEXTURA.Torre4.translateX(60*7);
-  TEXTURA.Torre4.translateZ(60*7);
-TEXTURA.Alfil2.translateX(60*7);
-TEXTURA.Alfil4.translateX(60*7);
-TEXTURA.Alfil2.translateZ(60*5);
-TEXTURA.Alfil4.translateZ(60*2);
-TEXTURA.Alfil2.translateY(25);
-TEXTURA.Alfil4.translateY(25);
-	TEXTURA.Torre2.translateY(25);
-	TEXTURA.Torre4.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4, TEXTURA.Peon1);
+ TEXTURA.material4 = new THREE.MeshBasicMaterial( {map: textura} );
+
 }
 
 TEXTURA.retrollamada3 = function( textura ){
@@ -205,6 +171,42 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
+TEXTURA.Torre1 = new Torre( TEXTURA.material3);
+  TEXTURA.Torre3 = new Torre( TEXTURA.material3);
+TEXTURA.Alfil1 = new Alfil(TEXTURA.material3);
+TEXTURA.Alfil3 = new Alfil(TEXTURA.material3);
+TEXTURA.Peon = new Peon(TEXTURA.material3);
+	TEXTURA.Peon.translateX(1*60);
+	TEXTURA.Peon.translateZ(1*60);
+	TEXTURA.Peon.translateY(25*.7);
+TEXTURA.Alfil1.translateZ(60*5);
+TEXTURA.Alfil3.translateZ(60*2);
+TEXTURA.Alfil1.translateY(25);
+TEXTURA.Alfil3.translateY(25);
+  TEXTURA.Torre3.translateZ(60*7);
+	TEXTURA.Torre1.translateY(25);
+	TEXTURA.Torre3.translateY(25);
+  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3, TEXTURA.Peon);
+TEXTURA.Torre2 = new Torre( TEXTURA.material4);
+  TEXTURA.Torre4 = new Torre(TEXTURA.material4);
+TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
+TEXTURA.Alfil4 = new Alfil(TEXTURA.material4);
+TEXTURA.Peon1 = new Peon(TEXTURA.material4);
+	TEXTURA.Peon1.translateX(6*60);
+	TEXTURA.Peon1.translateZ(6*60);
+	TEXTURA.Peon1.translateY(25*.7);
+  TEXTURA.Torre2.translateX(60*7);
+  TEXTURA.Torre4.translateX(60*7);
+  TEXTURA.Torre4.translateZ(60*7);
+TEXTURA.Alfil2.translateX(60*7);
+TEXTURA.Alfil4.translateX(60*7);
+TEXTURA.Alfil2.translateZ(60*5);
+TEXTURA.Alfil4.translateZ(60*2);
+TEXTURA.Alfil2.translateY(25);
+TEXTURA.Alfil4.translateY(25);
+	TEXTURA.Torre2.translateY(25);
+	TEXTURA.Torre4.translateY(25);
+  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4, TEXTURA.Peon1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
@@ -218,7 +220,7 @@ TEXTURA.setup2 = function(){
 var setupDone = false;
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
-	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone)
+	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
 	{TEXTURA.setup2();
     
     
