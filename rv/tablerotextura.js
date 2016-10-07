@@ -196,14 +196,14 @@ TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
 TEXTURA.Alfil4 = new Alfil(TEXTURA.material4);
-	TEXTURA.Peon = new Array();
+	TEXTURA.Peon1 = new Array();
 	for( var PN=0; PN < 8; PN++)
 	{
-TEXTURA.Peon[PN] = new Peon(TEXTURA.material4);
-	TEXTURA.Peon[PN].translateX(6*60);
-	TEXTURA.Peon[PN].translateZ(PB*60);
-	TEXTURA.Peon[PN].translateY(25*.7);
-		TEXTURA.escena.add(TEXTURA.Peon[PN]);
+TEXTURA.Peon1[PN] = new Peon(TEXTURA.material4);
+	TEXTURA.Peon1[PN].translateX(6*60);
+	TEXTURA.Peon1[PN].translateZ(PB*60);
+	TEXTURA.Peon1[PN].translateY(25*.7);
+		TEXTURA.escena.add(TEXTURA.Peon1[PN]);
 	}
   TEXTURA.Torre2.translateX(60*7);
   TEXTURA.Torre4.translateX(60*7);
@@ -216,7 +216,7 @@ TEXTURA.Alfil2.translateY(25);
 TEXTURA.Alfil4.translateY(25);
 	TEXTURA.Torre2.translateY(25);
 	TEXTURA.Torre4.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4, TEXTURA.Peon1);
+  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
