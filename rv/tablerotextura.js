@@ -223,8 +223,6 @@ TEXTURA.loop = function(){
     
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
-	TEXTURA.escena.rotateY(Math.PI/100);
-	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
  }
  TEXTURA.setup();
  TEXTURA.loop();
