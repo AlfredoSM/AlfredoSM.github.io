@@ -175,6 +175,7 @@ TEXTURA.Torre1 = new Torre( TEXTURA.material3);
   TEXTURA.Torre3 = new Torre( TEXTURA.material3);
 TEXTURA.Alfil1 = new Alfil(TEXTURA.material3);
 TEXTURA.Alfil3 = new Alfil(TEXTURA.material3);
+	TEXTURA.Peon = new Array();
 	for( var PB=0; PB < 8; PB++)
 	{
 TEXTURA.Peon[PB] = new Peon(TEXTURA.material3);
