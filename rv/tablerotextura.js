@@ -221,7 +221,7 @@ TEXTURA.loop = function(){
 	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone)
 	{TEXTURA.setup2();
   if( TEXTURA.torre1 !== undefined && TEXTURA.torre2 !== undefined ) {
-    TEXTURA.escena.rotateY(Math.PI/100);
+    TEXTURA.escena.rotateY(Math.PI/10);
     }
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
  }
