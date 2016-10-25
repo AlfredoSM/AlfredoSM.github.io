@@ -76,7 +76,7 @@ Enviroment.prototype.plan = function(){
    } 
     Pared.prototype = new THREE.object3D();
     
-  funcion setup(){
+  function setup(){
     entorno = new Enviroment();
     camara = new THREE.PerspectiveCamera();
     camara.position.z=30;
