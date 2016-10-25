@@ -74,7 +74,7 @@ Enviroment.prototype.plan = function(){
     this.position.x=x;
     this.position.y=y;
    } 
-    Pared.prototype = new THREE.object3D();
+    Pared.prototype = new THREE.Object3D();
     
   function setup(){
     entorno = new Enviroment();
