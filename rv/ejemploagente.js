@@ -99,7 +99,7 @@ Enviroment.prototype.plan = function(){
     entorno.sense();
     entorno.plan();
     entorno.act();
-    renderizador.renderer( entorno, camara);
+    renderizador.render( entorno, camara);
     }
 setup();
 loop();
