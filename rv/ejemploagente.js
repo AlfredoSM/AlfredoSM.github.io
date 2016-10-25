@@ -91,7 +91,7 @@ Enviroment.prototype.plan = function(){
     entorno.add(camara);
     
     renderizador = new THREE.WebGLRenderer();
-    renderizador.setsize( window.innerHeight*.95, window.innerHeight*.95);
+    renderizador.setSize( window.innerHeight*.95, window.innerHeight*.95);
     document.body.appendChild(renderizador.domElement);
   }
   
