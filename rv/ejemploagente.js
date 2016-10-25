@@ -68,7 +68,7 @@ Enviroment.prototype.plan = function(){
      this.position.x += this.step;
     }
   function Pared(size, x=0, y=0){
-    THREE.object3D.call(this,x,y);
+    THREE.Object3D.call(this,x,y);
     this.add(new THREE.Mesh(new THREE.BoxGeometry(size, size, size), new THREE.MeshNormalMaterial()));
     this.size = size;
     this.position.x=x;
