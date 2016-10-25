@@ -50,10 +50,10 @@ Enviroment.prototype.plan = function(){
  
  Pelota.prototype.sense = function(enviroment){
   this.sensor.set(this.position, new THREE.Vector3( 1, 0, 0));
-  var obstaculo1 = this.sensor.intersecObjects(enviroment.children,true);
+  var obstaculo1 = this.sensor.intersectObjects(enviroment.children,true);
   
   this.sensor.set( this.position, new THREE.Vector3( -1, 0, 0));
-  var obstaculo2 = this.sensor.intersecObjects(enviroment.children,true);
+  var obstaculo2 = this.sensor.intersectObjects(enviroment.children,true);
   
   if((obstaculo1.length > 0 && (obstaculo1[0].distance <= this.radius))|| (obstaculo2.lenght > 0 && obstaculo2[0].distance <= this.radius))
     this.colision = 1;
