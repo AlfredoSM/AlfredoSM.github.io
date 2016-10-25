@@ -96,6 +96,7 @@ Enviroment.prototype.plan = function(){
   }
   
   function loop(){
+    requestAnimationFrame(loop);
     entorno.sense();
     entorno.plan();
     entorno.act();
