@@ -43,7 +43,7 @@ Enviroment.prototype.plan = function(){
   this.step = 0.1;
   this.colision = 0;
   this.radius = r;
-  this.sensor = new.Raycaster(this.position, new THREE.Vector3(1,0,0));
+  this.sensor = new Raycaster(this.position, new THREE.Vector3(1,0,0));
  }
  
  Pelota.prototype = new Agent();
