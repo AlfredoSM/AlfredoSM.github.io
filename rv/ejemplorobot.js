@@ -100,7 +100,7 @@ Robot.prototype.act = function(enviroment){
   else if (command in this.operations)
   this.operations[command](this);
   else
-  console.log('Unknown command);
+  console.log('Unknown command');
 }
 
 Robot.prototype.operations = {};
