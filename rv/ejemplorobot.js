@@ -52,7 +52,7 @@ Enviroment.prototype.plan = function(){
       for(var j=0; j< map.length; j++){
         if(map[i][j]==="x")
           this.add(new Wall(1, j-__offset,-(i-__offset)));
-         else if(map[i][j]=="r")
+         else if(map[i][j]==="r")
           this.add(new Robot(0.5, j - __offset, -(i-__offset)));
           }
       }
@@ -139,8 +139,8 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
   mapa[10]="xxxxx  xxxxxxxxxxxxxxxxx";
   mapa[11]="xxxxxx  xxxxxxxxxxxxxxxx";
   mapa[12]="xxxxxxx  xxxxxxxxxxxxxxx";
-  mapa[13]="xxxxxxxxx  xxxxxxxxxxxxx";
-  mapa[14]="xxxxxxxxxxx  xxxxxxxxxxx";
+  mapa[13]="xxxxxxxx   xxxxxxxxxxxxx";
+  mapa[14]="xxxxxxxxxx   xxxxxxxxxxx";
   mapa[15]="xxxxxxxxxxxx  xxxxxxxxxx";
   mapa[16]="xxxxxxxxxxxxx  xxxxxxxxx";
   mapa[17]="xxxxxxxxxxxxxx  xxxxxxxx";
