@@ -93,7 +93,7 @@ Robot.prototype.plan = function(enviroment){
 }
 
 Robot.prototype.act = function(enviroment){
-  var command = this.actutor.comands.pop();
+  var command = this.actutor.commands.pop();
   
   if(command === undefined)
   console.log('Undefined command');
