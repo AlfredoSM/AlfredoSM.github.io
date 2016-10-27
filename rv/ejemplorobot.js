@@ -166,7 +166,7 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
     enviroment.sense();
     enviroment.plan();
     enviroment.act();
-    renderizador.render( entorno, camera);
+    renderer.render( entorno, camera);
     }
 setup();
 loop();
