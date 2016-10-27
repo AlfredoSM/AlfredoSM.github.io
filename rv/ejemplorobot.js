@@ -127,14 +127,14 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
  function setup(){
   var mapa = new Array();
   mapa[0]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  mapa[1]="xr    r      r              x";
+  mapa[1]="xr    r      r            xxx";
   mapa[2]="xxxxxx            xxxxxxxxxxx";
   mapa[3]="xxxxx                   xxxxx";
-  mapa[4]="xx         r               xx";
+  mapa[4]="xx         r            xxxxx";
   mapa[5]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  mapa[6]="xxxx                       xx";
+  mapa[6]="xxxx                    xxxxx";
   mapa[7]="xx              xxxxxxxxxxxxx";
-  mapa[8]="xxxxxxxxxx                 xx";
+  mapa[8]="xxxxxxxxxx              xxxxx";
   mapa[9]="xx                 r     xxxx";
   mapa[10]="xxxxx  xxxxxxxxxxxxxxxxxxxxxx";
   mapa[11]="xxxxxx  xxxxxxxxxxxxxxxxxxxxx";
@@ -144,7 +144,7 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
   mapa[15]="xxxxxxxxxxxx  xxxxxxxxxxxxxxx";
   mapa[16]="xxxxxxxxxxxxx  xxxxxxxxxxxxxx";
   mapa[17]="xxxxxxxxxxxxxx  xxxxxxxxxxxxx";
-  mapa[18]="xxxxxxxxxxxxxxx           xxx";
+  mapa[18]="xxxxxxxxxxxxxxx       xxxxxxx";
   mapa[19]="xx            r   xxxxxxxxxxx";
   mapa[20]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   
