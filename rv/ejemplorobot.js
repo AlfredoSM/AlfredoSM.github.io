@@ -93,7 +93,7 @@ Robot.prototype.plan = function(enviroment){
 }
 
 Robot.prototype.act = function(enviroment){
-  var command = this.actutor.commands.pop();
+  var command = this.actuator.commands.pop();
   
   if(command === undefined)
   console.log('Undefined command');
@@ -145,7 +145,7 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
   mapa[16]="xxxxxxxxxxxxx  xxxxxxxxxxxxxx";
   mapa[17]="xxxxxxxxxxxxxx  xxxxxxxxxxxxx";
   mapa[18]="xxxxxxxxxxxxxxx           xxx";
-  mapa[19]="xx                xxxxxxxxxxx";
+  mapa[19]="xx            r   xxxxxxxxxxx";
   mapa[20]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   
   enviroment = new Enviroment();
