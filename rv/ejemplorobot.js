@@ -105,7 +105,7 @@ Robot.prototype.act = function(enviroment){
 
 Robot.prototype.operations = {};
 
-Robot.ptototype.operations.goStraight = function(robot, distance){
+Robot.prototype.operations.goStraight = function(robot, distance){
   if(distance === undefined)
   distance=.05;
   robot.position.x += distance*Math.cos(robot.rotation.z);
