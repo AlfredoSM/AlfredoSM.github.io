@@ -150,7 +150,7 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
   
   enviroment = new Enviroment();
   
-  enviroment.setMapa(mapa);
+  enviroment.setMap(mapa);
   
   camera = new THREE.PerspectiveCamera();
   camera.postion.z=30;
@@ -166,7 +166,7 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
     entorno.sense();
     entorno.plan();
     entorno.act();
-    renderizador.render( entorno, camara);
+    renderizador.render( entorno, camera);
     }
 setup();
 loop();
