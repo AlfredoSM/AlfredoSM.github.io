@@ -53,7 +53,7 @@ Enviroment.prototype.plan = function(){
         if(map[i][j]==="x")
           this.add(new Wall(1, j-__offset,-(i-__offset)));
          else if(map[i][j]=="r")
-          this.add(new Robot(0.5, j - __offset, -(1-__offset));
+          this.add(new Robot(0.5, j - __offset, -(1-__offset)));
           }
       }
  function Sensor(position,direction){
