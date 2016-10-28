@@ -145,7 +145,7 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
   mapa[16]="xxxxxxxxxxxxx r xxxxxxxx";
   mapa[17]="xxxxxxxxxxxxxx  xxxxxxxx";
   mapa[18]="xxxxxxxxxxxxxxx     xxxx";
-  mapa[19]="xx     r      r    rxxxx";
+  mapa[19]="xx  r  r      r    rxxxx";
   mapa[20]="xxxxxxxxxxxxxxxxxxxxxxxx";
   
   enviroment = new Enviroment();
