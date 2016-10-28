@@ -66,7 +66,7 @@ function Robot(size, x, y){
   Agent.call(this,x,y);
   
   this.sensor= new Sensor();
-  this.actuator = new THREE.Mesh(new THREE.BoxGeometry(size, size,size), new THREE.MeshBasicMaterial({color: '#aa0000'}));
+  this.actuator = new THREE.Mesh(new THREE.BoxGeometry(size, size,size), new THREE.MeshBasicMaterial({color: '#aaf000'}));
   this.actuator.commands = [];
   this.add(this.actuator);
 }
@@ -87,7 +87,7 @@ Robot.prototype.plan = function(enviroment){
   this.actuator.commands = [];
   
   if(this.sensor.colision == true)
-  this.actuator.commands.push('rotateCW');
+  this.actuator.commands.push('rotateCCW');
   else
   this.actuator.commands.push('goStraight');
 }
