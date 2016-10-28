@@ -87,7 +87,7 @@ Robot.prototype.plan = function(enviroment){
   this.actuator.commands = [];
   
   if(this.sensor.colision == true)
-  this.actuator.commands.push('rotateCCW');
+  this.actuator.commands.push('rotateCW');
   else
   this.actuator.commands.push('goStraight');
 }
