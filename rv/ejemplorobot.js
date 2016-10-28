@@ -87,7 +87,7 @@ Robot.prototype.plan = function(enviroment){
   this.actuator.commands = [];
   
   if(this.sensor.colision == true)
-  this.actuator.commands.push('rotateCW');
+  this.actuator.commands.push('rotateCCW');
   else
   this.actuator.commands.push('goStraight');
 }
@@ -128,9 +128,9 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
   var mapa = new Array();
   mapa[0]="xxxxxxxxxxxxxxxxxxxxxxxx";
   mapa[1]="xr    r      r     xxxxx";
-  mapa[2]="xxxxxx          xxxxxxxx";
+  mapa[2]="xxxxxx   r      xxxxxxxx";
   mapa[3]="xxxxx              xxxxx";
-  mapa[4]="xx         r       xxxxx";
+  mapa[4]="xx r       r       xxxxx";
   mapa[5]="xxrxx xxxxxxxxxxxxxxxxxx";
   mapa[6]="xx x         r     xxxxx";
   mapa[7]="xx              xxxxxxxx";
@@ -139,13 +139,13 @@ Robot.prototype.operations.rotateCCW = function(robot, angle){
   mapa[10]="xxxxx  xxxxxxxxxxxxxxxxx";
   mapa[11]="xxxxxx  xxxxxxxxxxxxxxxx";
   mapa[12]="xxxxxxx  xxxxxxxxxxxxxxx";
-  mapa[13]="xxxxxxxx  rxxxxxxxxxxxxx";
+  mapa[13]="xxxxxxxxr rxxxxxxxxxxxxx";
   mapa[14]="xxxxxxxxxx   xxxxxxxxxxx";
   mapa[15]="xxxxxxxxxxxx  xxxxxxxxxx";
   mapa[16]="xxxxxxxxxxxxx  xxxxxxxxx";
   mapa[17]="xxxxxxxxxxxxxx  xxxxxxxx";
   mapa[18]="xxxxxxxxxxxxxxx     xxxx";
-  mapa[19]="xx     r      r     xxxx";
+  mapa[19]="xx     r      r    rxxxx";
   mapa[20]="xxxxxxxxxxxxxxxxxxxxxxxx";
   
   enviroment = new Enviroment();
