@@ -187,7 +187,7 @@ TEXTURA.Torre1p = new Torre( TEXTURA.material7);
   TEXTURA.camara.position.x= 35*4;
   TEXTURA.escena.rotateX(Math.PI/4);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
- TEXTURA.renderizador.setSize(600, 600);
+ TEXTURA.renderizador.setSize(800, 800);
  document.body.appendChild(TEXTURA.renderizador.domElement);
 }
 var setupDone = false;
@@ -197,7 +197,7 @@ TEXTURA.loop = function(){
 	{TEXTURA.setup2();
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
-	 if (keyboard.pressed("right")) {
+	 if (keyboard.eventMatches("right")) {
 TEXTURA.Torre1p.translateX(60);
 }
      if (keyboard.pressed("left")) {
