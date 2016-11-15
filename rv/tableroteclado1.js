@@ -199,10 +199,10 @@ TEXTURA.Torre1.translateX(1);
 TEXTURA.Torre1.translateX(-1);
 }
      if (keyboard.pressed("W")) {
-TEXTURA.Torre1.translateZ(1);
+TEXTURA.Torre1.translateZ(-1);
 }
      if (keyboard.pressed("S")) {
-TEXTURA.Torre1.translateZ(-1);
+TEXTURA.Torre1.translateZ(1);
 }
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
