@@ -190,7 +190,9 @@ TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
 	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
 	{TEXTURA.setup2();
-     if (keyboard.pressed("D")) {
+    
+    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
+	 if (keyboard.pressed("D")) {
 TEXTURA.Torre1.translateX(1);
 }
      if (keyboard.pressed("A")) {
@@ -202,8 +204,8 @@ TEXTURA.Torre1.translateZ(1);
      if (keyboard.pressed("S")) {
 TEXTURA.Torre1.translateZ(-1);
 }
+	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
-    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
    
  }
  TEXTURA.setup();
