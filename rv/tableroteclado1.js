@@ -140,6 +140,7 @@ Peon.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .25 } );
 
 }
 
@@ -150,6 +151,7 @@ TEXTURA.retrollamada2 = function( textura ){
 
 TEXTURA.retrollamada3 = function( textura ){
  TEXTURA.material1 = new THREE.MeshBasicMaterial( {map: textura} );
+
 }
 
 TEXTURA.retrollamada4 = function( textura ){
@@ -175,6 +177,9 @@ TEXTURA.setup2 = function(){
 TEXTURA.Torre1 = new Torre( TEXTURA.material3);
 	TEXTURA.Torre1.translateY(25);
   TEXTURA.escena.add(TEXTURA.Torre1);
+TEXTURA.Torre1p = new Torre( TEXTURA.material7);
+	TEXTURA.Torre1p.translateY(25);
+  TEXTURA.escena.add(TEXTURA.Torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
@@ -193,16 +198,16 @@ TEXTURA.loop = function(){
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	 if (keyboard.pressed("D")) {
-TEXTURA.Torre1.translateX(1);
+TEXTURA.Torre1p.translateX(1);
 }
      if (keyboard.pressed("A")) {
-TEXTURA.Torre1.translateX(-1);
+TEXTURA.Torre1p.translateX(-1);
 }
      if (keyboard.pressed("W")) {
-TEXTURA.Torre1.translateZ(-1);
+TEXTURA.Torre1p.translateZ(-1);
 }
      if (keyboard.pressed("S")) {
-TEXTURA.Torre1.translateZ(1);
+TEXTURA.Torre1p.translateZ(1);
 }
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
