@@ -179,7 +179,7 @@ TEXTURA.Torre1 = new Torre( TEXTURA.material3);
   TEXTURA.escena.add(TEXTURA.Torre1);
 TEXTURA.Torre1p = new Torre( TEXTURA.material7);
 	TEXTURA.Torre1p.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1);
+  TEXTURA.escena.add(TEXTURA.Torre1p);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
