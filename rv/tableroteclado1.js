@@ -197,16 +197,16 @@ TEXTURA.loop = function(){
 	{TEXTURA.setup2();
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
-	 if (keyboard.pressed("D")) {
+	 if (keyboard.pressed("right")) {
 TEXTURA.Torre1p.translateX(60);
 }
-     if (keyboard.pressed("A")) {
+     if (keyboard.pressed("left")) {
 TEXTURA.Torre1p.translateX(-60);
 }
-     if (keyboard.pressed("W")) {
+     if (keyboard.pressed("up")) {
 TEXTURA.Torre1p.translateZ(-60);
 }
-     if (keyboard.pressed("S")) {
+     if (keyboard.pressed("down")) {
 TEXTURA.Torre1p.translateZ(60);
 }
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
