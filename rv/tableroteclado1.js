@@ -140,7 +140,7 @@ Peon.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .25 } );
+TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 
 }
 
@@ -198,16 +198,16 @@ TEXTURA.loop = function(){
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	 if (keyboard.pressed("D")) {
-TEXTURA.Torre1p.translateX(1);
+TEXTURA.Torre1p.translateX(60);
 }
      if (keyboard.pressed("A")) {
-TEXTURA.Torre1p.translateX(-1);
+TEXTURA.Torre1p.translateX(-60);
 }
      if (keyboard.pressed("W")) {
-TEXTURA.Torre1p.translateZ(-1);
+TEXTURA.Torre1p.translateZ(-60);
 }
      if (keyboard.pressed("S")) {
-TEXTURA.Torre1p.translateZ(1);
+TEXTURA.Torre1p.translateZ(60);
 }
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
