@@ -202,34 +202,35 @@ TEXTURA.loop = function(){
 TEXTURA.Torre1p.translateX(60);
 	der=1;
 		 }
-else
-	der=0;
 }
+	else
+	der=0;
      if (keyboard.pressed("left")) {
 		 if (izq==0) {
 TEXTURA.Torre1p.translateX(-60);
 	izq=1;
 		 }
-	     else
-	izq=0;
 }
+	 else
+	izq=0;
      if (keyboard.pressed("up")) {
 		 if (arr==0) {
 TEXTURA.Torre1p.translateZ(-60);
 	arr=1;
 		 }
+}
+	
 	     else
 	arr=0;
-}
      if (keyboard.pressed("down")) {
 		 if (aba==0) {
 TEXTURA.Torre1p.translateZ(60);
 	aba=1;
 		 }
-	     else
-	aba=0;
 }
-	
+
+	     else
+	aba=0;	
 	
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
