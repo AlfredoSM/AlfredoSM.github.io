@@ -197,21 +197,39 @@ TEXTURA.loop = function(){
 	{TEXTURA.setup2();
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
-	 if (keyboard.eventMatches("right")) {
+	 if (keyboard.pressed("right")) {
+		 if (der==0) {
 TEXTURA.Torre1p.translateX(60);
+	der=1;
+		 }
 }
      if (keyboard.pressed("left")) {
+		 if (izq==0) {
 TEXTURA.Torre1p.translateX(-60);
+	izq=1;
+		 }
 }
      if (keyboard.pressed("up")) {
+		 if (arr==0) {
 TEXTURA.Torre1p.translateZ(-60);
+	arr=1;
+		 }
 }
      if (keyboard.pressed("down")) {
+		 if (aba==0) {
 TEXTURA.Torre1p.translateZ(60);
+	aba=1;
+		 }
 }
+	der=0;
+	izq=0;
+	arr=0;
+	aba=0;
+	
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
    
  }
+var der=0, izq=0, arr=0,aba=0;
  TEXTURA.setup();
  TEXTURA.loop();
