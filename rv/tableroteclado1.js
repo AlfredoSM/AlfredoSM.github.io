@@ -239,7 +239,7 @@ TEXTURA.torre1p.translateZ(60);
 	}
 	if(keyboard.pressed("space"))
 		bandera=1;
-	if(TEXTURA.Torre1p.position.x === TEXTURA.torre1.position.x)
+	if(TEXTURA.torre1p.position.x === TEXTURA.torre1.position.x)
 		bandera=0;
 	
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
