@@ -197,6 +197,7 @@ TEXTURA.loop = function(){
 	{TEXTURA.setup2();
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
+	if(banderaz==0&&banderax==0){
 	 if (keyboard.pressed("right")) {
 		 if (der==0) {
 TEXTURA.torre1p.translateX(60);
@@ -231,6 +232,7 @@ TEXTURA.torre1p.translateZ(60);
 
 	     else
 	aba=0;	
+	}
 	if((TEXTURA.torre1p.position.x != TEXTURA.torre1.position.x) && banderax===1){
 		TEXTURA.velocidadt1x=-(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x)/Math.abs(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x);
 		TEXTURA.torre1.translateX(TEXTURA.velocidadt1x);
