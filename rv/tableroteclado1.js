@@ -176,10 +176,10 @@ TEXTURA.setup2 = function(){
 	setupDone = true;
 TEXTURA.torre1 = new Torre( TEXTURA.material3);
 	TEXTURA.torre1.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1);
+  TEXTURA.escena.add(TEXTURA.torre1);
 TEXTURA.torre1p = new Torre( TEXTURA.material7);
 	TEXTURA.torre1p.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1p);
+  TEXTURA.escena.add(TEXTURA.torre1p);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
