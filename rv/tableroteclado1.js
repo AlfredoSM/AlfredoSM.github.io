@@ -231,21 +231,27 @@ TEXTURA.torre1p.translateZ(60);
 
 	     else
 	aba=0;	
-	if((TEXTURA.torre1p.position.x != TEXTURA.torre1.position.x) && bandera===1&&(TEXTURA.torre1p.position.z != TEXTURA.torre1.position.z)){
+	if((TEXTURA.torre1p.position.x != TEXTURA.torre1.position.x) && banderax===1){
 		TEXTURA.velocidadt1x=-(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x)/Math.abs(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x);
-		TEXTURA.velocidadt1z=-(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z)/Math.abs(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z);
 		TEXTURA.torre1.translateX(TEXTURA.velocidadt1x);
+	}
+	if((TEXTURA.torre1p.position.z != TEXTURA.torre1.position.z)&&banderaz===1){
+		TEXTURA.velocidadt1z=-(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z)/Math.abs(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z);
 		TEXTURA.torre1.translateZ(TEXTURA.velocidadt1z);
 	}
-	if(keyboard.pressed("space"))
-		bandera=1;
-	if((TEXTURA.torre1p.position.x === TEXTURA.torre1.position.x)&&(TEXTURA.torre1p.position.z === TEXTURA.torre1.position.z))
-		bandera=0;
+	if(keyboard.pressed("space")){
+		banderax=1;
+		banderaz=1;
+	}
+	if((TEXTURA.torre1p.position.x === TEXTURA.torre1.position.x))
+		banderax=0;
+	if((TEXTURA.torre1p.position.z === TEXTURA.torre1.position.z))
+		banderaz=0;
 	
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
    
  }
-var der=0, izq=0, arr=0,aba=0,bandera=0;
+var der=0, izq=0, arr=0,aba=0,banderax=0,banderaz=0;
  TEXTURA.setup();
  TEXTURA.loop();
