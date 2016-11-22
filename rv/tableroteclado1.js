@@ -232,8 +232,8 @@ TEXTURA.torre1p.translateZ(60);
 	     else
 	aba=0;	
 	if((TEXTURA.torre1p.position.x != TEXTURA.torre1.position.x) && bandera===1){
-		TEXTURA.velocidadt1x=(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x)/Math.abs(TEXTURA.torre1.position.x-TEXTURA.Torre1p.position.x);
-		TEXTURA.velocidadt1z=(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z)/Math.abs(TEXTURA.torre1.position.z-TEXTURA.Torre1p.position.z);
+		TEXTURA.velocidadt1x=(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x)/Math.abs(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x);
+		TEXTURA.velocidadt1z=(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z)/Math.abs(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z);
 		TEXTURA.torre1.translateX(TEXTURA.velocidadt1x);
 		TEXTURA.torre1.translateZ(TEXTURA.velocidadt1z);
 	}
