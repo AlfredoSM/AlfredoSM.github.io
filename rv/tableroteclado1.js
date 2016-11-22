@@ -174,11 +174,11 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.Torre1 = new Torre( TEXTURA.material3);
-	TEXTURA.Torre1.translateY(25);
+TEXTURA.torre1 = new Torre( TEXTURA.material3);
+	TEXTURA.torre1.translateY(25);
   TEXTURA.escena.add(TEXTURA.Torre1);
-TEXTURA.Torre1p = new Torre( TEXTURA.material7);
-	TEXTURA.Torre1p.translateY(25);
+TEXTURA.torre1p = new Torre( TEXTURA.material7);
+	TEXTURA.torre1p.translateY(25);
   TEXTURA.escena.add(TEXTURA.Torre1p);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
@@ -199,7 +199,7 @@ TEXTURA.loop = function(){
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	 if (keyboard.pressed("right")) {
 		 if (der==0) {
-TEXTURA.Torre1p.translateX(60);
+TEXTURA.torre1p.translateX(60);
 	der=1;
 		 }
 }
@@ -207,7 +207,7 @@ TEXTURA.Torre1p.translateX(60);
 	der=0;
      if (keyboard.pressed("left")) {
 		 if (izq==0) {
-TEXTURA.Torre1p.translateX(-60);
+TEXTURA.torre1p.translateX(-60);
 	izq=1;
 		 }
 }
@@ -215,7 +215,7 @@ TEXTURA.Torre1p.translateX(-60);
 	izq=0;
      if (keyboard.pressed("up")) {
 		 if (arr==0) {
-TEXTURA.Torre1p.translateZ(-60);
+TEXTURA.torre1p.translateZ(-60);
 	arr=1;
 		 }
 }
@@ -224,18 +224,18 @@ TEXTURA.Torre1p.translateZ(-60);
 	arr=0;
      if (keyboard.pressed("down")) {
 		 if (aba==0) {
-TEXTURA.Torre1p.translateZ(60);
+TEXTURA.torre1p.translateZ(60);
 	aba=1;
 		 }
 }
 
 	     else
 	aba=0;	
-	if(TEXTURA.Torre1p.position.x != TEXTURA.torre1.position.x && bandera===1){
-		TEXTURA.velocidadt1x=(TEXTURA.torre1.position.x-TEXTURA.Torre1p.position.x)/(TEXTURA.torre1.position.x-TEXTURA.Torre1p.position.x);
-		TEXTURA.velocidadt1z=(TEXTURA.torre1.position.z-TEXTURA.Torre1p.position.z)/(TEXTURA.torre1.position.z-TEXTURA.Torre1p.position.z);
-		TEXTURA.Torre1.translateX(TEXTURA.velocidadt1x);
-		TEXTURA.Torre1.translateZ(TEXTURA.velocidadt1z);
+	if((TEXTURA.torre1p.position.x != TEXTURA.torre1.position.x) && bandera===1){
+		TEXTURA.velocidadt1x=(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x)/Math.abs(TEXTURA.torre1.position.x-TEXTURA.Torre1p.position.x);
+		TEXTURA.velocidadt1z=(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z)/Math.abs(TEXTURA.torre1.position.z-TEXTURA.Torre1p.position.z);
+		TEXTURA.torre1.translateX(TEXTURA.velocidadt1x);
+		TEXTURA.torre1.translateZ(TEXTURA.velocidadt1z);
 	}
 	if(keyboard.pressed("space"))
 		bandera=1;
