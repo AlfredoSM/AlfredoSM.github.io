@@ -35,23 +35,15 @@ Enviroment.prototype.plan = function(){
       this.children[i].act(this);
      }
     }
- Enviroment.prototype.setMap = function(map){
-    var __offset = Math.floor(map.length/2);
-    
-    for (var i=0; i < map.length; i++)
-      for(var j=0; j< map.length; j++){
-        if(map[i][j]==="x")
-          this.add(new Wall(1, j-__offset,-(i-__offset)));
-         else if(map[i][j]==="r")
-          this.add(new Robot(0.5, j - __offset, -(i-__offset)));
-          }
-      }
  function Sensor(position,direction){
   THREE.Raycaster.call(this, position, direction);
   this.colision=false;
 }
 Sensor.prototype= new THREE.Raycaster();
-    
+
+ 
+var keyboard = new THREEx.KeyboardState();
+var TEXTURA = new Object();
 function Torre(material){
   var figura = new THREE.Shape();
   var figura1 = new THREE.Shape();
@@ -190,27 +182,31 @@ Torre.prototype = new THREE.Mesh();
 Alfil.prototype = new THREE.Mesh();
 Peon.prototype = new THREE.Mesh();
 
-retrollamada = function( textura ){
-  material3 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.retrollamada = function( textura ){
+  TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 
 }
 
-retrollamada2 = function( textura ){
- material4 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.retrollamada2 = function( textura ){
+ TEXTURA.material4 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.material8 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 
 }
 
-retrollamada3 = function( textura ){
- material1 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.retrollamada3 = function( textura ){
+ TEXTURA.material1 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.material5 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 }
 
-retrollamada4 = function( textura ){
- material2 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.retrollamada4 = function( textura ){
+ TEXTURA.material2 = new THREE.MeshBasicMaterial( {map: textura} );
+TEXTURA.material6 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 }
 
 
-setup = function() {
-  escena = new THREE.Scene();
+TEXTURA.setup = function() {
+  TEXTURA.escena = new THREE.Scene();
   
   var cargador = new THREE.TextureLoader();
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
@@ -222,3 +218,88 @@ setup = function() {
   cargador4.load("maderanegra.jpg",TEXTURA.retrollamada4);
 }
 
+TEXTURA.setup2 = function(){
+	setupDone = true;
+TEXTURA.torre1 = new Torre( TEXTURA.material3);
+	TEXTURA.torre1.translateY(25);
+  TEXTURA.escena.add(TEXTURA.torre1);
+TEXTURA.torre1p = new Torre( TEXTURA.material7);
+	TEXTURA.torre1p.translateY(25);
+  TEXTURA.escena.add(TEXTURA.torre1p);
+  TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
+  TEXTURA.escena.add(TEXTURA.tablero);	 
+  TEXTURA.camara = new THREE.PerspectiveCamera();
+  TEXTURA.camara.position.z= 1500;
+  TEXTURA.camara.position.x= 35*4;
+  TEXTURA.escena.rotateX(Math.PI/4);
+  TEXTURA.renderizador = new THREE.WebGLRenderer();
+ TEXTURA.renderizador.setSize(800, 800);
+ document.body.appendChild(TEXTURA.renderizador.domElement);
+}
+var setupDone = false;
+TEXTURA.loop = function(){
+  requestAnimationFrame( TEXTURA.loop );
+	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
+	{TEXTURA.setup2();
+    
+    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
+	if(banderaz==0&&banderax==0){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (der==0) {
+TEXTURA.torre1p.translateX(60);
+	der=1;
+		 }
+}
+	else
+	der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (izq==0) {
+TEXTURA.torre1p.translateX(-60);
+	izq=1;
+		 }
+}
+	 else
+	izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (arr==0) {
+TEXTURA.torre1p.translateZ(-60);
+	arr=1;
+		 }
+}
+	
+	     else
+	arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (aba==0) {
+TEXTURA.torre1p.translateZ(60);
+	aba=1;
+		 }
+}
+
+	     else
+	aba=0;	
+	}
+	if((TEXTURA.torre1p.position.x != TEXTURA.torre1.position.x) && banderax===1){
+		TEXTURA.velocidadt1x=-(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x)/Math.abs(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x);
+		TEXTURA.torre1.translateX(TEXTURA.velocidadt1x);
+	}
+	if((TEXTURA.torre1p.position.z != TEXTURA.torre1.position.z)&&banderaz===1){
+		TEXTURA.velocidadt1z=-(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z)/Math.abs(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z);
+		TEXTURA.torre1.translateZ(TEXTURA.velocidadt1z);
+	}
+	if(keyboard.pressed("space")){
+		banderax=1;
+		banderaz=1;
+	}
+	if((TEXTURA.torre1p.position.x === TEXTURA.torre1.position.x))
+		banderax=0;
+	if((TEXTURA.torre1p.position.z === TEXTURA.torre1.position.z))
+		banderaz=0;
+	
+	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+    
+   
+ }
+var der=0, izq=0, arr=0,aba=0,banderax=0,banderaz=0;
+ TEXTURA.setup();
+ TEXTURA.loop();
