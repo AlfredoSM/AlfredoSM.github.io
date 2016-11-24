@@ -198,7 +198,7 @@ TEXTURA.loop = function(){
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	if(banderaz==0&&banderax==0){
-	 if (keyboard.pressed("right")) {
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
 		 if (der==0) {
 TEXTURA.torre1p.translateX(60);
 	der=1;
@@ -206,7 +206,7 @@ TEXTURA.torre1p.translateX(60);
 }
 	else
 	der=0;
-     if (keyboard.pressed("left")) {
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
 		 if (izq==0) {
 TEXTURA.torre1p.translateX(-60);
 	izq=1;
@@ -214,7 +214,7 @@ TEXTURA.torre1p.translateX(-60);
 }
 	 else
 	izq=0;
-     if (keyboard.pressed("up")) {
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
 		 if (arr==0) {
 TEXTURA.torre1p.translateZ(-60);
 	arr=1;
@@ -223,7 +223,7 @@ TEXTURA.torre1p.translateZ(-60);
 	
 	     else
 	arr=0;
-     if (keyboard.pressed("down")) {
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
 		 if (aba==0) {
 TEXTURA.torre1p.translateZ(60);
 	aba=1;
