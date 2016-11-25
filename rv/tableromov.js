@@ -184,7 +184,10 @@ Peonm.prototype = new THREE.Mesh();
 
 function Torre(material1,material2, x, y){
   Agent.call(this,x,y);
-  
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
   this.phantom = new Torrem(material2);
@@ -208,44 +211,44 @@ Torre.prototype.sense = function(enviroment){
 }
 
 Torre.prototype.plan = function(enviroment){
-  var der=0,izq=0,aba=0,arr=0;
+ 
   if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
 	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
-		 if (der==0) {
+		 if (this.der==0) {
 this.phantom.translateX(60);
-	der=1;
+	this.der=1;
 		 }
 }
 	else
-	der=0;
+	this.der=0;
      if (keyboard.pressed("left")||keyboard.pressed("A")) {
-		 if (izq==0) {
+		 if (this.izq==0) {
 this.phantom.translateX(-60);
-	izq=1;
+	this.izq=1;
 		 }
 }
 	 else
-	izq=0;
+	this.izq=0;
      if (keyboard.pressed("up")||keyboard.pressed("W")) {
-		 if (arr==0) {
+		 if (this.arr==0) {
 this.phantom.translateZ(-60);
-	arr=1;
+	this.arr=1;
 		 }
 }
 	
 	     else
-	arr=0;
+	this.arr=0;
      if (keyboard.pressed("down")||keyboard.pressed("S")) {
-		 if (aba==0) {
+		 if (this.aba==0) {
 this.phantom.translateZ(60);
-	aba=1;
+	this.aba=1;
 		 }
 }
 
 	     else
-	aba=0;	
+	this.aba=0;	
 	}
 	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
 		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
@@ -271,7 +274,7 @@ Torre.prototype.act = function(enviroment){
   if(this.phantom.position.x!=this.actuator.position.x)
   this.phantom.position.z=this.actuator.position.z;
   else if (this.phantom.position.z!=this.actuator.position.z)
-  this.phantom.position.z=this.actuator.position.z;
+  this.phantom.position.x=this.actuator.position.x;
   
 }
 
