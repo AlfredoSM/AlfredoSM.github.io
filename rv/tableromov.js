@@ -208,7 +208,7 @@ Torre.prototype.sense = function(enviroment){
 }
 
 Torre.prototype.plan = function(enviroment){
-  
+  var der=0,izq=0,aba=0,arr=0;
   if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
