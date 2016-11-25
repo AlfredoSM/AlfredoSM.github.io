@@ -299,7 +299,7 @@ TEXTURA.material6 = new THREE.MeshBasicMaterial( { map:textura, transparent: tru
 
 
 TEXTURA.setup = function() {
-  TEXTURA.escena = new THREE.Scene();
+  TEXTURA.entorno = new THREE.Enviroment();
   
   var cargador = new THREE.TextureLoader();
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
@@ -315,13 +315,13 @@ TEXTURA.setup2 = function(){
 	setupDone = true;
 TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7);
 	TEXTURA.torre1.translateY(25);
-  TEXTURA.escena.add(TEXTURA.torre1);
+  TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
-  TEXTURA.escena.add(TEXTURA.tablero);	 
+  TEXTURA.entorno.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
-  TEXTURA.escena.rotateX(Math.PI/4);
+  TEXTURA.entorno.rotateX(Math.PI/4);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
  TEXTURA.renderizador.setSize(800, 800);
  document.body.appendChild(TEXTURA.renderizador.domElement);
@@ -335,8 +335,8 @@ TEXTURA.loop = function(){
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	
 	TEXTURA.torre1.selec=1;
-	TEXTURA.torre1.plan();
-	TEXTURA.torre1.act();
+	TEXTURA.entorno.plan();
+	TEXTURA.entorno.act();
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
    
