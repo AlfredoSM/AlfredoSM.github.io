@@ -337,7 +337,7 @@ TEXTURA.loop = function(){
 	TEXTURA.torre1.selec=1;
 	TEXTURA.entorno.plan();
 	TEXTURA.entorno.act();
-	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+	TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
  }
