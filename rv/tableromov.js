@@ -44,7 +44,7 @@ Sensor.prototype= new THREE.Raycaster();
  
 var keyboard = new THREEx.KeyboardState();
 var TEXTURA = new Object();
-function Torre(material){
+function Torrem(material){
   var figura = new THREE.Shape();
   var figura1 = new THREE.Shape();
 var figura2 = new THREE.Shape();
@@ -109,7 +109,7 @@ THREE.Mesh.call(this, arbolForma, material);
 
 }
 
-function Alfil(material){
+function Alfilm(material){
 var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
 basee.translate(0,-20,0);
@@ -129,7 +129,7 @@ arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
 }
 
-function Peon(material){
+function Peonm(material){
 	var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
 basee.translate(0,-20,0);
@@ -178,9 +178,105 @@ function Tablero(material1, material2)
 
 Tablero.prototype = new THREE.Object3D();
 Casilla.prototype = new THREE.Mesh();
-Torre.prototype = new THREE.Mesh();
-Alfil.prototype = new THREE.Mesh();
-Peon.prototype = new THREE.Mesh();
+Torrem.prototype = new THREE.Mesh();
+Alfilm.prototype = new THREE.Mesh();
+Peonm.prototype = new THREE.Mesh();
+
+function Torre(material1,material2, x, y){
+  Agent.call(this,x,y);
+  
+  this.sensor= new Sensor();
+  this.actuator = new Torrem(material1);
+  this.phantom = new Torrem(material2);
+  this.add(this.actuator);
+  this.add(this.phantom);
+}
+
+Torre.prototype = new Agent();
+
+Torre.prototype.sense = function(enviroment){
+  this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
+  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
+  this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
+  this.sensor.colision=true;
+  else
+  this.sensor.colision = false;
+  
+}
+
+Torre.prototype.plan = function(enviroment){
+  
+  if(this.sensor.colision == true){
+  this.actuator.velocidadx=0;
+  this.actuator.velocidadz=0;}
+  else{
+	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (der==0) {
+this.phantom.translateX(60);
+	der=1;
+		 }
+}
+	else
+	der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (izq==0) {
+this.phantom.translateX(-60);
+	izq=1;
+		 }
+}
+	 else
+	izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (arr==0) {
+this.phantom.translateZ(-60);
+	arr=1;
+		 }
+}
+	
+	     else
+	arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (aba==0) {
+this.phantom.translateZ(60);
+	aba=1;
+		 }
+}
+
+	     else
+	aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(TEXTURA.velocidadt1z);
+	}
+	if(keyboard.pressed("space")){
+		this.banderaX=1;
+		this.banderaZ=1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		banderax=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		banderaz=0; 
+  }
+}
+
+Robot.prototype.act = function(enviroment){
+  var command = this.actuator.commands.pop();
+  
+  if(this.phantom.position.x!=this.actuator.position.x)
+  this.phantom.position.z=this.actuator.position.z;
+  else if (this.phantom.position.z!=this.actuator.position.z)
+  this.phantom.position.z=this.actuator.position.z;
+  
+}
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
@@ -220,11 +316,8 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.torre1 = new Torre( TEXTURA.material3);
+TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7);
 	TEXTURA.torre1.translateY(25);
-  TEXTURA.escena.add(TEXTURA.torre1);
-TEXTURA.torre1p = new Torre( TEXTURA.material7);
-	TEXTURA.torre1p.translateY(25);
   TEXTURA.escena.add(TEXTURA.torre1p);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
@@ -243,63 +336,12 @@ TEXTURA.loop = function(){
 	{TEXTURA.setup2();
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
-	if(banderaz==0&&banderax==0){
-	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
-		 if (der==0) {
-TEXTURA.torre1p.translateX(60);
-	der=1;
-		 }
-}
-	else
-	der=0;
-     if (keyboard.pressed("left")||keyboard.pressed("A")) {
-		 if (izq==0) {
-TEXTURA.torre1p.translateX(-60);
-	izq=1;
-		 }
-}
-	 else
-	izq=0;
-     if (keyboard.pressed("up")||keyboard.pressed("W")) {
-		 if (arr==0) {
-TEXTURA.torre1p.translateZ(-60);
-	arr=1;
-		 }
-}
 	
-	     else
-	arr=0;
-     if (keyboard.pressed("down")||keyboard.pressed("S")) {
-		 if (aba==0) {
-TEXTURA.torre1p.translateZ(60);
-	aba=1;
-		 }
-}
-
-	     else
-	aba=0;	
-	}
-	if((TEXTURA.torre1p.position.x != TEXTURA.torre1.position.x) && banderax===1){
-		TEXTURA.velocidadt1x=-(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x)/Math.abs(TEXTURA.torre1.position.x-TEXTURA.torre1p.position.x);
-		TEXTURA.torre1.translateX(TEXTURA.velocidadt1x);
-	}
-	if((TEXTURA.torre1p.position.z != TEXTURA.torre1.position.z)&&banderaz===1){
-		TEXTURA.velocidadt1z=-(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z)/Math.abs(TEXTURA.torre1.position.z-TEXTURA.torre1p.position.z);
-		TEXTURA.torre1.translateZ(TEXTURA.velocidadt1z);
-	}
-	if(keyboard.pressed("space")){
-		banderax=1;
-		banderaz=1;
-	}
-	if((TEXTURA.torre1p.position.x === TEXTURA.torre1.position.x))
-		banderax=0;
-	if((TEXTURA.torre1p.position.z === TEXTURA.torre1.position.z))
-		banderaz=0;
 	
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
    
  }
-var der=0, izq=0, arr=0,aba=0,banderax=0,banderaz=0;
+
  TEXTURA.setup();
  TEXTURA.loop();
