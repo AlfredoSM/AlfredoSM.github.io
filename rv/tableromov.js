@@ -256,7 +256,7 @@ this.phantom.translateZ(60);
 	}
 	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
 		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
-		this.actuator.translateZ(TEXTURA.velocidadt1z);
+		this.actuator.translateZ(TEXTURA.velocidadz);
 	}
 	if(keyboard.pressed("space")){
 		this.banderaX=1;
