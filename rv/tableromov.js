@@ -267,7 +267,6 @@ this.phantom.translateZ(60);
 }
 
 Torre.prototype.act = function(enviroment){
-  var command = this.actuator.commands.pop();
   
   if(this.phantom.position.x!=this.actuator.position.x)
   this.phantom.position.z=this.actuator.position.z;
