@@ -260,9 +260,9 @@ this.phantom.translateZ(60);
 		this.banderaZ=1;
 	}
 	if((this.phantom.position.x === this.actuator.position.x))
-		banderax=0;
+		this.banderaX=0;
 	if((this.phantom.position.z === this.actuator.position.z))
-		banderaz=0; 
+		this.banderaZ=0; 
   }
 }
 
@@ -335,7 +335,7 @@ TEXTURA.loop = function(){
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	
-	
+	TEXTURA.torre1.selec=1;
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
    
