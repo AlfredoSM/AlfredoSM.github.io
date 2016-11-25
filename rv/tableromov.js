@@ -336,6 +336,8 @@ TEXTURA.loop = function(){
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	
 	TEXTURA.torre1.selec=1;
+	TEXTURA.torre1.plan();
+	TEXTURA.torre1.act();
 	TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
     
    
