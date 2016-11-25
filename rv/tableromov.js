@@ -299,7 +299,7 @@ TEXTURA.material6 = new THREE.MeshBasicMaterial( { map:textura, transparent: tru
 
 
 TEXTURA.setup = function() {
-  TEXTURA.entorno = new THREE.Enviroment();
+  TEXTURA.entorno = new Enviroment();
   
   var cargador = new THREE.TextureLoader();
   cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
