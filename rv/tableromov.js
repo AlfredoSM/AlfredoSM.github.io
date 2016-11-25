@@ -268,7 +268,7 @@ this.phantom.translateZ(60);
   }
 }
 
-Robot.prototype.act = function(enviroment){
+Torre.prototype.act = function(enviroment){
   var command = this.actuator.commands.pop();
   
   if(this.phantom.position.x!=this.actuator.position.x)
