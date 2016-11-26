@@ -278,6 +278,105 @@ Torre.prototype.act = function(enviroment){
   
 }
 
+function Alfil(material1,material2, x, y){
+  Agent.call(this,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Torrem(material1);
+  this.phantom = new Torrem(material2);
+  this.add(this.actuator);
+  this.add(this.phantom);
+}
+
+Alfil.prototype = new Agent();
+
+Alfil.prototype.sense = function(enviroment){
+  this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
+  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
+  this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
+  this.sensor.colision=true;
+  else
+  this.sensor.colision = false;
+  
+}
+
+Alfil.prototype.plan = function(enviroment){
+ 
+  if(this.sensor.colision == true){}
+  else{
+	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(-60);
+this.phantom.translateZ(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+this.phantom.translateZ(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateX(60);
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateX(60);
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")){
+		this.banderaX=1;
+		this.banderaZ=1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+  }
+}
+
+Alfil.prototype.act = function(enviroment){
+  
+  if(Math.abs(this.phantom.position.x-this.actuator.position.x)!=Math.abs(this.phantom.position.z-this.actuator.position.z))
+  this.phantom.position.z=this.phantom.position.x;
+  
+}
+
+
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
 TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
@@ -316,7 +415,7 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7);
+TEXTURA.torre1 = new Alfil( TEXTURA.material3,TEXTURA.material7);
 	TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
