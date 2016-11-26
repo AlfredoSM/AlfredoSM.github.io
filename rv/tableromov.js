@@ -313,8 +313,8 @@ Alfil.prototype.plan = function(enviroment){
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
 	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
 		 if (this.der==0) {
-this.phantom.translateX(-60);
-this.phantom.translateZ(60);
+this.phantom.translateX(60);
+this.phantom.translateZ(-60);
 	this.der=1;
 		 }
 }
@@ -323,7 +323,7 @@ this.phantom.translateZ(60);
      if (keyboard.pressed("left")||keyboard.pressed("A")) {
 		 if (this.izq==0) {
 this.phantom.translateX(-60);
-this.phantom.translateZ(-60);
+this.phantom.translateZ(60);
 	this.izq=1;
 		 }
 }
@@ -331,7 +331,7 @@ this.phantom.translateZ(-60);
 	this.izq=0;
      if (keyboard.pressed("up")||keyboard.pressed("W")) {
 		 if (this.arr==0) {
-this.phantom.translateX(60);
+this.phantom.translateX(-60);
 this.phantom.translateZ(-60);
 	this.arr=1;
 		 }
@@ -371,8 +371,10 @@ this.phantom.translateZ(60);
 
 Alfil.prototype.act = function(enviroment){
   
-  if(Math.abs(this.phantom.position.x-this.actuator.position.x)!=Math.abs(this.phantom.position.z-this.actuator.position.z))
-  this.phantom.position.z=this.phantom.position.x;
+  if(Math.abs(this.phantom.position.x-this.actuator.position.x)!=Math.abs(this.phantom.position.z-this.actuator.position.z)){
+  this.phantom.position.z=this.actuator.position.z;
+  this.phantom.position.x=this.actuator.position.x;
+  }
   
 }
 
