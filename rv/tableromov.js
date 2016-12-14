@@ -530,7 +530,7 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.torre1 = new Alfil( TEXTURA.material3,TEXTURA.material7,0);
+TEXTURA.torre1 = new Peon( TEXTURA.material3,TEXTURA.material7,0);
 	TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
