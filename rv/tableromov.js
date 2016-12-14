@@ -472,23 +472,23 @@ this.phantom.translateZ(60);
 
 Peon.prototype.act = function(enviroment){
   if(this.team=0){
-  if(this.actuator.position.x-this.phantom.position.x>60)
-  this.phantom.position.x=this.actuator.position+60;
-  else if (this.actuator.position.x-this.phantom.position.x<0)
-  this.phantom.position.x=this.actuator.position.x;
-  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision==false)
+  if(this.actuator.position.z-this.phantom.position.z>60)
+  this.phantom.position.z=this.actuator.position+60;
+  else if (this.actuator.position.z-this.phantom.position.z<0)
   this.phantom.position.z=this.actuator.position.z;
-  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
-  this.phantom.position.z=this.actuator.position.z;}
+  else if (Math.abs(this.actuator.position.x-this.phantom.position.x)>0&&this.sensor.solision==false)
+  this.phantom.position.x=this.actuator.position.x;
+  else if (Math.abs(this.actuator.position.x-this.phantom.position.x)>60)
+  this.phantom.position.z=this.actuator.position.x;}
  if(this.team=1){
- if(this.actuator.position.x-this.phantom.position.x<-60)
-  this.phantom.position.x=this.actuator.position+60;
-  else if (this.actuator.position.x-this.phantom.position.x<0)
-  this.phantom.position.x=this.actuator.position.x;
-  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision==false)
+ if(this.actuator.position.z-this.phantom.position.z<-60)
+  this.phantom.position.z=this.actuator.position+60;
+  else if (this.actuator.position.z-this.phantom.position.z<0)
   this.phantom.position.z=this.actuator.position.z;
-  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
-  this.phantom.position.z=this.actuator.position.z;}
+  else if (Math.abs(this.actuator.position.x-this.phantom.position.x)>0&&this.sensor.solision==false)
+  this.phantom.position.x=this.actuator.position.x;
+  else if (Math.abs(this.actuator.position.x-this.phantom.position.x)>60)
+  this.phantom.position.x=this.actuator.position.x;}
   
 }
 
