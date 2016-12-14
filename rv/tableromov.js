@@ -283,7 +283,7 @@ Torre.prototype.act = function(enviroment){
   
 }
 
-function Alfil(material1,material2, x, y){
+function Alfil(material1,material2,equipo, x, y){
  Pieza.call(this,equipo,x,y);
   this.der=0;
   this.izq=0;
@@ -383,7 +383,7 @@ Alfil.prototype.act = function(enviroment){
   
 }
 
-function Peon(material1,material2, x, y){
+function Peon(material1,material2,equipo, x, y){
   Pieza.call(this,equipo,x,y);
   this.der=0;
   this.izq=0;
@@ -530,7 +530,7 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.torre1 = new Alfil( TEXTURA.material3,TEXTURA.material7);
+TEXTURA.torre1 = new Alfil( TEXTURA.material3,TEXTURA.material7,0);
 	TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
