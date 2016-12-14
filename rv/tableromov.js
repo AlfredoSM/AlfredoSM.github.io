@@ -44,7 +44,7 @@ Sensor.prototype= new THREE.Raycaster();
 function Pieza(equipo,x, y){
 	Agent.call(this,x,y);
 	this.team=equipo;}
-Torre.prototype = new Agent();
+Pieza.prototype = new Agent();
 	
  
 var keyboard = new THREEx.KeyboardState();
