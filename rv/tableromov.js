@@ -476,7 +476,7 @@ Peon.prototype.act = function(enviroment){
   this.phantom.position.x=this.actuator.position+60;
   else if (this.actuator.position.x-this.phantom.position.x<0)
   this.phantom.position.x=this.actuator.position.x;
-  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision=false)
+  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision==false)
   this.phantom.position.z=this.actuator.position.z;
   else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
   this.phantom.position.z=this.actuator.position.z;}
@@ -485,7 +485,7 @@ Peon.prototype.act = function(enviroment){
   this.phantom.position.x=this.actuator.position+60;
   else if (this.actuator.position.x-this.phantom.position.x<0)
   this.phantom.position.x=this.actuator.position.x;
-  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision=false)
+  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision==false)
   this.phantom.position.z=this.actuator.position.z;
   else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
   this.phantom.position.z=this.actuator.position.z;}
