@@ -41,6 +41,11 @@ Enviroment.prototype.plan = function(){
 }
 Sensor.prototype= new THREE.Raycaster();
 
+function Pieza(equipo,x, y){
+	Agent.call(this,x,y);
+	this.team=equipo;}
+Torre.prototype = new Agent();
+	
  
 var keyboard = new THREEx.KeyboardState();
 var TEXTURA = new Object();
@@ -182,8 +187,8 @@ Torrem.prototype = new THREE.Mesh();
 Alfilm.prototype = new THREE.Mesh();
 Peonm.prototype = new THREE.Mesh();
 
-function Torre(material1,material2, x, y){
-  Agent.call(this,x,y);
+function Torre(material1,material2,equipo, x, y){
+  Pieza.call(this,equipo,x,y);
   this.der=0;
   this.izq=0;
   this.aba=0;
@@ -195,10 +200,10 @@ function Torre(material1,material2, x, y){
   this.add(this.phantom);
 }
 
-Torre.prototype = new Agent();
+Torre.prototype = new Pieza();
 
 Torre.prototype.sense = function(enviroment){
-  this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
+  this.sensor.set( this.phantom.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
   var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
   this.selec=0;
   this.banderaX=0;
@@ -279,22 +284,22 @@ Torre.prototype.act = function(enviroment){
 }
 
 function Alfil(material1,material2, x, y){
-  Agent.call(this,x,y);
+ Pieza.call(this,equipo,x,y);
   this.der=0;
   this.izq=0;
   this.aba=0;
   this.arr=0;
   this.sensor= new Sensor();
-  this.actuator = new Torrem(material1);
-  this.phantom = new Torrem(material2);
+  this.actuator = new Alfilm(material1);
+  this.phantom = new Alfilm(material2);
   this.add(this.actuator);
   this.add(this.phantom);
 }
 
-Alfil.prototype = new Agent();
+Alfil.prototype = new Pieza();
 
 Alfil.prototype.sense = function(enviroment){
-  this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
+  this.sensor.set( this.phantom.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
   var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
   this.selec=0;
   this.banderaX=0;
@@ -378,6 +383,114 @@ Alfil.prototype.act = function(enviroment){
   
 }
 
+function Peon(material1,material2, x, y){
+  Pieza.call(this,equipo,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Peonm(material1);
+  this.phantom = new Peonm(material2);
+  this.add(this.actuator);
+  this.add(this.phantom);
+}
+
+Peon.prototype = new Pieza();
+
+Peon.prototype.sense = function(enviroment){
+  this.sensor.set( this.phantom.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
+  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
+  this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
+  this.sensor.colision=true;
+  else
+  this.sensor.colision = false;
+  
+}
+
+Peon.prototype.plan = function(enviroment){
+ 
+  if(this.sensor.colision == true){}
+  else{
+	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")){
+		this.banderaX=1;
+		this.banderaZ=1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+  }
+}
+
+Peon.prototype.act = function(enviroment){
+  if(this.team=0){
+  if(this.actuator.position.x-this.phantom.position.x>60)
+  this.phantom.position.x=this.actuator.position+60;
+  else if (this.actuator.position.x-this.phantom.position.x<0)
+  this.phantom.position.x=this.actuator.position.x;
+  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision=false)
+  this.phantom.position.z=this.actuator.position.z;
+  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
+  this.phantom.position.z=this.actuator.position.z;}
+ if(this.team=1){
+ if(this.actuator.position.x-this.phantom.position.x<-60)
+  this.phantom.position.x=this.actuator.position+60;
+  else if (this.actuator.position.x-this.phantom.position.x<0)
+  this.phantom.position.x=this.actuator.position.x;
+  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>0&&this.sensor.solision=false)
+  this.phantom.position.z=this.actuator.position.z;
+  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
+  this.phantom.position.z=this.actuator.position.z;}
+  
+}
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
