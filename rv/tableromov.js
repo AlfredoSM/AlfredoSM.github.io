@@ -12,6 +12,7 @@ function Agent( x=0, y=0){
  
  function Enviroment(){
   THREE.Scene.call(this);
+	 this.turno=0;
   }
  
  Enviroment.prototype = new THREE.Scene();
@@ -340,6 +341,11 @@ if(this.cont>=1&&this.sensor.colision==false){
 	  this.phantom.position.z=this.actuator.position.z;
 	  this.cont=0;
 }
+	if(this.oa>0&&enviroment.children[oa].team==this.team){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0
+	}
 }
 Torre.prototype.act = function(enviroment){
   
@@ -391,6 +397,8 @@ this.phantom.translateZ(60);
 		this.banderaX=1;
 		this.banderaZ=1;
 		this.selec=0;
+		enviroment.turno=enviroment.turno+1;
+		
 	}
 	if((this.phantom.position.x === this.actuator.position.x))
 		this.banderaX=0;
@@ -410,33 +418,60 @@ function Alfil(material1,material2,equipo, x, y){
   this.phantom = new Alfilm(material2);
   this.add(this.actuator);
   this.add(this.phantom);
+  this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
 }
 
 Alfil.prototype = new Pieza();
 
 Alfil.prototype.sense = function(enviroment){
-  this.sensor.set( this.phantom.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
- for(var i=0;i<enviroment.children.lenght;i++){
-  var obstaculo = this.sensor.intersectObjects(enviroment.children[i],true);
+  this.sensor.set( this.phantom.position, new THREE.Vector3(0,1,0));
+	for(var i=0;i<enviroment.children.length;i++){
+  var obstaculo = this.sensor.intersectObject(enviroment.children[i],true);
 if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
   this.sensor.colision=true;
 this.oa=i;}
   else{
   this.sensor.colision = false;
-	  this.oa=undefined;}
+	  this.oa=0;}
 	}
-  this.selec=0;
-  this.banderaX=0;
-  this.banderaZ=0;
+
  
   
 }
 
 Alfil.prototype.plan = function(enviroment){
- 
-  if(this.sensor.colision == true){}
-  else{
-	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+  if(Math.abs(this.phantom.position.x-this.actuator.position.x)!=Math.abs(this.phantom.position.z-this.actuator.position.z)){
+  this.phantom.position.z=this.actuator.position.z;
+  this.phantom.position.x=this.actuator.position.x;
+  }
+    if(this.sensor.colision == true){
+	  this.cont=1;
+	  if(this.oa>0)
+		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
+			  enviroment.children[this.oa].visible=false;
+	  
+  }
+if(this.cont>=1&&this.sensor.colision==false){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+  if(this.cont>1){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+	if(this.oa>0&&enviroment.children[oa].team==this.team){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0
+	}
+}
+
+Alfil.prototype.act = function(enviroment){
+		 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
 	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
 		 if (this.der==0) {
 this.phantom.translateX(60);
@@ -487,20 +522,15 @@ this.phantom.translateZ(60);
 	if(keyboard.pressed("space")){
 		this.banderaX=1;
 		this.banderaZ=1;
+		this.selec=0;
+		enviroment.turno=enviroment.turno+1;
 	}
 	if((this.phantom.position.x === this.actuator.position.x))
 		this.banderaX=0;
 	if((this.phantom.position.z === this.actuator.position.z))
 		this.banderaZ=0; 
-  }
-}
-
-Alfil.prototype.act = function(enviroment){
   
-  if(Math.abs(this.phantom.position.x-this.actuator.position.x)!=Math.abs(this.phantom.position.z-this.actuator.position.z)){
-  this.phantom.position.z=this.actuator.position.z;
-  this.phantom.position.x=this.actuator.position.x;
-  }
+ 
   
 }
 
@@ -515,88 +545,30 @@ function Peon(material1,material2,equipo, x, y){
   this.phantom = new Peonm(material2);
   this.add(this.actuator);
   this.add(this.phantom);
-}
-
-Peon.prototype = new Pieza();
-
-Peon.prototype.sense = function(enviroment){
-  this.sensor.set( this.phantom.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
-  for(var i=0;i<enviroment.children.lenght;i++){
-  var obstaculo = this.sensor.intersectObjects(enviroment.children[i],true);
-if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
-  this.sensor.colision=true;
-this.oa=i;}
-  else{
-  this.sensor.colision = false;
-	  this.oa=undefined;}
-	}
-  this.selec=0;
+ this.selec=0;
   this.banderaX=0;
   this.banderaZ=0;
   
 }
 
-Peon.prototype.plan = function(enviroment){
- 
-  if(this.sensor.colision == true){}
+Peon.prototype = new Pieza();
+
+Peon.prototype.sense = function(enviroment){
+   this.sensor.set( this.phantom.position, new THREE.Vector3(0,1,0));
+	for(var i=0;i<enviroment.children.length;i++){
+  var obstaculo = this.sensor.intersectObject(enviroment.children[i],true);
+if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
+  this.sensor.colision=true;
+this.oa=i;}
   else{
-	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
-	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
-		 if (this.der==0) {
-this.phantom.translateX(60);
-	this.der=1;
-		 }
-}
-	else
-	this.der=0;
-     if (keyboard.pressed("left")||keyboard.pressed("A")) {
-		 if (this.izq==0) {
-this.phantom.translateX(-60);
-	this.izq=1;
-		 }
-}
-	 else
-	this.izq=0;
-     if (keyboard.pressed("up")||keyboard.pressed("W")) {
-		 if (this.arr==0) {
-this.phantom.translateZ(-60);
-	this.arr=1;
-		 }
-}
-	
-	     else
-	this.arr=0;
-     if (keyboard.pressed("down")||keyboard.pressed("S")) {
-		 if (this.aba==0) {
-this.phantom.translateZ(60);
-	this.aba=1;
-		 }
+  this.sensor.colision = false;
+	  this.oa=0;}
+	}
+ 
 }
 
-	     else
-	this.aba=0;	
-	}
-	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
-		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
-		this.actuator.translateX(this.velocidadx);
-	}
-	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
-		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
-		this.actuator.translateZ(this.velocidadz);
-	}
-	if(keyboard.pressed("space")){
-		this.banderaX=1;
-		this.banderaZ=1;
-	}
-	if((this.phantom.position.x === this.actuator.position.x))
-		this.banderaX=0;
-	if((this.phantom.position.z === this.actuator.position.z))
-		this.banderaZ=0; 
-  }
-}
-
-Peon.prototype.act = function(enviroment){
-  if(this.team=0){
+Peon.prototype.plan = function(enviroment){
+   if(this.team=0){
   if(this.actuator.position.x-this.phantom.position.x>60)
   this.phantom.position.x=this.actuator.position.x+60;
   else if (this.actuator.position.x-this.phantom.position.x<0)
@@ -614,8 +586,581 @@ Peon.prototype.act = function(enviroment){
   this.phantom.position.z=this.actuator.position.z;
   else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
   this.phantom.position.z=this.actuator.position.z;}
+   if(this.sensor.colision == true){
+	  this.cont=1;
+	  if(this.oa>0&&enviroment.children[oa].team!=this.team)
+		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
+			  enviroment.children[this.oa].visible=false;
+	  
+  }
+if(this.cont>=1&&this.sensor.colision==false){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+  if(this.cont>1){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+if(this.oa>0&&enviroment.children[oa].team==this.team){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0
+	}	
+}
+
+Peon.prototype.act = function(enviroment){
+
+ if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")){
+		this.banderaX=1;
+		this.banderaZ=1;
+		this.selec=0;
+		enviroment.turno=enviroment.turno+1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+ 
   
 }
+
+function Rey(material1,material2,equipo, x, y){
+  Pieza.call(this,equipo,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Reym(material1);
+  this.phantom = new Reym(material2);
+  this.add(this.actuator);
+  this.add(this.phantom);
+ this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  
+}
+
+Rey.prototype = new Pieza();
+
+Rey.prototype.sense = function(enviroment){
+   this.sensor.set( this.phantom.position, new THREE.Vector3(0,1,0));
+	for(var i=0;i<enviroment.children.length;i++){
+  var obstaculo = this.sensor.intersectObject(enviroment.children[i],true);
+if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
+  this.sensor.colision=true;
+this.oa=i;}
+  else{
+  this.sensor.colision = false;
+	  this.oa=0;}
+	}
+ 
+}
+
+Rey.prototype.plan = function(enviroment){
+  if(Math.abs(this.actuator.position.x-this.phantom.position.x)>60)
+  this.phantom.position.x=this.actuator.position.x;
+  else if (Math.abs(this.actuator.position.z-this.phantom.position.z)>60)
+  this.phantom.position.z=this.actuator.position.z;
+   if(this.sensor.colision == true){
+	  this.cont=1;
+	  if(this.oa>0&&enviroment.children[oa].team!=this.team)
+		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
+			  enviroment.children[this.oa].visible=false;
+	  
+  }
+if(this.cont>=1&&this.sensor.colision==false){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+  if(this.cont>1){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+if(this.oa>0&&enviroment.children[oa].team==this.team){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0
+	}	
+}
+
+Rey.prototype.act = function(enviroment){
+
+ if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")){
+		this.banderaX=1;
+		this.banderaZ=1;
+		this.selec=0;
+		enviroment.turno=enviroment.turno+1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+ 
+  
+}
+
+function Reina(material1,material2,equipo, x, y){
+  Pieza.call(this,equipo,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Reinam(material1);
+  this.phantom = new Reinam(material2);
+  this.add(this.actuator);
+  this.add(this.phantom);
+ this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  
+}
+
+Reina.prototype = new Pieza();
+
+Reina.prototype.sense = function(enviroment){
+   this.sensor.set( this.phantom.position, new THREE.Vector3(0,1,0));
+	for(var i=0;i<enviroment.children.length;i++){
+  var obstaculo = this.sensor.intersectObject(enviroment.children[i],true);
+if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
+  this.sensor.colision=true;
+this.oa=i;}
+  else{
+  this.sensor.colision = false;
+	  this.oa=0;}
+	}
+ 
+}
+
+Reina.prototype.plan = function(enviroment){
+  if((Math.abs(this.phantom.position.x-this.actuator.position.x)==Math.abs(this.phantom.position.z-this.actuator.position.z))||(this.phantom.position.x==this.actuator.position.x)||(this.phantom.position.z!=this.actuator.position.z))
+  this.correct=1;
+else
+	this.correct=0;
+   if(this.sensor.colision == true){
+	  this.cont=1;
+	  if(this.oa>0&&enviroment.children[oa].team!=this.team)
+		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
+			  enviroment.children[this.oa].visible=false;
+	  
+  }
+if(this.cont>=1&&this.sensor.colision==false){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+  if(this.cont>1){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+if(this.oa>0&&enviroment.children[oa].team==this.team){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0
+	}	
+}
+
+Reina.prototype.act = function(enviroment){
+
+ if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")&&this.correct=1){
+		this.banderaX=1;
+		this.banderaZ=1;
+		this.selec=0;
+		this.correct=0;
+		enviroment.turno=enviroment.turno+1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+ 
+  
+}
+
+function Reina(material1,material2,equipo, x, y){
+  Pieza.call(this,equipo,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Reinam(material1);
+  this.phantom = new Reinam(material2);
+  this.add(this.actuator);
+  this.add(this.phantom);
+ this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  
+}
+
+Reina.prototype = new Pieza();
+
+Reina.prototype.sense = function(enviroment){
+   this.sensor.set( this.phantom.position, new THREE.Vector3(0,1,0));
+	for(var i=0;i<enviroment.children.length;i++){
+  var obstaculo = this.sensor.intersectObject(enviroment.children[i],true);
+if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
+  this.sensor.colision=true;
+this.oa=i;}
+  else{
+  this.sensor.colision = false;
+	  this.oa=0;}
+	}
+ 
+}
+
+Reina.prototype.plan = function(enviroment){
+  if((Math.abs(this.phantom.position.x-this.actuator.position.x)==Math.abs(this.phantom.position.z-this.actuator.position.z))||(this.phantom.position.x==this.actuator.position.x)||(this.phantom.position.z!=this.actuator.position.z))
+  this.correct=1;
+else
+	this.correct=0;
+   if(this.sensor.colision == true){
+	  this.cont=1;
+	  if(this.oa>0&&enviroment.children[oa].team!=this.team)
+		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
+			  enviroment.children[this.oa].visible=false;
+	  
+  }
+if(this.cont>=1&&this.sensor.colision==false){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+  if(this.cont>1){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+if(this.oa>0&&enviroment.children[oa].team==this.team){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0
+	}	
+}
+
+Reina.prototype.act = function(enviroment){
+
+ if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")&&this.correct==1){
+		this.banderaX=1;
+		this.banderaZ=1;
+		this.selec=0;
+		this.correct=0;
+		enviroment.turno=enviroment.turno+1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+ 
+  
+}
+
+function Caballo(material1,material2,equipo, x, y){
+  Pieza.call(this,equipo,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Caballom(material1);
+  this.phantom = new Caballom(material2);
+  this.add(this.actuator);
+  this.add(this.phantom);
+ this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  
+}
+
+Caballo.prototype = new Pieza();
+
+Caballo.prototype.sense = function(enviroment){
+   this.sensor.set( this.phantom.position, new THREE.Vector3(0,1,0));
+	for(var i=0;i<enviroment.children.length;i++){
+  var obstaculo = this.sensor.intersectObject(enviroment.children[i],true);
+if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
+  this.sensor.colision=true;
+this.oa=i;}
+  else{
+  this.sensor.colision = false;
+	  this.oa=0;}
+	}
+ 
+}
+
+Caballo.prototype.plan = function(enviroment){
+  if((Math.abs(this.phantom.position.x-this.actuator.position.x)==Math.abs(this.phantom.position.z-this.actuator.position.z))||(this.phantom.position.x==this.actuator.position.x)||(this.phantom.position.z!=this.actuator.position.z))
+  this.correct=1;
+else
+	this.correct=0;
+   if(this.sensor.colision == true){
+	  this.cont=1;
+	  if(this.oa>0&&enviroment.children[oa].team!=this.team)
+		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
+			  enviroment.children[this.oa].visible=false;
+	  
+  }
+if(this.cont>=1&&this.sensor.colision==false){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+  if(this.cont>1){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
+}
+if(this.oa>0&&enviroment.children[oa].team==this.team){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0
+	}	
+}
+
+Caballo.prototype.act = function(enviroment){
+
+ if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")&&this.correct==1){
+		this.banderaX=1;
+		this.banderaZ=1;
+		this.selec=0;
+		this.correct=0;
+		enviroment.turno=enviroment.turno+1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+ 
+  
+}
+
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
