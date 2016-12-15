@@ -319,8 +319,24 @@ this.oa=i;}
 
 }
 Torre.prototype.plan = function(enviroment){
-  if(this.sensor.colision == true){}
+	  if(this.phantom.position.x!=this.actuator.position.x)
+  this.phantom.position.z=this.actuator.position.z;
+  else if (this.phantom.position.z!=this.actuator.position.z)
+  this.phantom.position.x=this.actuator.position.x;
+  if(this.sensor.colision == true){
+	  if(this.oa>0)
+		  if(this.phantom.position==this.actuator.position)
+			  enviroment.children[ao].visible=false;
+	  
+  }
   else{
+	
+}
+}
+Torre.prototype.act = function(enviroment){
+  
+
+  
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
 	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
 		 if (this.der==0) {
@@ -372,15 +388,6 @@ this.phantom.translateZ(60);
 	if((this.phantom.position.z === this.actuator.position.z))
 		this.banderaZ=0; 
   }
-}
-
-Torre.prototype.act = function(enviroment){
-  
-  if(this.phantom.position.x!=this.actuator.position.x)
-  this.phantom.position.z=this.actuator.position.z;
-  else if (this.phantom.position.z!=this.actuator.position.z)
-  this.phantom.position.x=this.actuator.position.x;
-  
 }
 
 function Alfil(material1,material2,equipo, x, y){
