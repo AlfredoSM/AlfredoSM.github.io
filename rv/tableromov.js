@@ -326,7 +326,7 @@ Torre.prototype.plan = function(enviroment){
   if(this.sensor.colision == true){
 	  if(this.oa>0)
 		  if(this.phantom.position==this.actuator.position)
-			  enviroment.children[ao].visible=false;
+			  enviroment.children[this.oa].visible=false;
 	  
   }
   else{
