@@ -61,7 +61,6 @@ arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
-
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 function Flecham(material){
