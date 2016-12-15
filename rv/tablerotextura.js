@@ -299,7 +299,7 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3, TEXTURA.Reina1);
+  TEXTURA.escena.add( TEXTURA.Reina1);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
 TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
