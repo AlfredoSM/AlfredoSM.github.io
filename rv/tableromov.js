@@ -204,14 +204,21 @@ Torre.prototype = new Pieza();
 
 Torre.prototype.sense = function(enviroment){
   this.sensor.set( this.phantom.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
-  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
+var i=0;
+	while(enviroment.children){
+  var obstaculo = this.sensor.intersectObjects(enviroment.children[i],true);
+ if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
+	   this.sensor.colision=true;
+	 this.at=i;
+ }
+  else{
+  this.sensor.colision = false;
+	  this.at=undefined;
+  }
   this.selec=0;
   this.banderaX=0;
   this.banderaZ=0;
-  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
-  this.sensor.colision=true;
-  else
-  this.sensor.colision = false;
+
   
 }
 
@@ -530,11 +537,16 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.torre1 = new Peon( TEXTURA.material3,TEXTURA.material7,0);
+TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7,0);
+	TEXTURA.peon= new Peon(TEXTURA.material2,TEXTURA.material8);
+	TEXTURA.peon.translateY(25);
+	TEXTURA.peon.translateX(60);
+	TEXTURA.peon.translateZ(0);
 	TEXTURA.torre1.translateY(25);
-  TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
-  TEXTURA.entorno.add(TEXTURA.tablero);	 
+  TEXTURA.entorno.add(TEXTURA.tablero);
+TEXTURA.entorno.add(TEXTURA.torre1);
+	TEXTURA.entorno.add(TEXTURA.peon);
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
