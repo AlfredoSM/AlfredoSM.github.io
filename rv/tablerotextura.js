@@ -123,7 +123,7 @@ forma.merge(mallag.geometry, mallag.matrix);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.merge(troncoMalla.geometry, troncoMalla.matrix);
-forma.scale(.7,1.4,.7);
+forma.scale(.8,1.6,.8);
 forma.translate(0,30,0);
 THREE.Mesh.call(this, forma, material);
 }
@@ -150,7 +150,7 @@ forma.merge(mallag.geometry, mallag.matrix);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.merge(troncoMalla.geometry, troncoMalla.matrix);
-forma.scale(.7,1.4,.7);
+forma.scale(.8,1.6,.8);
 	forma.translate(0,30,0);
 THREE.Mesh.call(this, forma, material);
 }
@@ -185,7 +185,7 @@ forma.translate(-3,-5,-5);
 forma.scale(2,2,2);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
-forma.scale(.7,1.4,.7);
+forma.scale(.8,1.6,.8);
 forma.translate(0,30,0);
 THREE.Mesh.call(this, forma, material);
 }
