@@ -112,6 +112,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+arbolForma.translate(0,25,0);
 THREE.Mesh.call(this, arbolForma, material);
 
 }
@@ -133,6 +134,7 @@ arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+arbolForma.translate(0,25,0);
 THREE.Mesh.call(this, arbolForma, material);
 }
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -175,6 +177,8 @@ forma.merge(mallag.geometry, mallag.matrix);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.merge(troncoMalla.geometry, troncoMalla.matrix);
+forma.scale(.8,2,.8);
+forma.translate(0,30,0);
 THREE.Mesh.call(this, forma, material);
 }
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -200,6 +204,8 @@ forma.merge(mallag.geometry, mallag.matrix);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.merge(troncoMalla.geometry, troncoMalla.matrix);
+forma.scale(.8,2,.8);
+forma.translate(0,30,0);
 THREE.Mesh.call(this, forma, material);
 }
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -233,6 +239,8 @@ forma.translate(-3,-5,-5);
 forma.scale(2,2,2);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.scale(.8,2,.8);
+forma.translate(0,30,0);
 THREE.Mesh.call(this, forma, material);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,7 +260,8 @@ var arbolForma = new THREE.Geometry();
 arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix)
+arbolForma.translate(0,25,0);
 THREE.Mesh.call(this, arbolForma, material);
 this.scale.set(.7, .7, .7);
 }
