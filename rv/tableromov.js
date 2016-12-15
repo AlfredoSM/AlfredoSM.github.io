@@ -311,7 +311,7 @@ if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
 this.oa=i;}
   else{
   this.sensor.colision = false;
-	  this.oa=undefined;}
+	  this.oa=0;}
 	}
 this.selec=0;
   this.banderaX=0;
