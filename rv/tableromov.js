@@ -333,6 +333,7 @@ Torre.prototype.plan = function(enviroment){
   if(this.cont>=1){
 	this.phantom.position.x=this.actuator.position.x;
 	  this.phantom.position.z=this.actuator.position.z;
+	  this.cont=0;
 }
 }
 Torre.prototype.act = function(enviroment){
