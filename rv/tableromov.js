@@ -388,7 +388,7 @@ this.phantom.translateZ(60);
 	if((this.phantom.position.z === this.actuator.position.z))
 		this.banderaZ=0; 
   }
-}
+
 
 function Alfil(material1,material2,equipo, x, y){
  Pieza.call(this,equipo,x,y);
