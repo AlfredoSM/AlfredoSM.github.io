@@ -324,13 +324,15 @@ Torre.prototype.plan = function(enviroment){
   else if (this.phantom.position.z!=this.actuator.position.z)
   this.phantom.position.x=this.actuator.position.x;
   if(this.sensor.colision == true){
+	  this.cont=1;
 	  if(this.oa>0)
 		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
 			  enviroment.children[this.oa].visible=false;
 	  
   }
-  else{
-	
+  if(this.cont>=1){
+	this.phantom.position.x=this.actuator.position.x;
+	  this.phantom.position.z=this.actuator.position.z;
 }
 }
 Torre.prototype.act = function(enviroment){
