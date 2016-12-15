@@ -283,10 +283,10 @@ TEXTURA.setup2 = function(){
 	TEXTURA.Reina1.translateZ(60*5);
 	TEXTURA.Rey1 = new Reym( TEXTURA.material3);
 	TEXTURA.Rey1.translateY(25);
-	TEXTURA.Rey1.translateZ(60*5);
+	TEXTURA.Rey1.translateZ(60*2);
 	TEXTURA.Caballo1 = new Caballom( TEXTURA.material3);
 	TEXTURA.Caballo1.translateY(25);
-	TEXTURA.Caballo1.translateZ(60*5);
+	TEXTURA.Caballo1.translateZ(60*7);
 	///////////////////////
 TEXTURA.Torre1 = new Torre( TEXTURA.material3);
   TEXTURA.Torre3 = new Torre( TEXTURA.material3);
@@ -308,7 +308,7 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add( TEXTURA.Rey1);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
+  TEXTURA.escena.add( TEXTURA.Rey1,TEXTURA.Caballo1,TEXTURA.Reina1);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
 TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
