@@ -49,6 +49,7 @@ Pieza.prototype = new Agent();
  
 var keyboard = new THREEx.KeyboardState();
 var TEXTURA = new Object();
+////////////////////////////////////////////////////////////////////////////////////
 function Torrem(material){
   var figura = new THREE.Shape();
   var figura1 = new THREE.Shape();
@@ -113,7 +114,7 @@ arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
 
 }
-
+////////////////////////////////////////////////////////////////////////
 function Alfilm(material){
 var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -133,7 +134,107 @@ arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
 }
-
+///////////////////////////////////////////////////////////////////////////////////////
+function Reym(material){
+var puntos = [];
+for ( var i = 0; i < 50; i ++ ) {
+  puntos.push( new THREE.Vector2( 
+            Math.sin( i * 0.2 ) * 15 + 50, ( i - 5 ) * 2 ) );
+}
+var forma = new THREE.LatheGeometry(puntos);
+forma.scale(.25,.25,.25);
+forma.translate(0,1,0);
+var mallag = new THREE.Mesh( forma );
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var troncoMalla = new THREE.Mesh(troncoForma);
+var figura = new THREE.Shape();
+figura.moveTo(0, 0);
+figura.lineTo(0, 10);
+figura.lineTo(10, 10);
+figura.lineTo(10, 0);
+figura.lineTo(20, 0);
+figura.lineTo(20, -10);
+figura.lineTo(10, -10);
+figura.lineTo(10, -20);
+figura.lineTo(0, -20);
+figura.lineTo(0, -10);
+figura.lineTo(-10, -10);
+figura.lineTo(-10, 0);
+figura.lineTo(0, 0);
+var forma = new THREE.ExtrudeGeometry( figura, {amount: 1} );
+forma.scale(.4,.4,.4);
+forma.translate(-2,35,-5);
+forma.merge(mallag.geometry, mallag.matrix);
+forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.merge(troncoMalla.geometry, troncoMalla.matrix);
+THREE.Mesh.call(this, forma, material);
+}
+///////////////////////////////////////////////////////////////////////////////////////
+function Reinam(material){
+var puntos = [];
+for ( var i = 0; i < 50; i ++ ) {
+  puntos.push( new THREE.Vector2( 
+            Math.sin( i * 0.2 ) * 15 + 50, ( i - 5 ) * 2 ) );
+}
+var forma = new THREE.LatheGeometry(puntos);
+forma.scale(.3,.3,.3);
+forma.translate(0,1,0);
+var mallag = new THREE.Mesh( forma );
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var troncoMalla = new THREE.Mesh(troncoForma);
+forma.merge(mallag.geometry, mallag.matrix);
+forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.merge(troncoMalla.geometry, troncoMalla.matrix);
+THREE.Mesh.call(this, forma, material);
+}
+///////////////////////////////////////////////////////////////////////////////////////
+function Caballom(material){
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var figura = new THREE.Shape();
+figura.moveTo(0, 0);
+figura.lineTo(-1, 2);
+figura.lineTo(-1, 2);
+figura.lineTo(-1, 5);
+figura.lineTo(1, 8);
+figura.lineTo(4, 10);
+figura.lineTo(6, 11);
+figura.lineTo(6, 12);
+figura.lineTo(8, 10);
+figura.lineTo(9, 9);
+figura.lineTo(7, 7);
+figura.lineTo(5, 6);
+figura.lineTo(4, 6);
+figura.lineTo(5, 4);
+figura.lineTo(6, 2);
+figura.lineTo(6, 0);
+figura.lineTo(0, 0);
+var forma = new THREE.ExtrudeGeometry( figura, {amount: 10} );
+forma.translate(-3,-5,-5);
+forma.scale(2,2,2);
+forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+THREE.Mesh.call(this, forma, material);
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
 function Peonm(material){
 	var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -154,13 +255,12 @@ arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
 this.scale.set(.7, .7, .7);
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////
 function Casilla(material)
 {
 	cuadro = new THREE.BoxGeometry( 60, 1, 60);
 	THREE.Mesh.call(this, cuadro, material);
 }
-
 function Tablero(material1, material2)
 {
 	THREE.Object3D(this);
@@ -180,13 +280,15 @@ function Tablero(material1, material2)
 	this.add(  tablero [(XX*8)+ZZ] );
 }}
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////
 Tablero.prototype = new THREE.Object3D();
 Casilla.prototype = new THREE.Mesh();
 Torrem.prototype = new THREE.Mesh();
 Alfilm.prototype = new THREE.Mesh();
 Peonm.prototype = new THREE.Mesh();
-
+Reinam.prototype = new THREE.Mesh();
+Reym.prototype = new THREE.Mesh();
+Caballom.prototype = new THREE.Mesh();
 function Torre(material1,material2,equipo, x, y){
   Pieza.call(this,equipo,x,y);
   this.der=0;
@@ -199,31 +301,19 @@ function Torre(material1,material2,equipo, x, y){
   this.add(this.actuator);
   this.add(this.phantom);
 }
-
 Torre.prototype = new Pieza();
-
 Torre.prototype.sense = function(enviroment){
   this.sensor.set( this.phantom.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
-var i=0;
-	while(enviroment.children){
-  var obstaculo = this.sensor.intersectObjects(enviroment.children[i],true);
- if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
-	   this.sensor.colision=true;
-	 this.at=i;
- }
-  else{
-  this.sensor.colision = false;
-	  this.at=undefined;
-  }
+  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
   this.selec=0;
   this.banderaX=0;
   this.banderaZ=0;
-
-  
+  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
+  this.sensor.colision=true;
+  else
+  this.sensor.colision = false;
 }
-
 Torre.prototype.plan = function(enviroment){
- 
   if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
@@ -249,7 +339,6 @@ this.phantom.translateZ(-60);
 	this.arr=1;
 		 }
 }
-	
 	     else
 	this.arr=0;
      if (keyboard.pressed("down")||keyboard.pressed("S")) {
@@ -258,7 +347,6 @@ this.phantom.translateZ(60);
 	this.aba=1;
 		 }
 }
-
 	     else
 	this.aba=0;	
 	}
@@ -537,16 +625,11 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7,0);
-	TEXTURA.peon= new Peon(TEXTURA.material2,TEXTURA.material8);
-	TEXTURA.peon.translateY(25);
-	TEXTURA.peon.translateX(60);
-	TEXTURA.peon.translateZ(0);
+TEXTURA.torre1 = new Peon( TEXTURA.material3,TEXTURA.material7,0);
 	TEXTURA.torre1.translateY(25);
+  TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
-  TEXTURA.entorno.add(TEXTURA.tablero);
-TEXTURA.entorno.add(TEXTURA.torre1);
-	TEXTURA.entorno.add(TEXTURA.peon);
+  TEXTURA.entorno.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
