@@ -329,7 +329,7 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add( TEXTURA.Rey1,TEXTURA.Caballo1,TEXTURA.Reina1,TEXTURA.flecha);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
+  TEXTURA.escena.add( TEXTURA.Rey1,TEXTURA.Caballo1,TEXTURA.Reina1);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
 TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
@@ -354,7 +354,7 @@ TEXTURA.Alfil2.translateY(25);
 TEXTURA.Alfil4.translateY(25);
 	TEXTURA.Torre2.translateY(25);
 	TEXTURA.Torre4.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.Alfil4);
+  TEXTURA.escena.add(TEXTURA.Torre2,TEXTURA.Torre4, TEXTURA.Alfil2, TEXTURA.flecha);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.escena.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
