@@ -149,7 +149,7 @@ forma.merge(mallag.geometry, mallag.matrix);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.merge(troncoMalla.geometry, troncoMalla.matrix);
-forma.scale(1,5,5);
+forma.scale(1,1,5);
 THREE.Mesh.call(this, forma, material);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
