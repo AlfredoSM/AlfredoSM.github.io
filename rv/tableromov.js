@@ -900,7 +900,7 @@ this.phantom.translateZ(60);
 		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
 		this.actuator.translateZ(this.velocidadz);
 	}
-	if(keyboard.pressed("space")&&this.correct=1){
+	if(keyboard.pressed("space")&&this.correct==1){
 		this.banderaX=1;
 		this.banderaZ=1;
 		this.selec=0;
