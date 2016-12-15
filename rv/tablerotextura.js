@@ -64,6 +64,19 @@ THREE.Mesh.call(this, arbolForma, material);
 
 }
 ////////////////////////////////////////////////////////////////////////////////////////
+function Flecham(material){
+var basee = new THREE.CylinderGeometry(2,2,12);
+basee.translate(0,-10,0);
+var baseeMalla = new THREE.Mesh(basee);
+var forma = new THREE.ConeGeometry( 5, 10, 16 );
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.translate(-3,-5,-5);
+forma.scale(2,2,2);
+forma.rotateZ( (Math.PI) );
+THREE.Mesh.call(this, arbolForma, material);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
 function Alfil(material){
 var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -245,6 +258,7 @@ Peon.prototype = new THREE.Mesh();
 Reinam.prototype = new THREE.Mesh();
 Reym.prototype = new THREE.Mesh();
 Caballom.prototype = new THREE.Mesh();
+Flecham.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
@@ -281,6 +295,10 @@ TEXTURA.setup = function() {
 TEXTURA.setup2 = function(){
 	setupDone = true;
 	////////////////////////
+	TEXTURA.flecha = new Flecham( TEXTURA.material3);
+	TEXTURA.flecha.translateY(100);
+	TEXTURA.flecha.translateZ(60*5);
+	Flecham
 	TEXTURA.Reina1 = new Reinam( TEXTURA.material3);
 	TEXTURA.Reina1.translateY(25);
 	TEXTURA.Reina1.translateZ(60*5);
@@ -311,7 +329,7 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add( TEXTURA.Rey1,TEXTURA.Caballo1,TEXTURA.Reina1);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
+  TEXTURA.escena.add( TEXTURA.Rey1,TEXTURA.Caballo1,TEXTURA.Reina1,TEXTURA.flecha);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
 TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
