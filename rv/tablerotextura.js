@@ -63,7 +63,7 @@ arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
 
 }
-
+////////////////////////////////////////////////////////////////////////////////////////
 function Alfil(material){
 var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -83,7 +83,107 @@ arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 THREE.Mesh.call(this, arbolForma, material);
 }
-
+////////////////////////////////////////////////////////////////////////////////////////
+function Reym(material){
+var puntos = [];
+for ( var i = 0; i < 50; i ++ ) {
+  puntos.push( new THREE.Vector2( 
+            Math.sin( i * 0.2 ) * 15 + 50, ( i - 5 ) * 2 ) );
+}
+var forma = new THREE.LatheGeometry(puntos);
+forma.scale(.25,.25,.25);
+forma.translate(0,1,0);
+var mallag = new THREE.Mesh( forma );
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var troncoMalla = new THREE.Mesh(troncoForma);
+var figura = new THREE.Shape();
+figura.moveTo(0, 0);
+figura.lineTo(0, 10);
+figura.lineTo(10, 10);
+figura.lineTo(10, 0);
+figura.lineTo(20, 0);
+figura.lineTo(20, -10);
+figura.lineTo(10, -10);
+figura.lineTo(10, -20);
+figura.lineTo(0, -20);
+figura.lineTo(0, -10);
+figura.lineTo(-10, -10);
+figura.lineTo(-10, 0);
+figura.lineTo(0, 0);
+var forma = new THREE.ExtrudeGeometry( figura, {amount: 1} );
+forma.scale(.4,.4,.4);
+forma.translate(-2,35,-5);
+forma.merge(mallag.geometry, mallag.matrix);
+forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.merge(troncoMalla.geometry, troncoMalla.matrix);
+THREE.Mesh.call(this, forma, material);
+}
+////////////////////////////////////////////////////////////////////////////////////////
+function Reinam(material){
+var puntos = [];
+for ( var i = 0; i < 50; i ++ ) {
+  puntos.push( new THREE.Vector2( 
+            Math.sin( i * 0.2 ) * 15 + 50, ( i - 5 ) * 2 ) );
+}
+var forma = new THREE.LatheGeometry(puntos);
+forma.scale(.3,.3,.3);
+forma.translate(0,1,0);
+var mallag = new THREE.Mesh( forma );
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var troncoMalla = new THREE.Mesh(troncoForma);
+forma.merge(mallag.geometry, mallag.matrix);
+forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.merge(troncoMalla.geometry, troncoMalla.matrix);
+THREE.Mesh.call(this, forma, material);
+}
+////////////////////////////////////////////////////////////////////////////////////////
+function Caballom(material){
+var baseabajo = new THREE.CylinderGeometry(32,32,8);
+baseabajo.translate(0,-24,0);
+var basee = new THREE.CylinderGeometry(24,24,8);
+basee.translate(0,-20,0);
+var baseeMalla = new THREE.Mesh(basee);
+var baseAbajomalla = new THREE.Mesh(baseabajo);
+var figura = new THREE.Shape();
+figura.moveTo(0, 0);
+figura.lineTo(-1, 2);
+figura.lineTo(-1, 2);
+figura.lineTo(-1, 5);
+figura.lineTo(1, 8);
+figura.lineTo(4, 10);
+figura.lineTo(6, 11);
+figura.lineTo(6, 12);
+figura.lineTo(8, 10);
+figura.lineTo(9, 9);
+figura.lineTo(7, 7);
+figura.lineTo(5, 6);
+figura.lineTo(4, 6);
+figura.lineTo(5, 4);
+figura.lineTo(6, 2);
+figura.lineTo(6, 0);
+figura.lineTo(0, 0);
+var forma = new THREE.ExtrudeGeometry( figura, {amount: 10} );
+forma.translate(-3,-5,-5);
+forma.scale(2,2,2);
+forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+THREE.Mesh.call(this, forma, material);
+}
+////////////////////////////////////////////////////////////////////////////////////////
 function Peon(material){
 	var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -136,6 +236,9 @@ Casilla.prototype = new THREE.Mesh();
 Torre.prototype = new THREE.Mesh();
 Alfil.prototype = new THREE.Mesh();
 Peon.prototype = new THREE.Mesh();
+Reinam.prototype = new THREE.Mesh();
+Reym.prototype = new THREE.Mesh();
+Caballom.prototype = new THREE.Mesh();
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
@@ -171,6 +274,11 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
+	////////////////////////
+	TEXTURA.Reina1 = new Reinam( TEXTURA.material3);
+	TEXTURA.Reina1.translateY(25);
+	TEXTURA.Reina1.translateZ(60*5);
+	///////////////////////
 TEXTURA.Torre1 = new Torre( TEXTURA.material3);
   TEXTURA.Torre3 = new Torre( TEXTURA.material3);
 TEXTURA.Alfil1 = new Alfil(TEXTURA.material3);
@@ -191,7 +299,7 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3);
+  TEXTURA.escena.add(TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3, TEXTURA.Reina1);
 TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
