@@ -340,7 +340,6 @@ if(this.cont>=1&&this.sensor.colision==false){
 	  this.phantom.position.z=this.actuator.position.z;
 	  this.cont=0;
 }
-	if(
 }
 Torre.prototype.act = function(enviroment){
   
