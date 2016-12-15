@@ -340,6 +340,7 @@ if(this.cont>=1&&this.sensor.colision==false){
 	  this.phantom.position.z=this.actuator.position.z;
 	  this.cont=0;
 }
+	if(
 }
 Torre.prototype.act = function(enviroment){
   
@@ -390,6 +391,7 @@ this.phantom.translateZ(60);
 	if(keyboard.pressed("space")){
 		this.banderaX=1;
 		this.banderaZ=1;
+		this.selec=0;
 	}
 	if((this.phantom.position.x === this.actuator.position.x))
 		this.banderaX=0;
