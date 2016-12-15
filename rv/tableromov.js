@@ -671,6 +671,7 @@ TEXTURA.peon= new Peon( TEXTURA.material2,TEXTURA.material6,1);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
  TEXTURA.renderizador.setSize(800, 800);
  document.body.appendChild(TEXTURA.renderizador.domElement);
+	TEXTURA.torre1.selec=1;
 }
 var setupDone = false;
 TEXTURA.loop = function(){
@@ -680,7 +681,7 @@ TEXTURA.loop = function(){
     
     TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
 	
-	TEXTURA.torre1.selec=1;
+	
 	TEXTURA.entorno.sense();
 	TEXTURA.entorno.plan();
 	TEXTURA.entorno.act();
