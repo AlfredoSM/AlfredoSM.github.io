@@ -183,6 +183,7 @@ forma.translate(-3,-5,-5);
 forma.scale(2,2,2);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.scale(1,5,1);
 THREE.Mesh.call(this, forma, material);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
