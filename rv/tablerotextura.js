@@ -73,7 +73,7 @@ forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.translate(-3,-5,-5);
 forma.scale(2,2,2);
 forma.rotateZ( (Math.PI) );
-THREE.Mesh.call(this, arbolForma, material);
+THREE.Mesh.call(this, forma, material);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
