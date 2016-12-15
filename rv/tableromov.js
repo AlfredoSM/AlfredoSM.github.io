@@ -300,6 +300,9 @@ function Torre(material1,material2,equipo, x, y){
   this.phantom = new Torrem(material2);
   this.add(this.actuator);
   this.add(this.phantom);
+	this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
 }
 Torre.prototype = new Pieza();
 Torre.prototype.sense = function(enviroment){
@@ -313,9 +316,7 @@ this.oa=i;}
   this.sensor.colision = false;
 	  this.oa=0;}
 	}
-this.selec=0;
-  this.banderaX=0;
-  this.banderaZ=0;
+
 }
 Torre.prototype.plan = function(enviroment){
   if(this.sensor.colision == true){}
