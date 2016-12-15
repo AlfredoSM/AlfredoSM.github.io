@@ -298,7 +298,7 @@ TEXTURA.setup2 = function(){
 	TEXTURA.flecha = new Flecham( TEXTURA.material3);
 	TEXTURA.flecha.translateY(25);
 	TEXTURA.flecha.translateZ(60*2);
-	TEXTURA.flecha.translateX(60*7);
+	TEXTURA.flecha.translateX(60*6);
 	Flecham
 	TEXTURA.Reina1 = new Reinam( TEXTURA.material3);
 	TEXTURA.Reina1.translateY(25);
