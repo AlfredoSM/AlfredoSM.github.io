@@ -123,7 +123,7 @@ forma.merge(mallag.geometry, mallag.matrix);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.merge(troncoMalla.geometry, troncoMalla.matrix);
-forma.scale(1,2,1);
+forma.scale(1,5,1);
 THREE.Mesh.call(this, forma, material);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -183,7 +183,7 @@ forma.translate(-3,-5,-5);
 forma.scale(2,2,2);
 forma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
-forma.scale(1,5,1);
+forma.scale(1,4,1);
 THREE.Mesh.call(this, forma, material);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -281,6 +281,12 @@ TEXTURA.setup2 = function(){
 	TEXTURA.Reina1 = new Reinam( TEXTURA.material3);
 	TEXTURA.Reina1.translateY(25);
 	TEXTURA.Reina1.translateZ(60*5);
+	TEXTURA.Rey1 = new Reym( TEXTURA.material3);
+	TEXTURA.Rey1.translateY(25);
+	TEXTURA.Rey1.translateZ(60*5);
+	TEXTURA.Caballo1 = new Caballom( TEXTURA.material3);
+	TEXTURA.Caballo1.translateY(25);
+	TEXTURA.Caballo1.translateZ(60*5);
 	///////////////////////
 TEXTURA.Torre1 = new Torre( TEXTURA.material3);
   TEXTURA.Torre3 = new Torre( TEXTURA.material3);
@@ -302,7 +308,7 @@ TEXTURA.Alfil3.translateY(25);
   TEXTURA.Torre3.translateZ(60*7);
 	TEXTURA.Torre1.translateY(25);
 	TEXTURA.Torre3.translateY(25);
-  TEXTURA.escena.add( TEXTURA.Reina1);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
+  TEXTURA.escena.add( TEXTURA.Rey1);////////////////TEXTURA.Torre1,TEXTURA.Torre3, TEXTURA.Alfil1, TEXTURA.Alfil3,
 TEXTURA.Torre2 = new Torre( TEXTURA.material4);
   TEXTURA.Torre4 = new Torre(TEXTURA.material4);
 TEXTURA.Alfil2 = new Alfil(TEXTURA.material4);
