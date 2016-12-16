@@ -306,6 +306,7 @@ function Torre(material1,material2,equipo, x, y){
   this.aba=0;
   this.arr=0;
 	this.cont=0;
+	this.oa=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
   this.phantom = new Torrem(material2);
@@ -424,6 +425,7 @@ function Alfil(material1,material2,equipo, x, y){
   this.aba=0;
   this.arr=0;
 	this.cont=0;
+	this.oa=0;
   this.sensor= new Sensor();
   this.actuator = new Alfilm(material1);
   this.phantom = new Alfilm(material2);
@@ -558,6 +560,7 @@ function Peon(material1,material2,equipo, x, y){
   this.add(this.phantom);
  this.selec=0;
 	this.cont=0;
+	this.oa=0;
   this.banderaX=0;
   this.banderaZ=0;
   
@@ -689,6 +692,7 @@ function Rey(material1,material2,equipo, x, y){
   this.aba=0;
   this.arr=0;
 	this.cont=0;
+	this.oa=0;
   this.sensor= new Sensor();
   this.actuator = new Reym(material1);
   this.phantom = new Reym(material2);
@@ -812,6 +816,7 @@ function Reina(material1,material2,equipo, x, y){
   this.aba=0;
   this.arr=0;
 	this.cont=0;
+	this.oa=0;
   this.sensor= new Sensor();
   this.actuator = new Reinam(material1);
   this.phantom = new Reinam(material2);
@@ -936,6 +941,7 @@ function Caballo(material1,material2,equipo, x, y){
   this.aba=0;
   this.arr=0;
 	this.cont=0;
+	this.oa=0;
   this.sensor= new Sensor();
   this.actuator = new Caballom(material1);
   this.phantom = new Caballom(material2);
