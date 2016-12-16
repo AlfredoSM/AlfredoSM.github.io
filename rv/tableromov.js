@@ -117,6 +117,19 @@ THREE.Mesh.call(this, arbolForma, material);
 
 }
 ////////////////////////////////////////////////////////////////////////
+function Flecham(material){
+var basee = new THREE.CylinderGeometry(2,2,12);
+basee.translate(0,-10,0);
+var baseeMalla = new THREE.Mesh(basee);
+var forma = new THREE.ConeGeometry( 5, 10, 16 );
+forma.merge(baseeMalla.geometry, baseeMalla.matrix);
+forma.scale(4,4,4);
+forma.rotateZ( (Math.PI) );
+forma.translate(-3,25,-5);
+THREE.Mesh.call(this, forma, material);
+}
+//////////////////////////////////////////////////////////////////////////
+
 function Alfilm(material){
 var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
 var basee = new THREE.CylinderGeometry(24,24,8);
@@ -294,6 +307,7 @@ Peonm.prototype = new THREE.Mesh();
 Reinam.prototype = new THREE.Mesh();
 Reym.prototype = new THREE.Mesh();
 Caballom.prototype = new THREE.Mesh();
+Flecham.prototype = new THREE.Mesh();
 function Torre(material1,material2,equipo, x, y,z){
   Pieza.call(this,equipo,x,y,z);
   this.der=0;
