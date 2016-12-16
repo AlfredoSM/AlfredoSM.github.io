@@ -1,7 +1,8 @@
-function Agent( x=0, y=0){
+function Agent( x=0, y=0,z=0){
   THREE.Object3D.call(this);
   this.position.x=x;
   this.position.y=y;
+this.position.z=z;
  }
  
  Agent.prototype = new THREE.Object3D();
@@ -42,8 +43,8 @@ Enviroment.prototype.plan = function(){
 }
 Sensor.prototype= new THREE.Raycaster();
 
-function Pieza(equipo,x, y){
-	Agent.call(this,x,y);
+function Pieza(equipo,x, y,z){
+	Agent.call(this,x,y,z);
 	this.team=equipo;}
 Pieza.prototype = new Agent();
 	
@@ -299,8 +300,8 @@ Peonm.prototype = new THREE.Mesh();
 Reinam.prototype = new THREE.Mesh();
 Reym.prototype = new THREE.Mesh();
 Caballom.prototype = new THREE.Mesh();
-function Torre(material1,material2,equipo, x, y){
-  Pieza.call(this,equipo,x,y);
+function Torre(material1,material2,equipo, x, y,z){
+  Pieza.call(this,equipo,x,y,z);
   this.der=0;
   this.izq=0;
   this.aba=0;
@@ -418,8 +419,8 @@ this.phantom.translateZ(60);
   }
 
 
-function Alfil(material1,material2,equipo, x, y){
- Pieza.call(this,equipo,x,y);
+function Alfil(material1,material2,equipo, x, y,z){
+ Pieza.call(this,equipo,x,y,z);
   this.der=0;
   this.izq=0;
   this.aba=0;
@@ -547,8 +548,8 @@ this.phantom.translateZ(60);
   
 }
 
-function Peon(material1,material2,equipo, x, y){
-  Pieza.call(this,equipo,x,y);
+function Peon(material1,material2,equipo, x, y,z){
+  Pieza.call(this,equipo,x,y,z);
   this.der=0;
   this.izq=0;
   this.aba=0;
@@ -685,8 +686,8 @@ this.phantom.translateZ(60);
   
 }
 
-function Rey(material1,material2,equipo, x, y){
-  Pieza.call(this,equipo,x,y);
+function Rey(material1,material2,equipo, x, y,z){
+  Pieza.call(this,equipo,x,y,z);
   this.der=0;
   this.izq=0;
   this.aba=0;
@@ -809,8 +810,8 @@ this.phantom.translateZ(60);
   
 }
 
-function Reina(material1,material2,equipo, x, y){
-  Pieza.call(this,equipo,x,y);
+function Reina(material1,material2,equipo, x, y,z){
+  Pieza.call(this,equipo,x,y,z);
   this.der=0;
   this.izq=0;
   this.aba=0;
@@ -934,8 +935,8 @@ this.phantom.translateZ(60);
   
 }
 
-function Caballo(material1,material2,equipo, x, y){
-  Pieza.call(this,equipo,x,y);
+function Caballo(material1,material2,equipo, x, y,z){
+  Pieza.call(this,equipo,x,y,z);
   this.der=0;
   this.izq=0;
   this.aba=0;
@@ -1092,9 +1093,8 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7,0);
-TEXTURA.peon= new Peon( TEXTURA.material2,TEXTURA.material6,1);
-	TEXTURA.peon.translateX(120);
+TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7,0,0,0,0);
+TEXTURA.peon= new Peon( TEXTURA.material2,TEXTURA.material6,1,120,0,0);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.entorno.add(TEXTURA.tablero);
 	TEXTURA.entorno.add(TEXTURA.torre1);
