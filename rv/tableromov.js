@@ -319,10 +319,10 @@ function Torre(material1,material2,equipo, x, y,z){
 }
 Torre.prototype = new Pieza();
 Torre.prototype.sense = function(enviroment){
-  this.sensor.set( this.phantom.position, new THREE.Vector3(0,1,0));
+  this.sensor.set( this.phantom.position, new THREE.Vector3(1,0,0));
 	for(var i=0;i<enviroment.children.length;i++){
   var obstaculo = this.sensor.intersectObject(enviroment.children[i],true);
-if((obstaculo.length>0 && (obstaculo[0].distance <=60))){
+if((obstaculo.length>0 && (obstaculo[0].distance <=30))){
   this.sensor.colision=true;
 this.oa=i;}
   else{
