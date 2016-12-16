@@ -600,7 +600,7 @@ Peon.prototype.plan = function(enviroment){
   this.phantom.position.z=this.actuator.position.z;}
    if(this.sensor.colision == true){
 	  this.cont=this.cont+1;
-	  if(this.oa>0&&enviroment.children[oa].team!=this.team)
+	  if(this.oa>0&&enviroment.children[this.oa].team!=this.team)
 		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
 			  enviroment.children[this.oa].visible=false;
 	  
