@@ -69,9 +69,9 @@ basee.translate(0,-10,0);
 var baseeMalla = new THREE.Mesh(basee);
 var forma = new THREE.ConeGeometry( 5, 10, 16 );
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
-forma.translate(-3,-5,-5);
-forma.rotateZ( (Math.PI) );
 forma.scale(4,4,4);
+forma.rotateZ( (Math.PI) );
+forma.translate(-3,-5,-5);
 THREE.Mesh.call(this, forma, material);
 }
 
