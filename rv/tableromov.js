@@ -1087,10 +1087,8 @@ TEXTURA.setup = function() {
 TEXTURA.setup2 = function(){
 	setupDone = true;
 TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7,0);
-	TEXTURA.torre1.translateY(25);
 TEXTURA.peon= new Peon( TEXTURA.material2,TEXTURA.material6,1);
 	TEXTURA.peon.translateX(120);
-	TEXTURA.peon.translateY(25);
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.entorno.add(TEXTURA.tablero);
 	TEXTURA.entorno.add(TEXTURA.torre1);
