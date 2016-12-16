@@ -845,7 +845,7 @@ Reina.prototype.plan = function(enviroment){
 else
 	this.correct=0;
    if(this.sensor.colision == true){
-	  this.cont=this.1;
+	  this.cont=1;
 	  if(this.oa>0&&enviroment.children[this.oa].team!=this.team)
 		  if(this.phantom.position.x===this.actuator.position.x&&this.phantom.position.z===this.actuator.position.z)
 			  enviroment.children[this.oa].visible=false;
