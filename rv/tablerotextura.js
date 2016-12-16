@@ -71,7 +71,7 @@ var forma = new THREE.ConeGeometry( 5, 10, 16 );
 forma.merge(baseeMalla.geometry, baseeMalla.matrix);
 forma.scale(4,4,4);
 forma.rotateZ( (Math.PI) );
-forma.translate(-3,-2,-5);
+forma.translate(-3,10,-5);
 THREE.Mesh.call(this, forma, material);
 }
 
