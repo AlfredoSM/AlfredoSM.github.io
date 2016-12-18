@@ -1117,7 +1117,7 @@ TEXTURA.Peon[PB] = new Peon(TEXTURA.material3,TEXTURA.material7,0,60*1,25,0);
 	//TEXTURA.Peon[PB].translateX(1*60);
 	TEXTURA.Peon[PB].translateZ(PB*60);
 	//TEXTURA.Peon[PB].translateY(25*.7);
-		TEXTURA.escena.add(TEXTURA.Peon[PB]);
+		TEXTURA.entorno.add(TEXTURA.Peon[PB]);
 	}
 
 	
@@ -1137,9 +1137,9 @@ TEXTURA.Peon1 = new Array();
 	{
 TEXTURA.Peon1[PN] = new Peon(TEXTURA.material2,TEXTURA.material6,1,60*6,25,0);
 	//TEXTURA.Peon1[PN].translateX(6*60);
-	TEXTURA.Peon1[PN].translateZ(PN*60);
+	TEXTURA.entorno[PN].translateZ(PN*60);
 	//TEXTURA.Peon1[PN].translateY(25*.7);
-	TEXTURA.escena.add(TEXTURA.Peon1[PN]);
+	TEXTURA.entorno.add(TEXTURA.Peon1[PN]);
 	}
 
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
@@ -1161,7 +1161,7 @@ TEXTURA.loop = function(){
 	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
 	{TEXTURA.setup2();
     
-    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
+    TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );}
 	
 	
 	TEXTURA.entorno.sense();
