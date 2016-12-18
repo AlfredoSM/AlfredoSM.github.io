@@ -1101,12 +1101,51 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
+	
 TEXTURA.torre1 = new Torre( TEXTURA.material3,TEXTURA.material7,0,0,25,0);
-TEXTURA.peon= new Peon( TEXTURA.material2,TEXTURA.material6,1,120,25,0);
+TEXTURA.Caballo1 = new Caballo(TEXTURA.material3,TEXTURA.material7,0,0,25,60*1);
+TEXTURA.Alfil1 = new Alfil(TEXTURA.material3,TEXTURA.material7,0,0,25,60*2);
+TEXTURA.Reina1 = new Reina(TEXTURA.material3,TEXTURA.material7,0,0,25,60*3);
+TEXTURA.Rey1 = new Rey(TEXTURA.material3,TEXTURA.material7,0,0,25,60*4);
+TEXTURA.Alfil3 = new Alfil(TEXTURA.material3,TEXTURA.material7,0,0,25,60*5);
+TEXTURA.Caballo3 = new Caballo(TEXTURA.material3,TEXTURA.material7,0,0,25,60*6);
+TEXTURA.torre3 = new Torre( TEXTURA.material3,TEXTURA.material7,0,0,25,60*7);
+TEXTURA.Peon = new Array();
+	for( var PB=0; PB < 8; PB++)
+	{
+TEXTURA.Peon[PB] = new Peon(TEXTURA.material3,TEXTURA.material7,0,60*1,25,0);
+	//TEXTURA.Peon[PB].translateX(1*60);
+	TEXTURA.Peon[PB].translateZ(PB*60);
+	//TEXTURA.Peon[PB].translateY(25*.7);
+		TEXTURA.escena.add(TEXTURA.Peon[PB]);
+	}
+
+	
+/////////////////////////////////////////
+TEXTURA.torre2 = new Torre( TEXTURA.material2,TEXTURA.material6,1,60*7,25,0);
+TEXTURA.Caballo2 = new Caballo(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*1);
+TEXTURA.Alfil2 = new Alfil(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*2);
+TEXTURA.Reina2 = new Reina(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*3);
+TEXTURA.Rey2 = new Rey(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*4);
+TEXTURA.Alfil4 = new Alfil(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*5);
+TEXTURA.Caballo4 = new Caballo(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*6);
+TEXTURA.torre4 = new Torre(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*7);
+	
+//TEXTURA.peon= new Peon( TEXTURA.material2,TEXTURA.material6,1,120,25,0);
+TEXTURA.Peon1 = new Array();
+	for( var PN=0; PN < 8; PN++)
+	{
+TEXTURA.Peon1[PN] = new Peon(TEXTURA.material2,TEXTURA.material6,1,60*6,25,0);
+	//TEXTURA.Peon1[PN].translateX(6*60);
+	TEXTURA.Peon1[PN].translateZ(PN*60);
+	//TEXTURA.Peon1[PN].translateY(25*.7);
+	TEXTURA.escena.add(TEXTURA.Peon1[PN]);
+	}
+
   TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
   TEXTURA.entorno.add(TEXTURA.tablero);
-	TEXTURA.entorno.add(TEXTURA.torre1);
-	TEXTURA.entorno.add(TEXTURA.peon);
+	TEXTURA.entorno.add(TEXTURA.torre1,TEXTURA.torre3,TEXTURA.Caballo1,TEXTURA.Caballo3,TEXTURA.Alfil1,TEXTURA.Alfil3,TEXTURA.Reina1,TEXTURA.Rey1);
+	TEXTURA.entorno.add(TEXTURA.torre2,TEXTURA.torre4,TEXTURA.Caballo2,TEXTURA.Caballo4,TEXTURA.Alfil2,TEXTURA.Alfil4,TEXTURA.Reina2,TEXTURA.Rey2);
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
