@@ -1161,14 +1161,16 @@ TEXTURA.loop = function(){
 	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
 	{TEXTURA.setup2();
     
-    TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );}
+    TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
+	}
 	
 	
 	TEXTURA.entorno.sense();
 	TEXTURA.entorno.plan();
 	TEXTURA.entorno.act();
 	TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
-    
+	//////	TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
+
    
  }
 
