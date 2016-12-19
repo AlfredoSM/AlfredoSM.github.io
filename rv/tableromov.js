@@ -1111,14 +1111,14 @@ TEXTURA.Rey1 = new Rey(TEXTURA.material3,TEXTURA.material7,0,0,25,60*4);
 TEXTURA.Alfil3 = new Alfil(TEXTURA.material3,TEXTURA.material7,0,0,25,60*5);
 TEXTURA.Caballo3 = new Caballo(TEXTURA.material3,TEXTURA.material7,0,0,25,60*6);
 TEXTURA.torre3 = new Torre( TEXTURA.material3,TEXTURA.material7,0,0,25,60*7);
-TEXTURA.PeonB1 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,0);
-TEXTURA.PeonB2 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*1);
-TEXTURA.PeonB3 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*2);
-TEXTURA.PeonB4 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*3);
-TEXTURA.PeonB5 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*4);
-TEXTURA.PeonB6 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*5);
-TEXTURA.PeonB7 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*6);
-TEXTURA.PeonB8 = new Torre( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*7);
+TEXTURA.PeonB1 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,0);
+TEXTURA.PeonB2 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*1);
+TEXTURA.PeonB3 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*2);
+TEXTURA.PeonB4 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*3);
+TEXTURA.PeonB5 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*4);
+TEXTURA.PeonB6 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*5);
+TEXTURA.PeonB7 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*6);
+TEXTURA.PeonB8 = new Peon( TEXTURA.material3,TEXTURA.material7,0,60*1,25,60*7);
 
 	
 /////////////////////////////////////////
@@ -1132,14 +1132,14 @@ TEXTURA.Caballo4 = new Caballo(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*
 TEXTURA.torre4 = new Torre(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*7);
 	
 //TEXTURA.peon= new Peon( TEXTURA.material2,TEXTURA.material6,1,120,25,0);
-TEXTURA.PeonN1 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,0);
-TEXTURA.PeonN2 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*1);
-TEXTURA.PeonN3 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*2);
-TEXTURA.PeonN4 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*3);
-TEXTURA.PeonN5 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*4);
-TEXTURA.PeonN6 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*5);
-TEXTURA.PeonN7 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*6);
-TEXTURA.PeonN8 = new Torre(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*7);
+TEXTURA.PeonN1 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,0);
+TEXTURA.PeonN2 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*1);
+TEXTURA.PeonN3 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*2);
+TEXTURA.PeonN4 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*3);
+TEXTURA.PeonN5 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*4);
+TEXTURA.PeonN6 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*5);
+TEXTURA.PeonN7 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*6);
+TEXTURA.PeonN8 = new Peon(TEXTURA.material2,TEXTURA.material6,0,60*6,25,60*7);
 	
 TEXTURA.entorno.add(TEXTURA.torre1,TEXTURA.torre3,TEXTURA.Caballo1,TEXTURA.Caballo3,TEXTURA.Alfil1,TEXTURA.Alfil3,TEXTURA.Reina1,TEXTURA.Rey1);
 TEXTURA.entorno.add(TEXTURA.PeonB1,TEXTURA.PeonB2,TEXTURA.PeonB3,TEXTURA.PeonB4,TEXTURA.PeonB5,TEXTURA.PeonB6,TEXTURA.PeonB7,TEXTURA.PeonB8);
