@@ -1135,7 +1135,7 @@ TEXTURA.torre4 = new Torre(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*7);
 TEXTURA.Peon1 = new Array();
 	for( var PN=0; PN < 8; PN++)
 	{
-TEXTURA.Peon1[PN] = new Peon(TEXTURA.material2,TEXTURA.material6,1,60*6,25,0);
+TEXTURA.Peon1[PN] = new Peon(TEXTURA.material2,TEXTURA.material6,1,0,25,0);
 	TEXTURA.Peon1[PN].translateX(6*60);
 	TEXTURA.Peon1[PN].translateZ(PN*60);
 	TEXTURA.Peon1[PN].translateY(25*.7);
