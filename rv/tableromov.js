@@ -1114,7 +1114,7 @@ TEXTURA.torre3 = new Torre( TEXTURA.material3,TEXTURA.material7,0,0,25,60*7);
 TEXTURA.Peon = new Array();
 	for( var PB=0; PB < 8; PB++)
 	{
-TEXTURA.Peon[PB] = new Peon(TEXTURA.material3,TEXTURA.material7,0,0,25,10);
+TEXTURA.Peon[PB] = new Peon(TEXTURA.material3,TEXTURA.material7,0,0,25,0);
 	TEXTURA.Peon[PB].translateX(1*60);
 	TEXTURA.Peon[PB].translateZ(PB*60);
 	TEXTURA.Peon[PB].translateY(25);
@@ -1136,7 +1136,7 @@ TEXTURA.torre4 = new Torre(TEXTURA.material2,TEXTURA.material6,1,60*7,25,60*7);
 TEXTURA.Peon1 = new Array();
 	for( var PN=0; PN < 8; PN++)
 	{
-TEXTURA.Peon1[PN] = new Peon(TEXTURA.material2,TEXTURA.material6,1,0,25,10);
+TEXTURA.Peon1[PN] = new Peon(TEXTURA.material2,TEXTURA.material6,1,0,25,0);
 	TEXTURA.Peon1[PN].translateX(6*60);
 	TEXTURA.Peon1[PN].translateZ(PN*60);
 	TEXTURA.Peon1[PN].translateY(25);
