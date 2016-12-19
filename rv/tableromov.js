@@ -1117,7 +1117,7 @@ TEXTURA.Peon = new Array();
 TEXTURA.Peon[PB] = new Peon(TEXTURA.material3,TEXTURA.material7,0,0,25,10);
 	TEXTURA.Peon[PB].translateX(1*60);
 	TEXTURA.Peon[PB].translateZ(PB*60);
-	TEXTURA.Peon[PB].translateY(25*.7);
+	TEXTURA.Peon[PB].translateY(25);
 		TEXTURA.entorno.add(TEXTURA.Peon[PB]);
 	}
 
@@ -1139,7 +1139,7 @@ TEXTURA.Peon1 = new Array();
 TEXTURA.Peon1[PN] = new Peon(TEXTURA.material2,TEXTURA.material6,1,0,25,10);
 	TEXTURA.Peon1[PN].translateX(6*60);
 	TEXTURA.Peon1[PN].translateZ(PN*60);
-	TEXTURA.Peon1[PN].translateY(25*.7);
+	TEXTURA.Peon1[PN].translateY(25);
 	TEXTURA.entorno.add(TEXTURA.Peon1[PN]);
 	}
 TEXTURA.entorno.add(TEXTURA.torre1,TEXTURA.torre3,TEXTURA.Caballo1,TEXTURA.Caballo3,TEXTURA.Alfil1,TEXTURA.Alfil3,TEXTURA.Reina1,TEXTURA.Rey1);
